@@ -10,6 +10,13 @@ import com.ning.http.client.Response
 import java.util.{Collections, List}
 import scala.collection.mutable
 
+class DoubleHelper(str: String) {
+  def toSafeDouble() =  {
+    val value = str.split(" ")(0).replaceAll("\\.", "").replaceAll(",", "\\.") match { case ""|null => "0" case s => s }
+    value.toDouble
+  }
+}
+
 case class User(username: String, password: String)
 object User {
   def fromProperties = User(sys.env.get("sparkasse_username").get, sys.env.get("sparkasse_password").get)
@@ -18,20 +25,27 @@ case class Form(accounts: Map[String, Account], inputs: Seq[TagNode], formUrl: S
 case class Account(name: String, number: Long, value: Double, operations: Map[String, TagNode])
 
 class SparKassenClient() {
-  val debug = false
+  implicit def stringWrapper(string: String) = new DoubleHelper(string)
+
+  val debug = true
   val rootUrl = "https://banking.berliner-sparkasse.de"
   val cookieStore: mutable.Map[String, String] = mutable.Map[String, String]()
 
 
   def parseOverview(html: String) = {
     def nameFunc(e:TagNode) = e.getElementsByName("td", false).map(e =>e.getText.toString.trim)
-    def dataFunc(data:Seq[String], actions:Map[String, TagNode]) = (normalizeName(data(0)) -> Account(normalizeName(data(0)), data(1).toLong, data(2).split(" ")(0).replaceAll("\\.", "").replaceAll(",", "\\.").toDouble, actions))
+    def dataFunc(data:Seq[String], actions:Map[String, TagNode]) = (normalizeName(data(0)) -> Account(normalizeName(data(0)), data(1).toLong, data(2).toSafeDouble, actions))
     parseInt(html, "tablerowevenNew", "name", nameFunc, dataFunc)
   }
 
   def parseStockOverview(html: String) = {
     def nameFunc(e:TagNode) = e.getElementsByName("td", true).filter(e=>Option(e.getAttributes().get("class")).getOrElse("").endsWith("tabledata")).map(e =>e.getText.toString.trim)
-    def dataFunc(data:Seq[String], actions:Map[String, TagNode]) = (normalizeName2(data(1)) -> Account(normalizeName2(data(1)), 1.toLong, data(4).split(" ")(0).replaceAll("\\.", "").replaceAll(",", "\\.").toDouble, actions))
+    def dataFunc(data:Seq[String], actions:Map[String, TagNode]) = {
+      debug("data \n")
+      debug(data)
+      debug(data(4).toSafeDouble)
+      (normalizeName2(data(1)) -> Account(normalizeName2(data(1)), 1.toLong, data(4).toSafeDouble, actions))
+    }
     parseInt(html, "tableroweven", "name", nameFunc, dataFunc)
   }
 
@@ -39,6 +53,8 @@ class SparKassenClient() {
     val cleaner = new HtmlCleaner
     val props = cleaner.getProperties
     val rootNode = cleaner.clean(html)
+    /*debug("html \n")
+    debug(html)*/
     val elements = rootNode.getElementsByName("tr", true).filter(e =>Option(e.getAttributes().get("class")).getOrElse("").endsWith(rowCss))
       .map{elements =>
       val data = nameFunc(elements) //elements.getElementsByName("td", false).map(e =>e.getText.toString.trim)

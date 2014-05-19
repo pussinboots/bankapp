@@ -26,6 +26,9 @@ class DAL(override val profile: ExtendedProfile) extends BalanceComponent with S
     if (MTable.getTables(Stocks.tableName).list().isEmpty) {
       (Stocks.ddl).create
     }
+    if (MTable.getTables(Symbols.tableName).list().isEmpty) {
+      (Symbols.ddl).create
+    }
   }
   def drop(implicit session: Session) = try {(Balances.ddl).drop} catch {case ioe: Exception =>}
 }

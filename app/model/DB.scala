@@ -19,7 +19,7 @@ object DB {
   }
 
   def dbConfigUrl: String = {
-    val p = Properties.envOrElse("CLEARDB_DATABASE_URL", "mysql://root:root@127.0.0.1:3306/stock_manager")
+    val p = Properties.envOrElse("CLEARDB_DATABASE_URL", "mysql://root:mysql@127.0.0.1:3306/stock_manager")
     println(p)
     p
   }
@@ -41,7 +41,7 @@ object DB {
     ds.setUser(dbConnectionInfo._2)
     ds.setPassword(dbConnectionInfo._3)
     ds.setMaxPoolSize(15)
-    ds.setPreferredTestQuery("")
+    ds.setPreferredTestQuery("Select 1")
     Database.forDataSource(ds)
   }
 
