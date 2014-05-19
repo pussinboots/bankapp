@@ -1,0 +1,103 @@
+.zx-widget-popup-dialog {
+    z-index: 760000;
+    background-color: #fff;
+}
+
+.zx-widget-popup-dialog-glass {
+	display: block !important;
+	background-color: #000000;
+    opacity: 0.45;
+    filter: alpha(opacity=45);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=45)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=45);
+    z-index: 759999;
+}
+
+.zx-widget-popup {
+    width: 500px;
+    border: 1px solid #444;
+}
+
+.zx-widget-popup-header {
+    background-image: url("images/header_bg.png");
+    background-repeat: repeat-x;
+    height: 17px;
+    padding: 10px;
+}
+
+.zx-widget-popup-header-headline {
+	float: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+.zx-widget-popup-header-closeIcon {
+	float: right;
+    background-image: url("images/bullet_cross.png");
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.zx-widget-popup-content {
+    /* padding: 10px 10px 10px 20px; */
+    clear: both;
+}
+
+.zx-widget-popup-footer {
+    padding: 8px;
+    background-color: #e5e5e5;
+    height: 24px;
+    border-top: 1px solid #d7d7d7;
+}
+
+.zx-widget-popup-footer-cancelButton {
+    float: right;
+    color: #cc3333;
+    font-size: 12px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+
+.zx-widget-popup-footer-buttonContainer {
+    float: right;
+}
+
+.zx-widget-popup-mask {
+    left: 0;
+    top: 0;
+    display: block;
+    z-index: 9000;
+    background-image: url("images/transparent_bg_25.png");
+    background-repeat: repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%
+}
+
+.zx-widget-popup-mask-invisible {
+    display: none;
+}
+
+.zx-widget-popup-mask-indicator {
+	margin-left: auto;
+	margin-right: auto;
+    background: url("images/loader_small.gif") no-repeat;
+    width: 16px;
+    height: 16px;
+}
+
+.zx-widget-popup-mask-text {
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.zx-widget-popup-mask-container {
+	background-color: #fff;
+	height: 50px;
+    margin: 50px 180px 15px 180px;
+    padding-top: 10px;
+}

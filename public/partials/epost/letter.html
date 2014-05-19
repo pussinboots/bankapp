@@ -1,0 +1,10 @@
+<div style="text-align: left">
+	<ul class="tabrow">
+		<li ng-repeat="attachment in letter.attachments"><a
+			ng-click="download(attachment._links.content)">{{attachment.filename}}</a>
+			{{(attachment.size | formatFileSize)}}</li>
+	</ul>
+	<div ng-bind-html-unsafe="letterHtml"></div>
+	<br />
+</div>
+<div debugbox debug-data="{{letter}}"></div>

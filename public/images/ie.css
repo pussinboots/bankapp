@@ -1,0 +1,63 @@
+/*-------------------------------------------
+ -- fixes for all IEs
+ -------------------------------------------*/
+#ie6,#ie7,#ie8 { /* special div used to apply own css hacks according to IE browser version */
+	height: 100%;
+}
+
+#ie6 ol li,#ie7 ol li { /* prevent List-Numbering Bug in IE */
+	display: list-item;
+}
+
+/*-------------------------------------------
+ -- fixes for IE 6
+ -------------------------------------------*/
+#ie6 textarea { /* fixes IE5.x and IE6 overflow behavior of textarea and input elements elements */
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+#ie6 input { /* fixes IE5.x and IE6 overflow behavior of textarea and input elements elements */
+	overflow: hidden;
+}
+
+#ie6 ul,#ie6 ol,#ie6 dl { /* disappearing List-Background Bug, see http://www.positioniseverything.net/explorer/ie-listbug.html */
+	position: relative;
+}
+
+#ie6 a,#ie6 a:hover { /* IE/Win Guillotine Bug, see http://www.positioniseverything.net/explorer/guillotine.html */
+	background-color: transparent;
+}
+
+#ie6 * { /* global fix of the Italics bugs in IE 5.x and IE 6 */
+	overflow: visible;
+}
+
+#ie6 iframe,#ie6 frame { /* global fix of the Italics bugs in IE 5.x and IE 6 */
+	overflow: auto;
+}
+
+#ie6 frameset { /* global fix of the Italics bugs in IE 5.x and IE 6 */
+	overflow: hidden;
+}
+
+* html body { /* force "hasLayout" on body element in IE6 to prevent various css bugs, see http://www.satzansatz.de/cssd/onhavinglayout.html  */
+	height: 0;
+}
+
+#ie6 .png { /* fixes transparency of png images in IE6 */
+	behavior: expression((       this.runtimeStyle.behavior =     "none") &&(   this.pngSet ?       this .       pngSet =       true :(       this .       nodeName ==         "IMG" &&         this .       src .       toLowerCase() .       indexOf('.png') >       -1 ?(       this .       runtimeStyle .       backgroundImage =         "none", this .       runtimeStyle .       filter =         "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" +         this .       src +         "', sizingMethod='image')", this .       src =         "transparent.gif" ) :(       this .       origBg =         this .       origBg ?         this .       origBg :       this .       currentStyle .       backgroundImage .       toString() .       replace('url("', '') .       replace('")', ''), this .       runtimeStyle .       filter =         "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" +         this .       origBg +         "', sizingMethod='crop')", this .       runtimeStyle .      
+		backgroundImage =         "none" ) ), this .       pngSet =       true ) );
+}
+
+/*-------------------------------------------
+ -- fixes for IE 7
+ -------------------------------------------*/
+
+* :first-child+html { /* avoid horizontal scrollbars in IE7 in borderless layouts because of negative margins */
+	margin-right: 1px;
+}
+
+* :first-child+html body { /* essential in IE7 for correct layout scaling... */
+	position: relative;
+}

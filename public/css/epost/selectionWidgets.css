@@ -1,0 +1,99 @@
+
+/* styles for selection widgets ******************************************* */
+
+.zxlib-gwt-widget-select {
+	font-family: Verdana;
+	font-size: 11px;
+}
+
+.zxlib-gwt-widget-select-title {
+	margin: 5px 7px 5px 10px;
+	float: left;
+	width: 75px;
+}
+
+.zxlib-gwt-widget-select-singleItemTitle {
+    margin-top: 5px;
+}
+
+.zxlib-gwt-widget-select-dropdown {
+
+}
+
+.zxlib-gwt-widget-select-focusPanel {
+	float: left;
+	outline: none;
+}
+
+.zxlib-gwt-widget-select-selectorFocusPanel {
+	float: right;
+}
+
+.zxlib-gwt-widget-select-selectorPanel {
+	font-weight: normal;
+	border: 1px #444 solid;
+	margin-top: 2px;
+}
+
+.zxlib-gwt-widget-select-selectorPanel-text {
+	clear: left;
+	float: left;
+	padding: 2px 0 0 0;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	margin-left: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	max-width: 157px;
+	min-width: 119px;
+	cursor: pointer;
+}
+
+.zxlib-gwt-widget-select-selectorPanel-img {
+	float: right;
+	margin-left: 5px;
+}
+
+.zxlib-gwt-widget-select-itemContainer {
+	max-height: 200px;
+	border-left: 1px solid #444;
+	border-right: 1px solid #444;
+	border-bottom: 1px solid #444;
+	z-index: 9999999; /* this is necessary due to smart gwt */
+}
+
+.zxlib-gwt-widget-select-item-box {
+	background-color: #FFF;
+	overflow: hidden;
+}
+
+.zxlib-gwt-widget-select-item-box:hover {
+	background-color: #E9E9E9;
+	overflow: hidden;
+}
+
+.zxlib-gwt-widget-select-item-box-selected {
+	background-color: #FFF;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.zxlib-gwt-widget-select-item-box-selected:hover {
+	background-color: #E9E9E9;
+	overflow: hidden;
+}
+
+.zxlib-gwt-widget-select-item-img {
+	margin: 5px;
+	float: left;
+	width: 20px;
+}
+
+.zxlib-gwt-widget-select-item-text {
+	padding: 3px 5px 5px 5px;
+	font-weight: normal;
+	overflow: hidden;
+	min-width: 101px;
+	max-width: auto;
+	cursor: pointer;
+}

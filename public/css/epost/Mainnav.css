@@ -1,0 +1,415 @@
+/* Main Nav ---------------------------------- */
+.zx-adv-header-mainnav-selector {
+	float: right;
+	height: 29px;
+	width: 0px;
+	overflow: visible;
+}
+/*
+.zx-adv-header-mainnav img {
+	margin-left: -18px;
+	padding-right: 5px;
+	margin-top: 11px;
+	height: 7px;
+	width: 13px;
+}
+*/
+
+div.zx-adv-header-mainnav {
+	background: transparent url("images/main_nav_bg.gif") top left repeat-x;
+	height: 29px;
+	border-top: 1px solid #b5b5b5;
+	border-bottom: 1px solid #8E8E8E;
+}
+
+.zx-adv-header-mainnav li.mainnavitem .mainnavitem,
+.zx-adv-header-mainnav li.mainnavitem a.mainnavitem:link,
+.zx-adv-header-mainnav li.mainnavitem a.mainnavitem:hover,
+.zx-adv-header-mainnav li.mainnavitem a.mainnavitem:visited {
+	font-weight: bold;
+	font-size: 12px;
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.zx-adv-header-mainnav li.mainnavitem div.mainnavitem
+{
+	cursor: default;
+}
+
+.zx-adv-header-mainnav li.mainnavitem a.mainnavitem
+{
+	cursor: pointer;
+}
+
+.zx-adv-header-mainnav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.zx-adv-header-mainnav li {
+	white-space: nowrap;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem {
+	height: 29px;
+	float: left;
+	border-right: 1px solid #9d9d9d;
+	position: relative;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem-hassubs {
+	height: 29px;
+	float: left;
+	border-right: 1px solid #9d9d9d;
+	position: relative;
+	z-index: 210000;
+}
+
+.zx-adv-header-mainnav ul li .mainnavitem {
+	float: left;
+	display: block;
+	height: 23px;
+	padding: 6px 10px 0;
+	border-left: 1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
+}
+
+.zx-adv-header-mainnav ul li .mainnavitem2 {
+	/*for the size of the dropdown*/
+	float: left;
+	display: block;
+	height: 1px;
+	padding: 6px 10px 0;
+	font-size: 12px;
+	color: #FFF5E5;
+}
+
+.zx-adv-header-mainnav ul li .mainnavitem-hassubs {
+	float: left;
+	display: block;
+	height: 23px;
+	padding: 6px 10px 0px;
+	border-left: 1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem:hover a.mainnavitem-inactive {
+	height: 22px;
+	padding-top: 7px;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem-hassubs:hover a.mainnavitem {
+	height: 23px;
+	padding-top: 7px;
+}
+
+.zx-adv-header-mainnav ul li .mainnavitem-active {
+	background: #f6a650 url("images/main_nav_select_bg.gif") top left
+		repeat-x;
+	border-left: 1px solid #f6c28b;
+	border-right: 1px solid #f6c28b;
+}
+
+.zx-adv-header-mainnav ul li .mainnavitem-hassubs-active {
+	background: #f6a650 url("images/main_nav_select_bg.gif") top left
+		repeat-x;
+	border-left: 1px solid #f6c28b;
+	border-right: 1px solid #f6c28b;
+	cursor: default;
+	padding-right: 25px;
+	height: 23px;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem:hover a.mainnavitem {
+	background-image: none;
+	background-color: #f6a650;
+	border-left: 1px solid #f6a650;
+	border-right: 1px solid #f6a650;
+}
+/*
+.zx-adv-header-mainnav ul li.mainnavitem-hassubs-inactive:hover,
+.zx-adv-header-mainnav ul li.mainnavitem-inactive:hover
+	{
+	border-left: 1px solid #9E9E9E;
+	border-right: 1px solid #9E9E9E;
+	background-color: #f6a650;
+}
+*/
+
+/* MainNav - Submenus --------------------------- */
+li.sub-mainnavitem-1 { /* 	padding-top: 18px; */
+	
+}
+
+li.sub-mainnavitem-1-first { /* 	padding-top: 18px; */
+	
+}
+
+li.sub-mainnavitem-1-second { /* 	padding-top: 18px; */
+	
+}
+
+li.sub-mainnavitem-1 a {
+	white-space: nowrap;
+}
+
+li.sub-mainnavitem-1-first a {
+	white-space: nowrap;
+}
+
+li.sub-mainnavitem-1-second a {
+	white-space: nowrap;
+}
+
+.zx-adv-header-mainnav ul li:hover ul.sub-mainnavitem-1-mainnavitem-last
+	{
+	right: -1px;
+	left: auto;
+}
+
+.zx-adv-header-mainnav ul li:hover .sub-mainnavitem-1-container,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav:hover .sub-mainnavitem-1-container {
+	/* 2nd level drop-down box */
+	border: 1px solid #F6A650;
+	/*display table is needed for the first and second content in next items */
+	display: table;
+	position: absolute;
+	margin: 0;
+	top: 29px;
+	/* place us just up underneath the top-level */
+	left: -1px;
+	/* left-align our drop-down to the previous button border */
+	height: auto;
+	/* the drop-down height will be determined by line count */
+	padding: 8px 15px 7px 15px;
+	background-color: #FFF5E5;
+	position: absolute;
+	margin: 0;
+	/* 	width:13.5em; */
+	/* 	color:blue;                        this sets the unselected-text color */
+}
+
+.zx-adv-header-mainnav ul li:hover .sub-mainnavitem-1-container-mainnavitem-last
+	{
+	right: -1px;
+	left: auto;
+}
+
+.zx-adv-header-mainnav ul li:hover .sub-mainnavitem-1-container ul.sub-mainnavitem-1-first,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav:hover .sub-mainnavitem-1-container ul.sub-mainnavitem-1-first
+	{ /*shows the first content*/
+	display: table-cell;
+}
+
+.zx-adv-header-mainnav ul li:hover .sub-mainnavitem-1-container ul.sub-mainnavitem-1-second,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav:hover .sub-mainnavitem-1-container ul.sub-mainnavitem-1-second
+	{ /*shows the second content*/
+	display: table-cell;
+	padding-left: 55px;
+}
+
+.zx-adv-header-mainnav ul li ul.sub-mainnavitem-1-first {
+	display: none;
+}
+
+.zx-adv-header-mainnav ul li ul.sub-mainnavitem-1-second {
+	display: none;
+}
+
+.zx-adv-header-mainnav ul li.mainnavitem-hassubs ul.sub-mainnavitem-1 {
+	
+}
+
+.zx-adv-header-mainnav ul li:hover ul li.sub-mainnavitem-1 * {
+	/* 2nd level unselected items */
+	font-size: 11px;
+	text-decoration: none;
+}
+
+.zx-adv-header-mainnav ul li:hover ul li.sub-mainnavitem-1-hassubs * {
+	color: #444444;
+	font-weight: bold;
+}
+
+li.sub-mainnavitem-1-nosubs {
+	color: #FF9900;
+	line-height: 11px;
+	margin-bottom: 12px;
+}
+
+li.sub-mainnavitem-1-nosubs a {
+	background: url("images/small_arrow_right_orange.png") no-repeat 0px 5px;
+	color: #FF9900;
+	text-decoration: none;
+	padding-left: 8px;
+	margin: 0px;
+}
+
+li.sub-mainnavitem-1-nosubs a:hover {
+	color: #444444;
+}
+
+.zx-adv-header-mainnav ul li:hover ul.sub-mainnavitem-1 li:hover a {
+	/* 2nd level selected item */
+	
+}
+
+ul.sub-mainnavitem-2, ul.sub-mainnavitem-2 li {
+	line-height: 11px;
+	margin-bottom: 12px;
+}
+
+li.sub-mainnavitem-2.reporting {
+	background: none;
+	display: inline;
+	padding-bottom: 12px;
+}
+
+li.sub-mainnavitem-2 a {
+	background: url("images/small_arrow_right_orange.png") no-repeat 0px 5px;
+	padding-left: 8px;
+	color: #FF9900;
+	text-decoration: none;
+	font-size: 11px;
+}
+
+li.sub-mainnavitem-2.reporting a {
+	padding-left: 0px;
+	margin-bottom: 12px;
+	background: none;
+}
+
+li.sub-mainnavitem-2 a:hover {
+	color: #444444;
+}
+
+/* helpnavitem */
+.zx-adv-header-mainnav ul li.helpnavitem {
+	height: 29px;
+	float: right;
+	position: relative;
+	border-left: 1px solid #9d9d9d;
+	border-right: none;
+	background: transparent url("images/main_nav_help_bg.gif") top left
+		repeat-x;
+}
+
+.zx-adv-header-mainnav ul li a.helpnavitem {
+	float: left;
+	display: block;
+	height: 23px;
+	padding: 6px 10px 0;
+	border-left: 1px solid #c9c9c9;
+	border-right: 1px solid #c9c9c9;
+}
+
+.zx-adv-header-mainnav ul li a.helpnavitem:hover {
+	height: 22px;
+	padding-top: 7px;
+	background-color: #6d9bc9
+}
+
+.zx-adv-header-mainnav ul li a.helpnavitem-active {
+	background: #f6a650 url("images/main_nav_select_bg.gif") top left
+		repeat-x;
+	border-left: 1px solid #f6c28b;
+	border-right: 1px solid #f6c28b;
+	cursor: default;
+}
+
+.zx-adv-header-mainnav ul li a.helpnavitem-active:hover {
+	background-image: none;
+	border-left: 1px solid #f6a650;
+	border-right: 1px solid #f6a650;
+}
+
+.zx-adv-header-mainnav ul li a.helpnavitem-inactive:hover {
+	border-left: 1px solid #9E9E9E;
+	border-right: 1px solid #9E9E9E;
+	background-color: #9E9E9E;
+}
+
+.sub-mainnavitem-1-second div,
+.sub-mainnavitem-1-first div,
+.sub-mainnavitem-1 div
+	{
+	font-weight: bold;
+	font-size: 11px;
+	color: #444;
+	padding-top: 8px;
+	margin-bottom: 12px;
+	line-height: 11px;
+}
+
+.sub-mainnavitem-1-second a,
+.sub-mainnavitem-1-first a,
+.sub-mainnavitem-1 a
+	{
+	font-weight: normal;
+	margin: 0px;
+}
+
+.subMenuSpacerRight {
+	margin-right: 10px;
+}
+
+.zx-adv-header-mainnav-img {
+	cursor: pointer;
+	margin-top: 10px;
+	margin-left: 13px;
+	margin-right: 13px;
+	float: left;
+}
+
+/* Account info box ---------------------------------- */
+
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav {
+	float: left;
+	height: 32px;
+}
+
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav:hover {
+    background-color: #f5f5f5;
+    padding-top: 1px;
+    height: 31px;
+}
+
+.zxlib-gwt-header-cp-content .zx-adv-header-mainnav ul li.mainnavitem:hover a.mainnavitem {
+    border: none;
+    background-color: #f5f5f5;
+    padding-top: 10px;
+}
+
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav li.mainnavitem,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav li.mainnavitem .mainnavitem {
+	background-image: none;
+	color: #444444;	
+	font-weight: normal;
+	font-size: 11px;
+	border: none;
+	z-index: 220000;
+}
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav li.mainnavitem a.mainnavitem
+{
+	cursor: pointer;
+}
+
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav ul li .mainnavitem {
+	padding: 10px 13px 0 0;
+}
+
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav:hover .sub-mainnavitem-1-container,
+.zxlib-gwt-header-cp-content div.zx-adv-header-mainnav ul li:hover .sub-mainnavitem-1-container {
+	top: 31px;
+	background-color: #F5F5F5;
+	border: 1px solid #D6D6D6;
+}
+
+.zx-adv-header-mainnav-img-settings img {
+	margin-right: 5px;
+    margin-top: 8px;
+}

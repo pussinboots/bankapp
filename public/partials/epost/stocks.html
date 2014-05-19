@@ -1,0 +1,42 @@
+{{sortColumn}}
+{{filter}}<a ng-click="resetFilter()">reset</a>
+{{quote}}
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th class="span2 sortable" ng-class="sortClass('id')" ng-click="setSort('id')">Id</th>
+			<th class="span2 sortable" ng-class="sortClass('name')" ng-click="setSort('name')">Name</th>
+			<th class="span2 sortable" ng-class="sortClass('value')" ng-click="setSort('value')">Wert</th>
+			<th class="span2 sortable" ng-class="sortClass('date')" ng-click="setSort('date')">Datum</th>
+			<th class="span2"></th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<td class="text-center">Anzahl {{stocks.length}}</td>
+			<td class="text-center" colspan="3">
+			  <select ng-model="items" ng-change="setItems()">
+			    <option value="10">10</option>
+			    <option value="25">25</option>
+			    <option value="50">50</option>
+			    <option value="100">100</option>
+			  </select>
+			</td>
+			<td class="text-center">
+				<a ng-click="fetchPage(1)">1</a>
+				<a ng-click="fetchPage(2)">2</a>
+				<a ng-click="fetchPage(3)">3</a>
+				<a ng-click="fetchPage(4)">4</a>
+			</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<tr ng-repeat="stock in stocks">
+			<td class="text-center">{{stock.id}}</td>
+			<td class="text-center" ng-click="filterByName(stock.name)">{{stock.name}}</td>
+			<td class="text-center">{{stock.value}}</td>
+			<td class="text-center" ng-click="filterByDate(stock.date)">{{stock.date | date:dateFormat}}</td>
+			<td class="text-center"><a ng-href="#/detail/{{stock.symbol}}">detail</a></td>
+		</tr>
+	</tbody>
+</table>

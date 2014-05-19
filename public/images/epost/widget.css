@@ -1,0 +1,17 @@
+
+/* common styles used for all widgets ************************************* */
+.zx-widget-clear {
+	clear: both;
+}
+
+/* styles for banner ****************************************************** */
+.zxlib-gwt-widget-banner-image {
+	
+}
+
+.zxlib-gwt-widget-banner-container {
+	width: 450px;
+	float: left;
+	margin-left: 60px;
+	margin-right: 10px;
+}

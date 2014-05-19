@@ -1,0 +1,575 @@
+/******* Global ********/
+
+html {
+    color:#000;
+    background:#F1F1F1;
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td {
+    margin:0;
+    padding:0;
+}
+
+body,br,form,p,input,textarea,select {
+ font:normal 11px Arial,Verdana,Helvetica,sans-serif;
+ color:#444;
+ font-family: Arial,Verdana,sans-serif;
+ font-size: 12px;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+fieldset,img {
+    border:0;
+}
+
+address,caption,cite,code,dfn,em,th,var {
+    font-style:normal;
+    font-weight:normal;
+}
+
+li {
+    list-style:none;
+}
+
+caption,th {
+    text-align:left;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-size:100%;
+    font-weight:bold;
+}
+
+q:before, q:after {
+    content:'';
+}
+
+abbr,acronym {
+    border:0;
+    font-variant:normal;
+}
+
+sup {
+    vertical-align:text-top;
+}
+
+sub {
+    vertical-align:text-bottom;
+}
+
+input,textarea,select {
+    font-family:inherit;
+    font-size:inherit;
+    font-weight:inherit;
+}
+
+legend {
+    color:#000;
+}
+
+del,ins {
+    text-decoration:none;
+}
+
+a:link, a:visited, a:hover {
+    text-decoration:none;
+    color:#444;
+}
+
+.pointer, .clickable, .sortable {
+    cursor:pointer;
+} 
+
+/******* Performance chart styles ********/
+
+#chartContainer .gwt-Label {
+    display:inline;
+    font-size:11px;
+}
+
+#chartContainer .chartHeadline {
+    display:inline;
+    padding-right:10px
+}
+
+#chartContainer .statisticLink {
+    padding-left:15px;
+    line-height:20px;
+    font-size:11px; 
+    color:#FF9900;
+    text-decoration:none;   
+}
+
+img.statistics {
+    vertical-align:middle;
+    padding-bottom:2px;
+}
+
+#chartControlsContainer {
+    padding:6px 20px;
+    background:#f5f5f5;
+}
+
+#chartControlsContainer #performanceLastTimeContainer .gwt-Label {
+    display:inline;
+    font-weight:bold;
+}
+
+#currencySelectContainer {
+    text-align:right;
+    float:right;
+}
+
+#chartControlsContainer .chartSelectOptionContainer {
+    background: #FFF;
+    padding:1px 15px;
+    margin:0 0 20px 0;
+}
+
+form.chartTypesControl {
+    font-weight:bold;
+    margin:0px;
+    padding:3px 0px 0px 0px;
+}
+
+#ie7 #chartControlsContainer .chartSelectOptionContainer,#ie8 #chartControlsContainer .chartSelectOptionContainer {
+    padding-bottom:12px;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .radioButtonContainer {
+    float:left;
+    width:47px;
+    margin:3px 0;
+}
+
+#ie7 #chartControlsContainer .chartSelectOptionContainer .radioButtonContainer {
+    width:57px;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer {
+    margin-left:52px;
+}
+
+#ie7 #chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer {
+    margin-left:62px;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer .mainInfo {
+    font-size:14px;
+    font-weight:bold;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer .additionalInfo {
+    color:#888;
+    padding-left:5px;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer .percentageInfo {
+    font-size:14px;
+    font-weight:bold;
+    padding-left:10px;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer .percentageInfoPos {
+    color:#277621;
+}
+
+#chartControlsContainer .chartSelectOptionContainer .performanceInfoContainer .percentageInfoNeg {
+    color:#E2001A;
+}
+
+#chartControlsContainer .bgHelper {
+    height: 25px;
+    float:left;
+    padding: 0 0 0 22px;
+    cursor: default;
+}
+
+#chartControlsContainer .bgHelper input {
+    display: none;
+}
+        
+#chartControlsContainer .bgHelper input.show {
+    display: inline;
+}
+
+#chartControlsContainer .bgHelperSelOptionOne {
+    background: url("../images/radio_orange.png");
+    background-repeat:no-repeat;
+}
+
+#ie7 #chartControlsContainer .bgHelperSelOptionOne, #ie8 #chartControlsContainer .bgHelperSelOptionOne {
+        margin-right:2px;
+}
+
+#chartControlsContainer .bgHelperSelOptionTwo {
+    background: url("../images/radio_black.png");
+    background-repeat:no-repeat;
+}
+
+
+#balanceInfoConfirmedContainer, #balanceInfoOpenApprovedContainer {
+    text-align:right;
+}
+
+#currencySelect {
+    font-size:11px;
+}
+
+/******* New programs container ********/
+
+.newProgramsContainer {
+    border:1px solid #D6D6D6;
+    border-bottom:none;
+}
+
+.newProgramsTable {
+    margin-top:1px;
+    width:100%;
+    border-collapse:collapse;
+}
+
+table.newProgramsTable td {
+    padding:10px;
+    border-bottom:1px solid #D6D6D6;
+    text-align:left;
+}
+
+
+table.newProgramsTable p {
+	font-size:11px;
+}
+
+a.newProgramsJoinNow {
+    color:#FF9900;
+    text-decoration:none;
+	font-size:11px;
+}
+
+.newProgramsTableDescription{
+ font:normal 11px Arial,Verdana,Helvetica,sans-serif;
+}
+
+.newProgramsTable td.subHeaderCell {
+    border-bottom:1px solid #D6D6D6;
+    background: #E9E9E9;
+    font-weight:bold;
+    font-size:11px;
+    text-align:left;
+}
+
+.newProgramsTable td.subHeaderCellLeft {
+    text-align:left;
+}
+
+.newProgramsTable td.descriptionCell {
+    text-align:left;
+}
+
+.newProgramsTable td.descriptionCell a.programLink{
+    color:#F39300;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.newProgramsTable td.actionCell {
+    white-space:nowrap;
+}
+
+.newProgramsTable td.highlightCell {
+    background: #E9E9E9;
+}
+
+.newProgramsTable .iconContainer td {
+    border:none;
+}
+
+.newProgramsTable b.commissionType{
+	display:inline-block;
+	width:55px;
+}
+
+/******************************************************/
+/******************************************************/
+/*************    new defined classes      ************/
+/******************************************************/
+/******************************************************/
+
+
+#darwinStartPageMainContainer {
+    width:980px;
+    margin: 0 auto;
+    background:#FFF;
+    background:url('../images/main_bg960.png') top left repeat-y #FFF;
+}
+
+.mainContentContainer {
+    padding:0 20px 10px 20px;
+}
+
+
+/** Boxes **/
+
+.boxMainHeader {
+    background:url('../images/box_header_gradient.gif') bottom left repeat-x #FFF;
+    padding:10px;
+    font-size:14px;
+    border-bottom:1px solid #D6D6D6;
+    white-space:nowrap;
+    height:16px;
+}
+
+div.standardBox {
+    border:1px solid #D6D6D6;
+    margin:0 0 10px 0;
+}
+
+/** Performance Box **/
+
+div.performanceBox {
+    border:1px solid #D6D6D6;
+    border-bottom:none;
+    background:#F5F5F5;
+    margin:0 0 10px 0;
+}
+
+div.performanceBox dl {
+    padding:5px 10px 0px 10px;
+    margin:0;
+
+}
+
+a.performance {
+    color: #FF9900;
+    text-decoration:none;     
+}
+
+a.performance:hover {
+    text-decoration:none; 
+    color: #444444; 
+}
+
+img.arrow {
+    vertical-align: middle; 
+}
+
+.borderbottom {
+    border-bottom:1px solid #D6D6D6;
+}
+
+div.performanceBox dl dt {
+    float:left;
+}
+
+div.performanceBox dl dd {
+    float:right;
+    font-weight:normal;
+}
+
+div.performanceBox dl.light {
+    background:#FFF;
+    padding:2px 10px;
+}
+
+div.performanceBox dl dd.value {
+    height: 14px;
+}
+
+/** Search Box **/
+
+.searchBox {
+    text-align:center;
+    border:1px solid #D6D6D6;
+    margin: 0 0 10px 0;
+    padding:10px 0;
+    background:#FEF5E4;
+}
+
+.searchBox .button {
+    background:url('../images/button_orange.gif') no-repeat scroll right -93px transparent;
+    font:bold 12px Arial,Verdana,Helvetica,sans-serif;
+    padding:0 10px 0 0;
+    border:none;
+}
+
+#ie8 .searchBox .button {
+    background-position:right -94px;
+}
+
+.searchBox .button:hover {
+    background-position:right -140px;
+}
+
+#ie8 .searchBox .button:hover {
+    background-position:right -141px;
+}
+
+.searchBox .button span {
+    background:url('../images/button_orange.gif') no-repeat scroll left top transparent;
+    height:21px;
+    padding:6px 0 0 10px;
+    color:#FFFFFF;
+    display:block;
+    white-space:nowrap;
+}
+
+.searchBox .button:hover span {
+    background-position:left -47px;
+}
+
+/** Back to classic box **/
+
+.backToClassicContainer {
+    text-align:center;
+    border:1px solid #D6D6D6;
+    background:#FEF5E4;
+    padding:10px;
+    margin-bottom:10px;
+    line-height:14px;
+}
+
+.promoTicker {
+    border:none;
+    height:50px;
+    width:100%;
+}
+
+
+
+/** News Box **/
+
+.newsContentContainer {
+    background:#FFFFFF;
+    padding:0px;
+}
+
+table.promoNews {
+
+    height:293px;
+}
+
+
+td.promoNews {
+    width:320px;
+    vertical-align:top;
+    margin:0px;
+}
+
+
+div.promoNews {
+    float:left;
+    height:80px;
+    font-family:Arial;
+}
+
+
+div.promoNewsMarginRight {
+   margin: 10px 10px 10px 10px;
+   background-color:#F5F5F5;
+   height:85px;
+   border:1px solid #D6D6D6;
+   padding:10px;
+}
+
+div.promoNewsMarginLeft {
+   margin: 10px 10px 10px 10px;
+   background-color:#F5F5F5;
+   height:85px;
+   border:1px solid #D6D6D6;
+   padding:10px;
+}
+
+img.promoNews {
+    margin-right:10px;
+    border:1px solid #D6D6D6;   
+    width:120px;
+    height:60px;
+    overflow:hidden;
+}
+
+b.promoNews {
+    color:#FF9900;
+    display: block;
+    height: 15px;
+    overflow: hidden;
+    width: 148px;    
+}
+
+p.promoNews {
+    font-size:10px;
+    margin-left: 130px;
+    display: block;
+    width:140px;
+    height: 40px;
+    overflow: hidden;    
+}
+
+div.promoNewsJoinNow {
+    text-align:right;
+    width:280px;
+    padding-top:4px;
+    font-size:11px;
+}
+
+a.promoNewsJoinNow {
+    color:#FF9900;
+    text-decoration:none;
+}
+
+.newsContentContainer h3 {
+    padding:0 0 20px 0;
+    font-size:13px;
+}
+
+.newsContentContainer .textBox {
+    float:left;
+    width:79%;
+}
+
+.newsContentContainer .textBox .subHeadline {
+    display:block;
+    font-weight:bold;
+    padding-bottom:5px;
+}
+
+.newsContentContainer .videoBox {
+    float:right;
+    width:20%;
+}
+
+.performanceBox .clearfix { 
+    display: block;
+    height:18px;
+}
+
+.performanceBox .clearfix .small { 
+    display: block;
+    height:14px;
+}
+
+/** Footer **/
+#footer {
+    text-align:right;
+    padding:10px 20px 20px;
+    color:#888;
+    font-size:11px;
+}
+
+#footer a {
+    color:#888;
+}
+
+
+/** Drop Box **/
+/*
+.ui-state-highlight {
+    border:2px dashed #D6D6D6;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin:0 0 20px 10px;
+}
+*/

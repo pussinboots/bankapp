@@ -1,0 +1,100 @@
+.headedGrid {
+	border-collapse: collapse;
+}
+
+.headedGrid-Header {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/*
+.headedGrid-Header2 {
+	height: 21px;
+	padding-top: 8px;
+}
+*/
+
+.headedGrid-Seperator {
+	margin-right: 30px;
+	margin-left: 0px;
+}
+
+.headedGrid {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.headedGrid-Content {
+}
+
+.headedGrid-TitleRow {
+	background-color: #e5e5e5;
+	border-top: 1px solid #F5F5F5;
+}
+
+.headedGrid-TitleRow td {
+	padding-left: 10px;
+	padding-right: 10px;
+    padding-bottom: 7px;
+    padding-top: 8px;
+}
+
+.headedGrid-Title {
+	height: 29 px;
+	font-weight: normal;
+	font-size: 12px; 
+	padding-top 5px;
+	color: #FF9900;
+}
+
+.headedGrid-Title:HOVER {
+	height: 29 px;
+	font-size: 12px; padding-top 5px;
+	color: #444444;
+}
+
+.headedGrid-RowWhite {
+	border-top: 1px solid #ccc;
+}
+
+.headedGrid-RowColored {
+	border-top: 1px solid #ccc;
+	background-color: #F7F8Fa;
+}
+
+.headedGrid-RowColoredNoBorder {
+	background-color: #F7F8Fa;
+}
+
+.headedGrid-RowWhite td {
+	border-top: 1px solid #ccc;
+	padding-left: 10px;
+	padding-right: 10px
+}
+.headedGrid-RowColored td {
+	border-top: 1px solid #ccc;
+	padding-left: 10px;
+	padding-right: 10px
+}
+.headedGrid-RowColoredNoBorder td {
+	padding-left: 10px;
+	padding-right: 10px	
+}
+
+.headedGrid-ValueLabel {
+	font-size: 12px;
+	float: left;
+	height: 21px;
+	padding-top: 8px;
+	font-weight: normal;
+	color: #444;
+}
+
+.headedGrid-ValueLabelFirstRow {
+	font-size: 12px;
+	float: left;
+	height: 22px;
+	padding-top: 8px;
+	font-weight: normal;
+	color: #444;
+}

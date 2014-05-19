@@ -1,0 +1,2112 @@
+body.flexible
+#container {
+	background-color: #FFF;
+	background-image: none;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	box-shadow: 0 0 12px rgba(68, 68, 68, 0.6);
+	min-width: 1200px;
+	padding: 0;
+	width: 85%
+}
+
+body.wideFlexible
+#container {
+	min-width: 1285px;
+	width: 99%
+}
+
+body.flexible
+#footer {
+	width: 84%
+}
+
+body.wideFlexible
+#footer {
+	width: 98%
+}
+
+#directory {
+	float: right;
+	min-width: 752px;
+	width: 80%
+}
+
+#directoryLeft {
+	float: left;
+	min-width: 178px;
+	width: 19.2%
+}
+
+#directoryResults {
+	background-color: #f5f5f5
+}
+
+#directoryResults #optionsButton
+h3 {
+	height: auto
+}
+
+#directorySearch,#directoryRefineby {
+	margin-bottom: 10px
+}
+
+#directoryRefineby {
+	border-bottom: none;
+	overflow: hidden
+}
+
+#directorySearch h2,#directoryRefineby
+h2 {
+	font-size: 12px;
+	font-weight: bold;
+	padding: 10px
+}
+
+#directoryRefineby
+h2 {
+	border-bottom: 1px solid #d6d6d6
+}
+
+#directorySearch {
+	padding: 0 10px 4px
+}
+
+#directorySearch dl dt label,#directorySearch dl dt label:hover
+	{
+	padding: 0
+}
+
+#directorySearch dl dd
+input {
+	width: 96%
+}
+
+.refinebyExpanded
+select {
+	width: 96%
+}
+
+#directorySearch
+input.directorySearchBoxPlaceholder {
+	color: #A3A3A3
+}
+
+#directoryRefineby
+h3 {
+	background: #fff
+		url(https://images.affiliatewindow.com/common/header_gradient.gif)
+		bottom left repeat-x;
+	border-bottom: 1px solid #d6d6d6;
+	border-top: 1px solid #fff;
+	margin-bottom: 0
+}
+
+#directoryRefineby h3
+span {
+	background:
+		url(https://images.affiliatewindow.com/common/arrow_large.gif) 14px
+		10px no-repeat;
+	display: block;
+	min-height: 17px;
+	padding: 9px 10px 8px 32px;
+	font-size: 12px;
+	font-weight: bold
+}
+
+#directoryRefineby h3
+span.expanded {
+	background:
+		url(https://images.affiliatewindow.com/common/arrow_down_large.gif)
+		10px 13px no-repeat
+}
+
+#directoryRefineby h3 span:hover {
+	background-color: #f0f0f0;
+	cursor: pointer
+}
+
+#directoryRefineby h3 span
+img {
+	margin-right: 5px
+}
+
+.refinebyExpanded {
+	background-color: #f5f5f5;
+	padding: 6px 10px;
+	border-bottom: 1px solid #d6d6d6
+}
+
+.refinebyExpanded
+p {
+	color: #888;
+	margin: 5px 0
+}
+
+.refinebyExpanded
+ul {
+	margin-bottom: 0
+}
+
+.refinebyExpanded
+label {
+	display: block;
+	padding: 4px 0 4px 20px
+}
+
+.refinebyExpanded label:hover {
+	cursor: pointer
+}
+
+li.radio>label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_radio_empty.png)
+		left 4px no-repeat
+}
+
+li.checkbox>label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_empty.png)
+		left 4px no-repeat
+}
+
+li.selected>label {
+	font-weight: bold
+}
+
+li.checkbox.selected label:hover {
+	color: #c33;
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_delete.png)
+		left 4px no-repeat
+}
+
+li.radio.partial label,li.radio.partial label:hover {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_radio_parent.png)
+		left 4px no-repeat
+}
+
+li.checkbox.partial label,li.checkbox.partial label:hover {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_parent.png)
+		left 4px no-repeat
+}
+
+.subLevel {
+	padding: 0 0 5px 12px
+}
+
+.subLevel li
+label {
+	font-weight: normal;
+	color: #444
+}
+
+.subLevel li.radio
+label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_radio_empty.png)
+		left 4px no-repeat
+}
+
+.subLevel li.checkbox
+label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_empty.png)
+		left 4px no-repeat
+}
+
+.subLevel li.checkbox.selected label:hover {
+	color: #c33;
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_delete.png)
+		left 4px no-repeat
+}
+
+p#resetSearch {
+	background: #fff
+		url(https://images.affiliatewindow.com/common/header_gradient.gif)
+		bottom left repeat-x
+}
+
+span#reset {
+	display: block;
+	border: 1px solid #d6d6d6;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/arrow_rotate_anticlockwise.png)
+		5px 6px no-repeat;
+	padding: 7px 7px 7px 13px;
+	cursor: pointer;
+	text-align: center
+}
+
+span#reset:hover {
+	color: #444;
+	background-color: #f5f5f5
+}
+
+#refine_sector,#refine_profilePercentage {
+	border-top: 1px solid #fff
+}
+
+#searchSummary {
+	display: none;
+	width: 60%;
+	margin-left: 20%
+}
+
+#searchSummary
+P {
+	margin-bottom: 0
+}
+
+#searchSummaryArrow {
+	width: 9px;
+	height: 9px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/tooltip_arrow_down.png)
+		top left no-repeat;
+	top: -11px;
+	left: 45%;
+	position: absolute
+}
+
+#directoryTabs {
+	position: relative;
+	float: right;
+	min-width: 752px;
+	width: 80%;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/border_pixel.gif) bottom
+		left repeat-x
+}
+
+#directoryTabs
+img#loadDirectoryVideo {
+	position: absolute;
+	top: 0;
+	right: 0
+}
+
+#directoryTabs
+span.count {
+	font-weight: normal;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	background: none;
+	border: none
+}
+
+#resultsHeader {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/header_gradient.gif) top
+		left repeat-x;
+	height: 34px;
+	border: 1px solid #d6d6d6;
+	border-bottom: none;
+	border-top: none
+}
+
+#resultsHeader
+h1 {
+	padding: 10px 10px 0;
+	margin-bottom: 0;
+	font-weight: normal;
+	font-size: 12px
+}
+
+#resultsHeader
+span#view {
+	float: right;
+	padding: 9px 12px 10px 38px;
+	cursor: pointer;
+	border-left: 1px solid #d6d6d6;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/table_basic.png)
+		12px no-repeat
+}
+
+#resultsHeader
+span#view.detailed {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/table_detailed.png)
+		12px no-repeat
+}
+
+#resultsHeader span#view:hover {
+	color: #444;
+	background-color: #f5f5f5;
+	padding: 10px 12px 11px 38px;
+	background-position: 12px 10px
+}
+
+#resultsHeader
+span#rows {
+	float: right;
+	margin: 8px 10px 0 0
+}
+
+#directoryResults
+table {
+	border: 1px solid #d6d6d6;
+	border-collapse: separate;
+	min-width: 752px
+}
+
+#directoryResults table
+td {
+	padding: 10px 5px
+}
+
+#directoryResults table
+tr.light {
+	background-color: #fdfdfd
+}
+
+#directoryResults table
+th {
+	border: none;
+	border-top: 1px solid #f5f5f5;
+	padding: 10px 0 10px 5px
+}
+
+#directoryResults table th
+span {
+	text-align: center
+}
+
+#directoryResults table
+th#company {
+	text-align: left;
+	width: 200px;
+	padding: 5px 0 5px 10px
+}
+
+#directoryResults table
+th.promotional {
+	padding-left: 5px;
+	padding-right: 5px
+}
+
+#directoryResults table
+th.index {
+	width: 76px;
+	padding-left: 0;
+	padding-right: 0
+}
+
+#directoryResults table th.sortable
+span {
+	display: inline-block;
+	cursor: pointer
+}
+
+#directoryResults table
+th.actions {
+	width: 75px;
+	padding: 0px
+}
+
+#directoryResults table th.sortable span:hover {
+	color: #444
+}
+
+#directoryResults table th.sortable
+span.sortAscending {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/arrow_up_medium.gif)
+		right 4px no-repeat;
+	padding-right: 15px
+}
+
+#directoryResults table th.sortable
+span.sortDescending {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/arrow_down_medium.gif)
+		right 4px no-repeat;
+	padding-right: 15px
+}
+
+#directoryResults table tr.spool
+span.joined {
+	margin-left: 5px
+}
+
+#directoryResults table tr.spool td,#directoryResults table tr.spool td a:link,#directoryResults table tr.spool td a:visited
+	{
+	color: #999
+}
+
+#directoryResults table tr.spool td a:hover {
+	color: #444
+}
+
+#directoryResults table
+td {
+	border: none;
+	border-top: 1px solid #d6d6d6;
+	padding: 20px 5px
+}
+
+#directoryResults table
+td.name {
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0 0 0 10px
+}
+
+#directoryResults table td.name
+a {
+	font-size: 11px;
+	font-weight: bold
+}
+
+#directoryResults table
+td.index {
+	font-size: 12px;
+	font-weight: bold;
+	color: #888;
+	padding: 0 6px;
+	width: 76px
+}
+
+#directoryResults table
+td#noResults {
+	font-size: 14px;
+	padding: 20px 0
+}
+
+#directoryResults table td.index
+img.new {
+	margin-top: 1px
+}
+
+#directoryResults table td.index img:hover {
+	cursor: pointer
+}
+
+#directoryResults table
+td.view {
+	border-left: 1px solid #d6d6d6;
+	padding: 0 6px;
+	width: 52px;
+	text-align: center
+}
+
+#directoryResults table
+td.invite {
+	padding: 0 12px 0 6px;
+	width: 16px
+}
+
+#directoryResults table
+td.borderBottom {
+	border-bottom: 1px solid #d6d6d6
+}
+
+#directoryResults table
+td.action {
+	white-space: nowrap;
+	padding: 0 10px 0 0
+}
+
+#directoryResults table td.action
+span.actionProgramme {
+	min-width: 16px;
+	display: inline-block
+}
+
+#directoryResults table
+td.productData {
+	white-space: nowrap
+}
+
+#directoryResults table
+td.detailedContent {
+	border-top: none;
+	text-align: left;
+	font-size: 10px;
+	width: 750px
+}
+
+#directoryResults table td.detailedContent
+img {
+	margin: 0 10px 10px 0;
+	border: 1px solid #d6d6d6
+}
+
+#directoryResults table td.detailedContent
+p {
+	font-size: 10px;
+	min-height: 5px
+}
+
+#directoryResults table td.detailedContent
+.awinIndex {
+	float: right;
+	width: 430px;
+	background-color: #fff5e5;
+	border: 1px solid #ffbe5c;
+	padding: 10px 5px;
+	margin: 0 0px 10px 20px;
+	position: relative
+}
+
+#directoryResults table td.detailedContent .awinIndex
+h3 {
+	margin: 0 0 5px 5px;
+	padding: 0;
+	font-size: 10px
+}
+
+#directoryResults table td.detailedContent .awinIndex
+img {
+	position: absolute;
+	top: -9px;
+	right: 26px;
+	width: 17px;
+	height: 9px;
+	margin: 0;
+	padding: 0;
+	line-height: 9px;
+	border: none
+}
+
+#directoryResults table td.detailedContent .awinIndex
+ul {
+	margin: 0 5px;
+	padding: 0;
+	float: left;
+	width: 205px
+}
+
+#directoryResults table td.detailedContent .awinIndex ul
+li {
+	text-align: right;
+	line-height: 16px;
+	margin: 0;
+	padding: 0
+}
+
+#directoryResults table td.detailedContent .awinIndex ul li
+span {
+	display: -moz-inline-stack;
+	display: inline-block;
+	width: 145px
+}
+
+#directoryResults table td.detailedContent .awinIndex ul li
+span.rank {
+	font-weight: bold;
+	color: #888;
+	font-size: 13px;
+	margin-left: 5px;
+	display: -moz-inline-stack;
+	display: inline-block;
+	width: 50px;
+	text-align: center;
+	vertical-align: top
+}
+
+#directoryResults
+span.tooltipRightContent {
+	text-align: left;
+	font-weight: normal
+}
+
+.pagination {
+	background-color: #f5f5f5;
+	border: 1px solid #d6d6d6;
+	border-top: none;
+	padding: 10px
+}
+
+.pagination
+span {
+	font-size: 11px;
+	background-color: #f5f5f5
+}
+
+.pagination span:hover {
+	color: #444
+}
+
+#previousPage {
+	float: left
+}
+
+#nextPage {
+	float: right
+}
+
+.pagination
+.goToPage {
+	text-align: center
+}
+
+.pagination .goToPage
+span {
+	font-size: 11px;
+	padding: 3px 5px;
+	border: 1px solid #e5e5e5;
+	background-color: #fff;
+	height: 22px
+}
+
+.pagination .goToPage
+span#currentPage {
+	color: #444;
+	font-weight: bold;
+	padding: 3px 5px
+}
+
+img.flag {
+	width: 14px;
+	height: 9px;
+	padding-right: 4px
+}
+
+span.joined {
+	display: block;
+	text-align: left
+}
+
+#tpvExplanation,#mobileOptimisedExplanation {
+	display: none;
+	padding-left: 20px;
+	color: #666;
+	font-size: 10px
+}
+
+a:link,a:visited {
+	color: #f90
+}
+
+a:hover {
+	color: #444
+}
+
+#resetSearch {
+	color: #f90
+}
+
+#directorySearch,#directoryRefineby h2,div.selected {
+	background-color: #fff5e5
+}
+
+li.radio label:hover,li.radio.selected>label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_radio_affiliate.png)
+		left 4px no-repeat
+}
+
+li.checkbox label:hover,li.checkbox.selected>label {
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/directory/refineby_tick_affiliate.png)
+		left 4px no-repeat
+}
+
+li.selected>label {
+	color: #f90
+}
+
+span#merchantsFound,span#rowsToShow,#resultsHeader span#view,#resultsHeader
+span#view {
+	color: #f90
+}
+
+#directoryResults {
+	background: none;
+	margin: 0 0 30px 0
+}
+
+#directoryResults table
+.left {
+	text-align: left
+}
+
+#directoryResults table
+tr.light {
+	background: #f5f5f5
+}
+
+#directoryResults table tr.detailed
+td {
+	border: none
+}
+
+#directoryResults table tr.detailed td.detailedContent
+p {
+	margin-bottom: 5px
+}
+
+#directoryResults table
+td.expand {
+	border-right: 1px solid #e5e5e5
+}
+
+#directoryResults table td.expand
+img {
+	cursor: pointer
+}
+
+#directoryResults table.closedTab
+td {
+	text-align: left
+}
+
+#directoryResults table td.disabled,#directoryResults table
+th.disabled {
+	color: #c3c3c3
+}
+
+#joinMerchantsHolder {
+	width: 750px;
+	height: 60px;
+	padding: 0 5px 0;
+	background: transparent
+		url(https://images.affiliatewindow.com/darwin/provider/footerBg.png)
+		bottom repeat-x;
+	margin: 0 0 0 185px;
+	position: fixed;
+	bottom: 0;
+	text-align: right
+}
+
+#joinMerchantsHolder
+button {
+	margin: 25px 0 0 0
+}
+
+#merchantTerms
+h1 {
+	color: #690
+}
+
+#merchantTermsTabs {
+	margin: 10px 0 0 0;
+	float: left;
+	width: 880px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/border_pixel.gif) bottom
+		left repeat-x
+}
+
+#merchantTermsTabs div.tabs ul li.selected
+a {
+	background: #fff;
+	border: solid #d5d5d5;
+	border-width: 1px 1px 0
+}
+
+#directoryTabs div.tabs ul li.selected>span {
+	background: #fefefe;
+	border: solid #d5d5d5;
+	border-width: 1px 1px 0;
+	color: #444
+}
+
+#merchantTermsTabs ul li a,#directoryTabs div.tabs ul li>span {
+	color: #690;
+	border: solid #daebd5;
+	border-width: 1px 1px 0;
+	background: #fff5e5
+		url(https://images.affiliatewindow.com/common/border_pixel.gif) bottom
+		left repeat-x
+}
+
+#merchantTermsTabs ul li a:hover,#directoryTabs div.tabs ul li span:hover
+	{
+	color: #560
+}
+
+.merchantTermsContent {
+	padding: 20px 10px;
+	line-height: 16px
+}
+
+.merchantTermsTabsContent {
+	clear: left;
+	background: #fff;
+	border: solid #d5d5d5;
+	border-width: 0 1px 1px;
+	padding: 10px;
+	margin: -10px 0 0;
+	!
+	important
+}
+
+.networkSelect
+ul {
+	width: 200px;
+	margin: 0 auto
+}
+
+.networkSelect ul
+li {
+	margin: 10px;
+	display: inline
+}
+
+.networkSelect ul li
+input {
+	display: none
+}
+
+.networkSelect ul li
+img {
+	height: 20px;
+	padding: 5px
+}
+
+.networkSelect ul li
+img.selected {
+	border: 1px solid #d5d5d5;
+	background: #e5e5e5;
+	height: 20px;
+	padding: 4px
+}
+
+.actionProgramme img.leave,.actionProgramme
+img.join {
+	cursor: pointer
+}
+
+#optionsButton {
+	float: right;
+	height: 34px;
+	padding: 0;
+	border-left: 1px solid #d6d6d6;
+	margin: 0 0 0 15px;
+	width: 140px;
+	position: relative
+}
+
+#optionsButton
+h3 {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/report_disk.png)
+		12px 10px no-repeat;
+	padding: 9px 0 9px 36px;
+	height: 16px;
+	color: #f90;
+	font-size: 11px;
+	line-height: 16px;
+	font-weight: normal;
+	margin: 0
+}
+
+#optionsButton h3:hover {
+	background-position: 12px 11px;
+	padding: 10px 0 8px 36px;
+	height: 16px;
+	cursor: pointer;
+	color: #444
+}
+
+#optionsButton:hover {
+	background-color: #f5f5f5
+}
+
+#optionsButton
+ul {
+	margin: 0;
+	padding: 0;
+	border: 1px solid #d6d6d6;
+	position: absolute;
+	width: 140px;
+	left: -1px;
+	-moz-box-shadow: 0 2px 5px #D1D1D1
+}
+
+#optionsButton ul li
+h3 {
+	height: 16px;
+	padding: 9px 0 9px 36px;
+	z-index: 9999
+}
+
+#optionsButton ul li#detailToggle
+h3 {
+	background: #f5f5f5
+		url(https://images.affiliatewindow.com/common/icons/16x16/table_basic.png)
+		12px 10px no-repeat;
+	border-bottom: 1px solid #d6d6d6
+}
+
+#optionsButton ul li#downloadCSV
+h3 {
+	background: #f5f5f5
+		url(https://images.affiliatewindow.com/common/icons/16x16/page_white_odt.png)
+		12px 10px no-repeat;
+	border-bottom: 1px solid #d6d6d6
+}
+
+#optionsButton ul li#downloadExcel
+h3 {
+	background: #f5f5f5
+		url(https://images.affiliatewindow.com/common/icons/16x16/page_white_excel.png)
+		12px 10px no-repeat;
+	border-bottom: 1px solid #d6d6d6
+}
+
+#optionsMenu {
+	display: none
+}
+
+#refineSalesRegions {
+	display: none
+}
+
+#filterNotice {
+	margin-bottom: 8px;
+	float: right;
+	width: 730px
+}
+
+a:link,a:visited {
+	color: #f90
+}
+
+a:hover {
+	color: #444
+}
+
+#resetSearch {
+	color: #f90
+}
+
+#merchantTerms
+h1 {
+	color: #690
+}
+
+#merchantTermsTabs {
+	margin: 10px 0 0 0;
+	float: left;
+	width: 880px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/border_pixel.gif) bottom
+		left repeat-x
+}
+
+#merchantTermsTabs div.tabs ul li.selected
+a {
+	background: #fff;
+	border: solid #d5d5d5;
+	border-width: 1px 1px 0
+}
+
+#directoryTabs div.tabs ul li.selected
+span {
+	background: #f5f5f5;
+	border: solid #d5d5d5;
+	border-width: 1px 1px 0;
+	color: #444
+}
+
+#merchantTermsTabs ul li a,#directoryTabs div.tabs ul li
+span {
+	color: #ffbe5c;
+	border: solid #ffe5be;
+	border-width: 1px 1px 0;
+	background: #fff5e5
+		url(https://images.affiliatewindow.com/common/border_pixel.gif) bottom
+		left repeat-x
+}
+
+#merchantTermsTabs ul li a:hover,#directoryTabs div.tabs ul li span:hover
+	{
+	color: #f90
+}
+
+.merchantTermsContent {
+	padding: 20px 10px;
+	line-height: 16px
+}
+
+.merchantTermsTabsContent {
+	clear: left;
+	background: #fff;
+	border: solid #d5d5d5;
+	border-width: 0 1px 1px;
+	padding: 10px;
+	margin: -10px 0 0;
+	!
+	important
+}
+
+#joinProgrammeForm
+.accetedTerms {
+	width: 35px
+}
+
+#joinProgrammeForm #accepted-element {
+	float: left;
+	width: 19px
+}
+
+#joinProgrammeForm #accepted-label
+label {
+	width: 700px;
+	margin-left: 5px
+}
+
+#joinProgrammeForm #accepted-element
+input {
+	margin-top: 6px;
+	width: 17px
+}
+
+form#joinProgrammeForm
+label {
+	width: 55px
+}
+
+dl dt
+label {
+	text-align: left
+}
+
+form#joinProgrammeForm
+textarea {
+	height: 50px;
+	width: 693px
+}
+
+form#joinProgrammeForm
+select {
+	width: 705px
+}
+
+form#joinProgrammeForm
+p.description {
+	float: left;
+	margin: 0
+}
+
+form#joinProgrammeForm dd
+p {
+	font-size: 11px;
+	color: #444;
+	clear: left
+}
+
+.networkSelect
+ul {
+	width: 200px;
+	margin: 0 auto
+}
+
+.networkSelect ul
+li {
+	margin: 10px;
+	display: inline
+}
+
+.networkSelect ul li
+input {
+	display: none
+}
+
+.networkSelect ul li
+img {
+	height: 20px;
+	padding: 5px
+}
+
+.networkSelect ul li
+img.selected {
+	border: 1px solid #d5d5d5;
+	background: #e5e5e5;
+	height: 20px;
+	padding: 4px
+}
+
+#membershipModal {
+	width: 800px
+}
+
+.actionProgrammeModal
+.actionTerms {
+	padding: 10px;
+	margin: 0 0 15px 0;
+	height: 400px;
+	overflow: auto;
+	border: 1px solid #d6d6d6;
+	background-color: #fff
+}
+
+.actionProgrammeModal .actionTerms .termsContent
+h3 {
+	clear: left
+}
+
+.actionProgrammeModal .actionTerms .termsContent
+dl {
+	float: left;
+	width: 741px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #d6d6d6;
+	padding: 0
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl
+dt {
+	font-weight: bold;
+	font-size: 12px;
+	width: 340px;
+	padding: 0 10px 10px 0
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl
+dd {
+	padding: 0
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dt,.actionProgrammeModal .actionTerms .termsContent dl dd
+span {
+	float: left
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dd
+dl {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding: 0
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dd dl
+dt {
+	width: 320px;
+	clear: left;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 10px 20px 10px 10px;
+	margin: 0;
+	border-top: 1px solid #e5e5e5
+}
+
+.actionProgrammeModal .actionTerms .termsContent
+span.termStatus {
+	margin-right: 10px
+}
+
+.actionProgrammeModal .actionTerms .termsContent span.termStatus
+img {
+	margin: 0 10px
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dd dl dd
+span.termStatus {
+	padding: 10px 0 8px;
+	border-top: 1px solid #e5e5e5;
+	margin: 0 10px 0 0
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dd span.additionalInformation,.actionProgrammeModal .actionTerms .termsContent dl dd dl dd
+span.additionalInformation {
+	width: 272px;
+	padding: 0;
+	margin-bottom: 10px
+}
+
+.actionProgrammeModal .actionTerms .termsContent dl dd dl dd
+span.additionalInformation {
+	margin-top: 10px
+}
+
+#termsFreeTextContent ul
+li {
+	background:
+		url("https://images.affiliatewindow.com/common/icons/16x16/bullet_orange.png")
+		no-repeat scroll left top transparent;
+	margin: 0 0 4px 10px;
+	padding-left: 20px
+}
+
+#termsFreeTextContent ol
+li {
+	list-style-type: decimal;
+	padding: 0;
+	margin: 0 0 4px 30px
+}
+
+.disabledCursor {
+	cursor: pointer
+}
+
+input#accepted {
+	border: none
+}
+
+.boxFooter
+.disabled {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/buttons/green_small.gif)
+		100% 100% no-repeat
+}
+
+.boxFooter .disabled
+span {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/buttons/green_small.gif)
+		0 80% no-repeat
+}
+
+a:link,a:visited,.pointer {
+	color: #f90
+}
+
+a:hover {
+	color: #444
+}
+
+ul#profileOperations li a:hover {
+	background-color: #fff5e5
+}
+
+ul#profileOperations li
+a {
+	background-image:
+		url(https://images.affiliatewindow.com/common/icons/16x16/add.png);
+	background-position: 10px 9px;
+	background-repeat: no-repeat
+}
+
+ul#profileOperations li
+a.leave {
+	background-image:
+		url(https://images.affiliatewindow.com/common/icons/16x16/cancel.png)
+}
+
+ul#profileOperations li
+a.suspended {
+	background-image:
+		url(https://images.affiliatewindow.com/common/icons/16x16/delete_grey.png)
+}
+
+ul#profileOperations li
+a.pending {
+	background-image:
+		url(https://images.affiliatewindow.com/common/icons/16x16/hourglass_grey.png)
+}
+
+ul#profileOperations li a.disabled,ul#profileOperations li a.disabled:hover
+	{
+	padding-top: 11px;
+	padding-bottom: 9px;
+	background-color: #fff5e5;
+	background-position: 9px 9px;
+	cursor: default;
+	color: #999
+}
+
+#merchantSummary {
+	padding: 0 10px 10px
+}
+
+#merchantSummary
+h3 {
+	font-size: 11px
+}
+
+#merchantSummary
+h4 {
+	font-size: 10px;
+	font-weight: normal;
+	color: #888;
+	margin-bottom: 2px
+}
+
+#merchantSummary
+span {
+	display: block;
+	margin-bottom: 10px
+}
+
+#merchantSummary
+span#paymentStatus {
+	padding-left: 24px;
+	font-size: 10px;
+	font-style: italic
+}
+
+#merchantSummary
+span.confirmed {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/confirmed.png)
+		left 2px no-repeat
+}
+
+#merchantSummary
+span.pending {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/pending.png)
+		left 2px no-repeat
+}
+
+#merchantSummary
+span.declined {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/declined.png)
+		left 2px no-repeat
+}
+
+#merchantSummary
+span.risklevel {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/exclamation_triangle.png)
+		left 2px no-repeat
+}
+
+#merchantSummary
+span.risklevelPublic {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/error.png)
+		left 2px no-repeat
+}
+
+#merchantSummary
+div.mobileIcon {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/phone.png)
+		left no-repeat;
+	line-height: 16px;
+	padding-left: 18px;
+	margin-bottom: 10px
+}
+
+#merchantSummary
+.tooltipTextContent {
+	white-space: nowrap
+}
+
+#merchantSummary
+.tooltipTextSpacer {
+	top: 35px
+}
+
+#merchantSummary form#subscribe
+label {
+	float: left;
+	margin-right: 10px;
+	height: 14px;
+	line-height: 14px
+}
+
+#merchantSummary form#subscribe
+input {
+	width: 13px;
+	height: 13px;
+	border: none
+}
+
+#profileLinks ul
+li#website {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/world_go_green.png)
+		left center no-repeat
+}
+
+#accountContacts
+h4 {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/user_green.png)
+		left center no-repeat
+}
+
+ul.listItems li#newListItem,ul.listItems
+#newFormContainer {
+	background-color: #fff5e5
+}
+
+.tabs ul li a:link,.tabs ul li a:visited,.tabs ul li
+span {
+	color: #ffbe5c;
+	border: 1px solid #ffe5be;
+	border-bottom: none;
+	background-color: #fff5e5
+}
+
+.tabs ul li a:hover,.tabs ul li span:hover {
+	color: #f90
+}
+
+.tabSubNav ul li
+a {
+	padding-left: 7px;
+	padding-right: 6px
+}
+
+.tabSubNav ul li a:link,.tabSubNav ul li a:visited {
+	color: #f90
+}
+
+.tabSubNav ul li a:hover,.tabSubNav ul li
+a.selected {
+	color: #444
+}
+
+#termsHeader {
+	margin-bottom: 0
+}
+
+#revisionHistory {
+	float: right;
+	margin-top: -1px
+}
+
+#revisionHistory
+select {
+	padding: 0;
+	width: 150px;
+	margin-left: 5px
+}
+
+#termsTableHeader {
+	padding: 10px;
+	border-bottom: 1px solid #d6d6d6;
+	color: #444;
+	background: #fff5e5;
+	font-weight: bold;
+	margin-bottom: 10px
+}
+
+#policyDefinitionTitle,#termStatusTitle,#termStatusTitle label,#additionalInformationTitle
+	{
+	display: inline-block
+}
+
+#policyDefinitionTitle {
+	width: 350px
+}
+
+#termStatusTitle
+label {
+	margin: 0 15px 0 2px
+}
+
+#termStatusTitle
+label#days {
+	margin-right: 40px
+}
+
+#termsContent
+dl {
+	float: left;
+	width: 708px;
+	margin-bottom: 10px;
+	position: relative;
+	border-bottom: 1px solid #d6d6d6;
+	padding: 0
+}
+
+#termsContent dl
+dt {
+	font-weight: bold;
+	font-size: 12px;
+	width: 340px;
+	padding: 0 10px 10px 0
+}
+
+#termsContent dl
+dd {
+	padding: 0
+}
+
+#termsContent dl dt,#termsContent dl dd
+span {
+	float: left
+}
+
+#termsContent dl dd
+dl {
+	border-bottom: none;
+	margin-bottom: 0;
+	padding: 0
+}
+
+#termsContent dl dd dl
+dt {
+	width: 320px;
+	clear: left;
+	font-size: 11px;
+	font-weight: normal;
+	padding: 10px 20px 10px 10px;
+	margin: 0;
+	border-top: 1px solid #e5e5e5
+}
+
+#termsContent dl dd dl dt:hover {
+	background: #fff
+		url(https://images.affiliatewindow.com/common/table_side_arrow.gif)
+		right top no-repeat
+}
+
+#termsContent
+span.termStatus {
+	margin-right: 10px
+}
+
+#termsContent span.termStatus
+input {
+	display: none
+}
+
+#termsContent span.termStatus a,#termsContent span.termStatus
+img {
+	margin: 0 10px
+}
+
+#termsContent span.termStatus
+select {
+	margin: 0 10px 0 5px;
+	width: 56px
+}
+
+#termsContent span.termStatus
+p {
+	font-size: 14px;
+	padding-left: 15px;
+	margin: 0;
+	width: 57px
+}
+
+#termsContent dl dd dl dd
+span.termStatus {
+	padding: 10px 0 8px;
+	border-top: 1px solid #e5e5e5;
+	margin: 0 10px 0 0
+}
+
+#termsContent dl dd span.additionalInformation,#termsContent dl dd dl dd
+span.additionalInformation {
+	width: 272px;
+	padding: 0;
+	margin-bottom: 10px
+}
+
+#termsContent dl dd dl dd
+span.additionalInformation {
+	margin-top: 10px
+}
+
+#termsContent .inlineEditableNote:hover {
+	background: #ffc;
+	cursor: text
+}
+
+#termsContent dl.disabled,#termsContent dl.reference.disabled dd
+dl {
+	color: #aaa
+}
+
+#termsContent dl dd dl.disabled dt:hover {
+	background: none
+}
+
+.archived dl,.archived dl:hover {
+	background: #fffcfe;
+	color: #444
+}
+
+.formButtons {
+	float: right;
+	cursor: pointer
+}
+
+.formButtons button,.formButtons #discard,.formButtons
+#discardAll {
+	float: right
+}
+
+.formButtons
+button {
+	margin-left: 10px
+}
+
+.formButtons #discard,#discardAll {
+	margin-top: 7px
+}
+
+#termsContent dl dd span
+a.fakeradio {
+	font: 12px Tahoma, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	outline: none;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/fakeRadioSprite.png)
+		left -30px no-repeat;
+	height: 14px;
+	width: 16px;
+	display: block;
+	float: left;
+	padding: 1px 0px 0px 0;
+	color: #666;
+	cursor: pointer
+}
+
+#termsContent dl dd span
+a.fakechecked {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/fakeRadioSprite.png)
+		left 0px no-repeat
+}
+
+#termsContent dl.disabled span a.fakeradio,#termsContent dl.disabled dd dl span
+a.fakeradio {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/fakeRadioSprite.png)
+		left -30px no-repeat;
+	cursor: default
+}
+
+#termsContent dl.disabled span a.fakechecked,#termsContent dl.disabled dd dl span
+a.fakechecked {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/fakeRadioSprite.png)
+		left -15px no-repeat;
+	cursor: default
+}
+
+#feedbackBox,#failedPublish {
+	display: none;
+	margin-bottom: 10px
+}
+
+#pendingChanges {
+	margin-bottom: 20px;
+	clear: right;
+	overflow: auto
+}
+
+#pendingChanges
+button {
+	float: right
+}
+
+ul#pendingChangesList {
+	font-size: 12px
+}
+
+ul#pendingChangesList
+li {
+	margin-bottom: 5px
+}
+
+.awinIndex {
+	background: white
+		url(https://images.affiliatewindow.com/darwin/profiles/awindex_bg.gif)
+		center no-repeat;
+	overflow: auto;
+	border-bottom: 1px solid #d6d6d6;
+	margin: -10px 0 15px 0
+}
+
+.awinIndex
+div {
+	width: 280px;
+	float: left;
+	padding: 15px 16px 5px 52px
+}
+
+.awinIndex
+#caveData {
+	text-align: right
+}
+
+.awinIndex #caveData
+p {
+	font-size: 14px;
+	overflow: hidden
+}
+
+.awinIndex #caveData p
+span {
+	float: left;
+	display: block
+}
+
+.awinIndex #caveData p
+span.caveValue {
+	width: 80px;
+	text-align: left
+}
+
+.awinIndex #caveData p
+span.caveTitle {
+	width: 188px;
+	padding: 0 12px 0 0;
+	color: #888
+}
+
+.awinIndex .awinIndexResult
+strong {
+	color: #f90;
+	font-size: 30px;
+	line-height: 30px;
+	font-weight: bold
+}
+
+.awinIndex .awinIndexResult
+p {
+	font-size: 14px;
+	font-weight: normal
+}
+
+.awinIndex .awinIndexResult
+.up {
+	color: #690;
+	font-size: 11px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/arrow_up_green.png) left
+		no-repeat;
+	padding: 0 0 0 20px
+}
+
+.awinIndex .awinIndexResult
+.down {
+	color: #c00;
+	font-size: 11px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/arrow_down_red.png) left
+		no-repeat;
+	padding: 0 0 0 20px
+}
+
+#caveTabs_header
+h3 {
+	border-bottom: none;
+	margin: 35px 0 15px 0;
+	padding: 0 0 0 0
+}
+
+#caveTabs ul li a:link,#caveTabs ul li a:visited,#caveTabs ul li
+span {
+	color: #444;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	background-color: #e5e5e5
+}
+
+#caveTabs ul li a:hover,#caveTabs ul li span:hover {
+	color: #000
+}
+
+#caveTabs ul li.selected a:link,#caveTabs ul li.selected a:visited,#caveTabs ul li.selected
+span {
+	color: #444;
+	border: 1px solid #ccc;
+	border-bottom: 1px solid #fff;
+	background-color: #fff
+}
+
+#caveTabs ul li.selected a:hover,#caveTabs ul li.selected span:hover {
+	color: #000
+}
+
+.caveTabOveride {
+	background-image: none;
+	margin: 0;
+	padding: 0
+}
+
+#awinCaveGraph {
+	float: left;
+	width: 728px;
+	height: 400px;
+	margin-top: -2px
+}
+
+#awinCaveGraph
+.noData {
+	margin-top: 2px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px
+}
+
+.cgTableHeader {
+	background: transparent
+		url(https://images.affiliatewindow.com/common/header_gradient.gif)
+		repeat-x scroll left top;
+	border: 1px solid #d6d6d6;
+	clear: right;
+	height: 34px
+}
+
+#cgDescription {
+	margin-left: 10px;
+	margin-top: 10px
+}
+
+.cgTableHeader
+h2 {
+	font-size: 12px;
+	font-weight: normal;
+	padding: 10px
+}
+
+.cgTable
+table {
+	border: 1px solid #d6d6d6;
+	border-collapse: separate;
+	border-top: none;
+	border-bottom: none
+}
+
+.cgTable table tr
+th {
+	border-top: 1px solid #f5f5f5;
+	text-align: left;
+	padding: 10px 0px
+}
+
+.cgTable table tr
+td {
+	font-size: 10px;
+	padding: 10px 10px 10px 0;
+	text-align: left
+}
+
+.cgTable table tr td:first-child {
+	padding: 10px
+}
+
+.cgTable table tr th:first-child {
+	padding: 10px 10px
+}
+
+.cgTopTable table tr
+td {
+	text-align: left;
+	font-weight: bold;
+	width: 33%
+}
+
+.cgTable table tr
+td.cgCondition {
+	font-size: 10px;
+	font-weight: normal;
+	padding: 5px 10px 5px 0
+}
+
+div#compareModal div.boxContent
+div.groupStructure {
+	float: right;
+	width: 300px;
+	margin: 5px
+}
+
+div.searchBox {
+	margin: 10px 0;
+	height: auto;
+	overflow: auto
+}
+
+div.searchBox
+input {
+	width: 200px;
+	float: right;
+	border: 1px solid #D6D6D6;
+	padding: 7px
+}
+
+div#resetSearch {
+	background: #fff
+		url(https://images.affiliatewindow.com/common/header_gradient.gif)
+		bottom left repeat-x;
+	width: 120px;
+	float: right;
+	margin-left: 10px
+}
+
+span#reset {
+	display: block;
+	border: 1px solid #d6d6d6;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/icons/16x16/arrow_rotate_anticlockwise.png)
+		5px 6px no-repeat;
+	padding: 7px 10px 7px 18px;
+	cursor: pointer;
+	text-align: center
+}
+
+span#reset:hover {
+	color: #444;
+	background-color: #f5f5f5
+}
+
+#groupList .cgTable table
+th {
+	width: 135px;
+	padding: 10px 10px 0 0;
+	text-align: right;
+	white-space: nowrap
+}
+
+#groupList .cgTable table th:first-child {
+	padding: 10px;
+	text-align: left
+}
+
+.cgTable table td:first-child {
+	text-align: left;
+	font-weight: bold;
+	width: 400px
+}
+
+.cgTable table tr.light
+td {
+	background-color: #fff
+}
+
+#groupList .cgTable table
+td {
+	text-align: right
+}
+
+#groupList .cgTable table
+td.commissionLevel {
+	white-space: nowrap
+}
+
+#groupList .cgTable table td:first-child {
+	text-align: left
+}
+
+.cgTable td>div {
+	position: relative;
+	display: inline;
+	cursor: default
+}
+
+.cgTable
+td.current {
+	background-color: #FFF5E5 !important;
+	border: 1px solid #E5E5E5;
+	border-top: none;
+	border-bottom: 1px solid #D6D6D6
+}
+
+.cgTable tr.incInGlobal
+td {
+	
+}
+
+.cgTable tr.extFromGlobal
+td {
+	
+}
+
+.cgTable
+td.customLevel {
+	background-color: #EAEFF5 !important;
+	border: 1px solid #E5E5E5;
+	border-top: none;
+	border-bottom: 1px solid #D6D6D6
+}
+
+span.colorKey {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	padding: 2px;
+	border: 1px solid #E5E5E5;
+	margin-top: 5px
+}
+
+span.currentLevel {
+	background-color: #FFF5E5 !important
+}
+
+span.customLevel {
+	margin-left: 10px;
+	background-color: #EAEFF5 !important
+}
+
+div#key {
+	background-color: #fff;
+	border: 1px solid #E5E5E5;
+	padding: 7px;
+	float: left;
+	width: 355px
+}
+
+.clHover {
+	display: none;
+	min-width: 90px;
+	white-space: normal;
+	text-align: left
+}
+
+td:hover
+.clHoverArrow {
+	display: block;
+	position: absolute;
+	right: -9px;
+	top: 2px;
+	z-index: 2;
+	height: 25px;
+	width: 9px;
+	background: transparent
+		url(https://images.affiliatewindow.com/common/tooltip_arrow_right.png)
+		no-repeat center
+}
+
+td:hover
+.clHover {
+	display: block;
+	position: absolute;
+	top: -5px;
+	right: 100%;
+	z-index: 1;
+	border: 1px solid #99b2cc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 6px 8px;
+	margin: 0 11px;
+	color: #369;
+	background-color: #eaeff5
+}
+
+td:hover .clHover
+p {
+	font-size: 10px;
+	color: #369;
+	margin: 0
+}
+
+#awinIndexPerformanceGraph {
+	height: 600px
+}
+
+#merchantKeyFigures {
+	float: right;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	padding: 5px 10px;
+	margin: 0 0 30px 10px;
+	padding: 10px;
+	background-color: #fff5e5;
+	border: 1px solid #f90;
+	color: f90
+}
+
+#merchantKeyFigures ul
+li {
+	margin: 0;
+	padding: 0;
+	background: none;
+	list-style: none outside none
+}
+
+#groupList
+.pagination {
+	border: solid 1px #d6d6d6;
+	border-top: none
+}

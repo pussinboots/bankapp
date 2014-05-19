@@ -1,0 +1,127 @@
+.settingsContent{padding:20px;overflow:auto}h2{border-bottom:1px solid #d6d6d6;padding:5px
+0}.settingsDescription{float:left;width:350px;margin:0
+38px 0 0;position:relative}.settingsForm{float:right;width:500px}.settingsForm
+.validationMessage{clear:right}.settingsForm
+#cancel{margin:0
+0 0 330px}ul.reportSection li.settingsIndexGroup ul
+li{float:left;margin-right:20px}ul.reportSection li.settingsIndexGroup
+h2{clear:left}h2#detailsHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/telephone.png) left no-repeat;padding-left:24px}h2#linksHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/world_go_orange.png) left no-repeat;padding-left:24px}h2#addressHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/house.png) left no-repeat;padding-left:24px}h2#logoHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/picture.png) left no-repeat;padding-left:24px}h2#siteHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/page_world.png) left no-repeat;padding-left:24px}h2#promotionalTypeHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/promotional.png) left no-repeat;padding-left:24px}h2#sectorCategorisationHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/chart_pie.png) left no-repeat;padding-left:24px}h2#contactDetailsHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/telephone.png) left no-repeat;padding-left:24px}h2#accountContactsHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/user_orange.png) left no-repeat;padding-left:24px}h2#profilePrivacyHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/layout.png) left no-repeat;padding-left:24px}h2#paymentDetailsHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/money_pound.png) left no-repeat;padding-left:24px}h2#merchantAlertHeader{background:transparent url(https://images.affiliatewindow.com/common/icons/16x16/bell.png) left no-repeat;padding-left:24px}form.accountContactForm dl dt label, form.affiliateAddressForm dl dt label, form.affiliateLogoForm dl dt label,
+form.affiliateSiteInformationForm dl dt label, form.affiliateSignupFinancialForm dl dt label,
+form.transactionNotificationForm dl dt
+label{width:168px;font-size:12px}form.accountContactForm dl dd input, form.affiliateAddressForm dl dd input, form.affiliateLogoForm dl dd input,
+form.affiliateSiteInformationForm dl dd input, form.affiliateSignupFinancialForm dl input,
+form.transactionNotificationForm dl dd
+input{width:285px;font-size:12px}form.accountContactForm dl dd select, form.affiliateAddressForm dl dd select,
+form.affiliateSignupFinancialForm dl
+select{width:297px;font-size:12px}form.transactionNotificationForm dl dd
+label{float:left;width:285px;font-size:12px;margin:0;text-align:left}form.transactionNotificationForm dl dd#includeProductData-element,
+form.transactionNotificationForm dl dd#includeClickData-element{text-align:left}form.transactionNotificationForm dl dd#includeProductData-element input,
+form.transactionNotificationForm dl dd#includeClickData-element
+input{text-align:left;width:16px;height:16px;padding:0;margin:6px;border:none;vertical-align:middle}#transNotificationDescription{float:left;width:350px;margin:0
+38px 0 0;position:relative}form.affiliateLogoForm{width:484px}form.affiliateLogoForm dl
+dd{text-align:left}form.affiliateLogoForm dl dt
+label{margin-right:9px}#beneficiaryAccountNumber-element{margin-bottom:30px}.accountLogo{float:right;margin:0
+0 10px;width:100%}.accountLogo
+p{display:block;float:left;font-size:12px;padding:15px
+10px 0 0;text-align:right;width:180px}.accountLogo
+.logoBox{border:10px
+solid #e5e5e5;width:90px;margin:0
+auto 10px}img.logo{display:block;border:1px
+solid #d6d6d6}button#uploadLogo{float:right}#formaffiliatesettingslogosubmit-element{float:right}#promotionalForm{float:left;width:505px;margin-left:0}#promotionalForm
+.header{position:relative;background-color:#e5e5e5;padding:10px;font-weight:bold;border:1px
+solid #d6d6d6}#promotionalForm .header
+p{font-weight:normal;display:inline;float:right}#promotionalForm .header span#resetSelection, .header span#selectAllRetail,
+.header span#showDetails, .header
+span#hideDetails{color:#f90;font-size:10px}#promotionalForm .header span#resetSelection:hover, .header span#selectAllRetail:hover,
+.header span#showDetails:hover, .header span#hideDetails:hover{color:#444}#promotionalForm
+.topElement{padding:10px
+0 10px 10px;clear:left}#promotionalForm
+.hint{display:none;padding-left:25px;padding-bottom:3px;font-size:10px;color:#888}#promotionalForm
+.displayGroup{font-size:12px;border-bottom:1px solid #d6d6d6;border-left:1px solid #d6d6d6;border-right:1px solid #d6d6d6}#promotionalForm .displayGroup
+input{float:left;margin-right:5px}#promotionalForm
+.white{background-color:#fff}#promotionalForm
+.rowcontainer{position:relative;padding:5px
+0 5px 30px;clear:left}#promotionalForm
+.subElement{display:none;clear:left}#promotionalForm .subElement
+div.tooltipLeft{margin-left:5px}#promotionalForm .subElement div.tooltipLeft img, .subElement
+span.tooltipLeftContent{margin-top: -2px}#promotionalForm .rowcontainer
+.treeDescription{color:#707070;font-size:10px;margin:2px
+100px 0 18px;display:none}#promotionalForm .rowcontainer
+.primarySubCat{display:none;position:absolute;right:0;top:0;z-index:10;margin:5px
+8px 5px 5px}#promotionalForm .primarySubCat
+label{font-size:10px;vertical-align:top}#formmerchantsettingssectorCategorisationsubmit-element,#formaffiliatesettingspromotionTypesubmit-element{float:left;margin:10px
+0 0}#formmerchantsettingssectorCategorisationsubmit-element,#formaffiliatesettingspromotionTypesubmit-element{float:left}#promotionalForm dd#UpdatePromotionalDetails-element, #promotionalForm dd#UpdateSectorDetails-element{text-align:right;padding-top:10px}#transferOwner{background-color:#FFF5E5;border:1px
+solid #D6D6D6;font-size:14px;font-weight:bold;margin-bottom:20px;overflow:none;padding:15px}form.accountPrivacyForm
+table{margin-bottom:10px}form.accountPrivacyForm table tr
+th{font-size:11px;border-top:1px solid #d6d6d6}form.accountPrivacyForm table tr
+td{font-size:12px;text-align:left}form.accountPrivacyForm table tr th.left, form.accountPrivacyForm table tr
+td.left{width:260px}form.accountPrivacyForm table tr td input[type="radio"]{border:none;width:20px}form.accountPrivacyForm table tr
+td.center{text-align:center}form.accountPrivacyForm
+dd{text-align:right}#epostConnectModal{display:none}#epostConnectModal
+.tableHeader{height:27px;padding:7px
+10px 0 10px}#epostConnectSubmitContainer{text-align:right}#epostConnectModalError{color:#f00;display:block}.epostConnectSelector{padding:0;border-spacing:0}#epostConnectModal .epostConnectSelector td, #epostConnectModal .epostConnectSelector
+th{width:33%;text-align:center}#epostConnectModal
+.tableHeader{text-align:right}#userSettings
+.settingsForm{margin-left:0}#epostConnectModal
+.modalTable{height:400px}.rowcontainer{position:relative}.rowcontainerSelected{background-color:#FFF0C7}#sectorCategorisation
+fieldset{float:right}#sectorCategorisation
+legend{color:#F90;margin-right:10px;padding-top:10px;font:normal 11px Verdana,Arial,Helvetica,sans-serif;cursor:pointer}#sectorCategorisation legend:hover{color:#444}#formaffiliatesettingspromotionTypesubmit-element,#formmerchantsettingssectorCategorisationsubmit-element{width:100%;text-align:right}.zend_form
+dt{clear:left}dd.formNote{float:left;padding:7px
+0 0 30px}.salesRegionForm form
+dl.zend_form{width:100%;float:left;clear:both}.salesRegionForm form dl.zend_form
+dt{width:100%;float:left}.salesRegionForm form dl.zend_form dt
+label{font-size:1.2em;font-weight:bold;border-bottom:1px solid #D6D6D6;padding:5px
+0;width:100%;text-align:left;margin-bottom:10px}.salesRegionForm form dl.zend_form
+dd{width:200px;float:left}.salesRegionForm form dl.zend_form dd
+label{width:200px;float:left;clear:both;text-align:left;line-height:20px;margin:5px
+10px}.salesRegionForm form dl.zend_form dd label
+input{vertical-align:text-bottom;width:20px}.salesRegionForm form dl.zend_form dd#Save-element{clear:both}.salesRegionForm form dl.zend_form dd label:hover{font-weight:bold}.salesRegionForm form dl.zend_form dd
+input{margin-right:10px;width:15px;border:0}div.paymentDetailInstruction{margin-bottom:20px}.paymentDetailInstruction
+h1{border-bottom:1px solid #D6D6D6;margin-bottom:5px;padding-bottom:5px;width:100%;float:left}.validationMessage{margin:20px
+0}.taxAndPaymentDetails
+h2{padding:5px
+0;border:none}.taxAndPaymentDetails
+dl{width:500px;margin:0;float:left;clear:both}.taxAndPaymentDetails fieldset
+dl{padding-top:0;margin-bottom: -10px}.taxAndPaymentDetails dl
+label{width:185px;font-size:12px}.taxAndPaymentDetails
+select{width:295px;font-size:12px}.taxAndPaymentDetails
+input{width:283px;font-size:12px}div#taxDetails{border-top:1px solid #D6D6D6;border-bottom:1px solid #D6D6D6;float:left;padding:10px
+10px 20px;width:880px}#taxDetails
+h2{font-size:12px;margin:0
+0 5px;padding:0}#taxDetails
+p{margin:0
+0 10px}div.editAdd{float:right;margin-top: -7px;margin-right:10px;color:#f90}div.regionalPaymentDetail{padding:5px
+0;margin:0;clear:both;float:left;width:900px;color:#444;border-bottom:1px solid #D6D6D6}div.regionalPaymentDetail:hover{background-color:#fff0c7}div.regionalPaymentDetail
+h2{font-size:12px;margin:0;padding:7px
+7px 0 32px;float:left}div.regionalPaymentDetail
+p{clear:both;float:left;padding-left:10px;margin:5px
+0 20px 0}div.activeRegion{background-color:#e9e9e9;float:left;border-bottom:1px solid #ccc}div.activeRegion:hover{background-color:#e9e9e9;cursor:default}div.activeRegion
+p{margin:5px
+0 20px 0}div.regionalPaymentDetail
+dl{padding:0;margin:0}div.activeRegion .displayOnDefault dl, div.activeRegion #fieldset-achGroup dl,
+div.activeRegion #fieldset-chequeGroup dl, div.activeRegion #fieldset-bacsGroup
+dl{margin-left:0;margin-top:0}div.activeRegion dl dd#formName-element, div.activeRegion dl dd#wireGroup-element,
+div.activeRegion dl dd#chequeGroup-element, div.activeRegion dl dd#achGroup-element{margin-bottom:0}.GB{background:url(https://images.affiliatewindow.com/common/icons/flags/GB.png) no-repeat scroll 7px 7px transparent}.US{background:url(https://images.affiliatewindow.com/common/icons/flags/US.png) no-repeat scroll 7px 7px transparent}.CA{background:url(https://images.affiliatewindow.com/common/icons/flags/CA.png) no-repeat scroll 7px 7px transparent}.IE{background:url(https://images.affiliatewindow.com/common/icons/flags/IE.png) no-repeat scroll 7px 7px transparent}.regionalPaymentDetail
+.paymentChanges{width:368px;float:left;margin:0
+10px}.regionalPaymentDetail .paymentChanges
+h2{padding:0;margin:10px;float:none}.paymentChanges
+div{border:1px
+solid #D6D6D6;border-bottom:none;background-color:#E1E1E1}.paymentChanges
+p{border:1px
+solid #E5E5E5}.paymentChanges
+table{border-top:1px solid #D6D6D6}.paymentChanges table
+th{width:40%;text-align:right;background-color:#E1E1E1}.paymentChanges table
+td{text-align:left;background-color:#D6D6D6}.paymentChanges table tr.odd
+td{background-color:#FFF}.paymentChanges table tr.even
+td{background-color:#F5F5F5}.paymentChanges
+button{margin:10px
+0 5px 0;float:right}.paymentChanges
+.warningMessage{margin:0;border:none}.affiliatePaymentMethodInternationalWire dt, .affiliatePaymentMethodInternationalWire
+dd{display:none}.defaultSelected dt.default, .defaultSelected
+dd.default{display:block}.ukeuropeSelected dt.ukeurope, .ukeuropeSelected
+dd.ukeurope{display:block}.usacanadaSelected dt.usacanada, .usacanadaSelected
+dd.usacanada{display:block}#paymentDetailsForm{margin:10px}div.ui-datepicker{display:none;border:1px
+solid #d0d0d0;border-bottom:none;background:#fff;width:185px;box-shadow:3px 3px 5px rgba(0, 0, 0, 0.2);-webkit-box-shadow:3px 3px 5px rgba(0, 0, 0, 0.2);-moz-box-shadow:3px 3px 5px rgba(0,0,0,0.2)}.ui-datepicker-header{padding:5px;background:#fff url(https://images.affiliatewindow.com/common/header_gradient.gif) top left repeat-x;border-bottom:1px solid #d6d6d6}a.ui-datepicker-prev{float:left;padding:2px
+0 0}a.ui-datepicker-next{float:right;padding:2px
+0 0}a.ui-datepicker-prev:hover,a.ui-datepicker-next:hover{color:#f90;cursor:pointer}.ui-datepicker-title{font-weight:bold;text-align:center}div.ui-datepicker th, div.ui-datepicker
+td{padding:4px}a.ui-state-highlight{font-weight:normal;color:#444;background:#e5e5e5;padding:4px}div.ui-datepicker .ui-state-active{background-color:#F6B066;color:#fff;padding:4px;font-weight:bold}#ui-datepicker-div{z-index:99999999 !important}

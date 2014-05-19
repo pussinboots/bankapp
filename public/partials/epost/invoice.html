@@ -1,0 +1,8 @@
+<div style="text-align: left">
+	<input ng-model="invoice.id" value="" type="text" name="id" id="id" /><br />
+	<button type="button" class="btn btn-primary start"
+		ng-click="getInvoice(invoice)">Anzeigen</button>
+	<button type="button" class="btn btn-primary start"
+		ng-click="payInvoice(invoice)">Bezahlen</button>
+</div>
+<div debugbox debug-data="{{invoice}}" expand="true"></div>

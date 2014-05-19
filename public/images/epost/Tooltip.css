@@ -1,0 +1,184 @@
+.gwt-PopupPanel {
+    border: 3px solid #e7e7e7;
+    padding: 3px;
+    background: white;
+}
+
+.gwt-PopupPanelGlass {
+    background-color: #000;
+    opacity: 0.3;
+    filter: alpha(opacity =   30);
+}
+
+html>body .gwt-PopupPanel {
+    
+}
+
+* html .gwt-PopupPanel {
+    
+}
+
+.zxlib-gwt-tooltip {
+    z-index: 9999999;
+}
+
+.zxlib-gwt-tooltip .gwt-Label {
+    color: #336699;
+    padding: 0px 2px 0px 2px;
+}
+
+.zxlib-gwt-tooltip .gwt-Label a {
+    font-weight: bold;
+}
+
+.zxlib-gwt-tooltip .popupContent {
+    font-size: 10px;
+    text-align:justify;
+    line-height: 12px;
+}
+
+.zxlib-gwt-tooltip .popupMiddleCenter {
+    background-color: #EAEFF5;
+    width: 100%;
+    height: 100%;
+    text-align: justify;
+}
+
+.zxlib-gwt-tooltip .popupTopCenter {
+    background: url("images/tooltip-border-t.png") 0px 0px repeat-x;
+    width: 10px;
+    height: 10px;
+}
+
+.zxlib-gwt-tooltip .popupBottomCenter {
+    background: url("images/tooltip-border-b.png") 0px 0px repeat-x;
+    width: 10px;
+    height: 10px;
+}
+
+.zxlib-gwt-tooltip .popupMiddleLeft {
+    background: url("images/tooltip-border-l.png") 0px 0px repeat-y;
+    width: 10px;
+    height: 10px;
+}
+.zxlib-gwt-tooltip .popupMiddleLeftInner {
+	width: 10px;
+}
+
+.zxlib-gwt-tooltip.arrowLeft .popupMiddleLeft {
+    background: url("images/tooltip_border-arrow_left.png") 0px -11px;
+    width: 19px;
+}
+.zxlib-gwt-tooltip.arrowLeft .popupMiddleLeftInner {
+    width: 19px;
+}
+
+.zxlib-gwt-tooltip .popupMiddleRight {
+    background: url("images/tooltip-border-r.png") 0px 0px repeat-y;
+    width: 10px;
+    height: 10px;
+}
+.zxlib-gwt-tooltip .popupMiddleRightInner {
+    width: 10px;
+}
+
+.zxlib-gwt-tooltip.arrowRight .popupMiddleRight {
+    background: url("images/tooltip_border-arrow_right.png") 0px -11px;
+    width: 19px;
+}
+.zxlib-gwt-tooltip.arrowRight .popupMiddleRightInner {
+    width: 19px;
+}
+
+.zxlib-gwt-tooltip .popupTopLeftInner {
+}
+.zxlib-gwt-tooltip.arrowLeft .popupTopLeftInner {
+}
+
+.zxlib-gwt-tooltip .popupTopRightInner {
+}
+.zxlib-gwt-tooltip.arrowRight .popupTopRightInner {
+}
+
+.zxlib-gwt-tooltip .popupBottomLeftInner {
+}
+.zxlib-gwt-tooltip.arrowLeft .popupBottomLeftInner {
+}
+
+.zxlib-gwt-tooltip .popupBottomRightInner {
+}
+.zxlib-gwt-tooltip.arrowRight .popupBottomRightInner {
+}
+
+.zxlib-gwt-tooltip .popupTopLeft {
+    background: url("images/tooltip-tl.png") 0px 0px no-repeat;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.zxlib-gwt-tooltip.arrowLeft .popupTopLeft {
+    background: url("images/tooltip-tl.png") 9px 0px no-repeat;
+    width: 19px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.zxlib-gwt-tooltip .popupTopRight {
+    background: url("images/tooltip-tr.png") 0px 0px no-repeat;
+    width: 10px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.zxlib-gwt-tooltip .popupBottomLeft {
+    background: url("images/tooltip-bl.png") 0px 0px no-repeat;
+    width: 10px;
+    height: 10px;
+}
+
+.zxlib-gwt-tooltip.arrowLeft .popupBottomLeft {
+    background: url("images/tooltip-bl.png") 9px 0px no-repeat;
+    width: 19px;
+    height: 10px;
+}
+
+.zxlib-gwt-tooltip .popupBottomRight {
+    background: url("images/tooltip-br.png") 0px 0px no-repeat;
+    width: 10px;
+    height: 10px;
+}
+
+html>body .zxlib-gwt-tooltip {
+    
+}
+
+* html .zxlib-gwt-tooltip .popupTopLeftInner {
+}
+
+* html .zxlib-gwt-tooltip .popupTopRightInner {
+}
+
+* html .zxlib-gwt-tooltip .popupBottomLeftInner {
+}
+
+* html .zxlib-gwt-tooltip .popupBottomRightInner {
+}
+.arrowLeft {
+}
+.arrowBottom {
+}
+.arrowRight {
+}
+
+/* .zxlib-gwt-tooltip.arrowLeft { */
+/*     position: relative; */
+/*     left: -10px; */
+/*     padding-left: 9px; */
+/*     background: url("images/tooltip_arrow_left.png") 0px 10px no-repeat; */
+/* } */
+/* .zxlib-gwt-tooltip.arrowRight { */
+/*     position: relative; */
+/*     padding-right: 8px; */
+/*     background: url("images/tooltip_arrow_right.png") right 10px no-repeat; */
+/* } */
