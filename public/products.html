@@ -1,75 +1,64 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="de" ng-app="epost">
+<html lang="de" ng-app="bankapp">
 <head>
-<meta charset="utf-8">
-<meta name="fragment" content="#" />
-<title>Mini EPost Brief</title>
+    <meta charset="utf-8">
+    <meta name="fragment" content="#"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini bankapp Brief</title>
 
-<!-- design template -->
-<link href="css/main.css" rel="stylesheet" type="text/css">
-<link href="css/tabs.css" rel="stylesheet" type="text/css">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="grey">
+    <link rel="stylesheet" href="css/bankapp/app.css">
 
-<!-- fileupload -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Bootstrap styles for responsive website layout, supporting different screen sizes -->
-<link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-responsive.min.css">
-<!-- Bootstrap CSS fixes for IE6 -->
-<!--[if lt IE 7]><link rel="stylesheet" href="http://blueimp.github.com/cdn/css/bootstrap-ie6.min.css"><![endif]-->
-<!-- Bootstrap Image Gallery styles -->
-<link rel="stylesheet" href="http://blueimp.github.com/Bootstrap-Image-Gallery/css/bootstrap-image-gallery.min.css">
-<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
-<link rel="stylesheet" href="css/fileupload/jquery.fileupload-ui.css">
-<!-- use local patched version to support blobl ajax handling pull request is open-->
-<script src="js/offline/jquery-1.10.2.js" type='text/javascript'></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type='text/javascript'></script>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.js" type='text/javascript'></script>
-<!-- use local patched version to support configurable uri encoding pull request is obmitted
-<script src="http://code.angularjs.org/1.1.4/angular-resource.js" type='text/javascript'></script>
- -->
-<script src="lib/angular-resource.js" type='text/javascript'></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js" type='text/javascript'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js"></script>
-<script src="js/offline/localStorage.js" type='text/javascript'></script>
-<script src="js/epost/app.js" type='text/javascript'></script>
-<script src="js/epost/directives/datepicker.js" type='text/javascript'></script>
-<script src="js/epost/directives/nullifempty.js" type='text/javascript'></script>
-<script src="js/epost/directives/loadingscreen.js" type='text/javascript'></script>
-<script src="js/epost/directives/upload.js" type='text/javascript'></script>
-<script src="js/epost/directives/jsontree.js" type='text/javascript'></script>
-<script src="js/epost/controllers.js" type='text/javascript'></script>
-<script src="js/epost/filters.js" type='text/javascript'></script>
-<script src="js/epost/services.js" type='text/javascript'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js" type='text/javascript'></script>
+    <script src="https://code.angularjs.org/1.2.16/angular-route.js" type='text/javascript'></script>
+    <!-- use local patched version to support configurable uri encoding pull request is obmitted
+    <script src="http://code.angularjs.org/1.1.4/angular-resource.js" type='text/javascript'></script>
+     -->
+    <script src="lib/angular-resource.js" type='text/javascript'></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js"
+            type='text/javascript'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js"></script>
+    <script src="js/bankapp/app.js" type='text/javascript'></script>
+    <script src="js/bankapp/directives/datepicker.js" type='text/javascript'></script>
+    <script src="js/bankapp/directives/jsontree.js" type='text/javascript'></script>
+    <script src="js/bankapp/controllers.js" type='text/javascript'></script>
+    <script src="js/bankapp/filters.js" type='text/javascript'></script>
+    <script src="js/bankapp/services.js" type='text/javascript'></script>
+
+
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
 
 </head>
 <body>
-	<div id="header">
-    	<!-- Start navigation area -->
-        <div id="navigation">
-        	<a class="mainnavitem mainnavitem-active" href="#/dashboard">Uebersicht</a>
-		<a class="mainnavitem mainnavitem-active" href="#/stocks">Aktien</a>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-	</div>
-	<!-- dynamic rendering of the menu based on the menues.json file see public/global/menues.json and the Menue service see services.js -->
-
-	<div id="main"></div>
-	<div id="main-wrap">
-        
-        <!-- Start -->
-        <div class="boxes-full">
-            <div class="boxes-padding fullpadding" ng-view>
-            </div>
-            <span class="box-arrow"> </span>
-        </div>
-    </div>
-	
-    <div id="scrolltab" style="display: block;"></div>
-    <script src="js/offline/jquery.ui.widget.js" type='text/javascript'></script>
-    
-    <script src="js/offline/jquery.fileupload.js" type='text/javascript'></script>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"  ng-controller="HeaderController">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActive('/dashboard')}"><a href=#/dashboard">Uebersicht</a></li>
+                <li ng-class="{ active: isActive('/stocks')}"><a href="#/stocks">Aktien</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="table-responsive" ng-view />
 </body>
 </html>

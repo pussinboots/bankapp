@@ -90,11 +90,11 @@ object Application extends Controller {
     Results.MovedPermanently("assets/products.html")
   }
 
-  def findBalances(name: String, sort: String, direction: String, items: Int) = Action { request =>
+  def findBalances(name: String, sort: String, direction: String, items: Int,  page: Int) = Action { request =>
     DB.db withSession {
       def query = if (name.length > 0) Balances.findByName(name) else Balances.findAll()
       println(query.sorts(sort, direction).take(items).selectStatement)
-      def json = query.sorts(sort, direction).list()//.take(items).list()
+      def json = query.sorts(sort, direction).drop(items * (page - 1)).take(items).list()
       Ok(Json.stringify(Json.toJson(json))) as ("application/json")
     }
   }
