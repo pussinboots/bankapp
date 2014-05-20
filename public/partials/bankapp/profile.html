@@ -1,0 +1,25 @@
+<p> Titel: {{result.salutation}} </p>
+<p> Vorname: {{result.firstName}} </p>
+<p> Nachname: {{result.lastName}} </p>
+
+EPost-Addressen
+<ul>
+ <li ng-repeat="epostAddress in result.epbAddresses">
+ 	<p> epost: {{epostAddress.epostAddress}} </p>	
+ </li>
+</ul>
+
+Anschrift
+<ul>
+ <li ng-repeat="address in result.postalAddresses">
+ 	<p> Anrede: {{address.salutation}} </p>
+ 	<p> Vorname: {{address.firstName}} </p>
+	<p> Nachname: {{address.lastName}} </p>
+ 	<p> Strasse: {{address.streetName}} </p>	
+ 	<p> Hausnummer: {{address.houseNumber}} </p>	
+ 	<p> PLZ: {{address.zipCode}} </p>
+ 	<p> Stadt: {{address.city}} </p>		
+ </li>
+</ul>
+
+<div debugbox debug-data="{{result}}"></div>
