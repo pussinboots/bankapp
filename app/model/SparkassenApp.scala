@@ -23,6 +23,7 @@ object SparkassenApp extends App {
     for((name, account) <- stocks.accounts) {
       Stocks.insert(name, account.value)
     }
+    Stocks.insert("Total", stocks.accounts.map(_._2.value).sum)
     //println(client.kontoDetails(form, "Das Girokonto\n**"))
   }
 }
