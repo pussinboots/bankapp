@@ -101,6 +101,7 @@ trait SymbolComponent { this: Profile => //requires a Profile to be mixed in...
     def insert(symbol: Symbol) = symbol.copy(id = Some(forInsert.insert(symbol)))
     def insert(name: String, symbol: String): Symbol = insert(Symbol(None, name, symbol))
     def findByName(name: String) =  (for {a <- Symbols if a.name === name} yield (a))
+    def insertIfNotExists(name: String, symbol: String) = findByName(name).firstOption.getOrElse(insert(name, symbol))
     def findAll() =  (for {a <- Symbols} yield (a))
   }
 }

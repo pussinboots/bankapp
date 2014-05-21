@@ -18,17 +18,13 @@ libraryDependencies ++= Seq(
 
 // test dependencies
 libraryDependencies ++= Seq(
+    "org.hsqldb" %  "hsqldb" % "[2,)" % "test",
     "co.freeside" % "betamax" % "1.1.2" % "test",
     "org.codehaus.groovy" % "groovy-all" % "1.8.8" % "test"
-    //"org.specs2" %% "specs2" % "2.2" % "test"
 )
 
 libraryDependencies ++= Seq(
     "com.typesafe.slick" %% "slick" % "1.0.1",
     "mysql" % "mysql-connector-java" % "5.1.18",
     "c3p0" % "c3p0" % "0.9.1.2"
-)
-
-libraryDependencies ++= Seq(
-    "com.typesafe.play" %% "play" % "2.2.0" withSources
 )
