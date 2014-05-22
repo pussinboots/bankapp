@@ -33,7 +33,7 @@ class DAL(override val profile: ExtendedProfile) extends BalanceComponent with S
   def drop(implicit session: Session) = try {(Balances.ddl).drop} catch {case ioe: Exception =>}
 }
 
-case class Balance(var id: Option[Int] = None, name: String, value: Double, date: Option[Timestamp])
+case class Balance(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp])
 
 trait BalanceComponent { this: Profile => //requires a Profile to be mixed in...
   import profile.simple._ //...to be able import profile.simple._
@@ -42,19 +42,19 @@ trait BalanceComponent { this: Profile => //requires a Profile to be mixed in...
   object Balances extends Table[Balance]("balances") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc) // This is the primary key column
     def name = column[String]("name")
-    def value = column[Double]("value")
+    def value = column[String]("value")
     def date = column[Option[Timestamp]]("date")
     def * = id.? ~ name ~ value ~ date <> (Balance, Balance.unapply _)
     def forInsert = name ~ value ~ date <> ({ t => Balance(None,t._1, t._2, t._3)}, {(u: Balance) => Some((u.name, u.value, u.date))}) returning id
     def insert(balance: Balance): Balance = balance.copy(id = Some(forInsert.insert(balance)))
-    def insert(name: String, value: Double): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt()))
+    def insert(name: String, value: String): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt()))
     def findByName(name: String) =  (for {a <- Balances if a.name === name} yield (a))
     def findAll() =  (for {a <- Balances} yield (a))
   }
 }
 
-case class StockJson(id: Int, name: String, value: Double, symbol: String, date: Timestamp)
-case class Stock(var id: Option[Int] = None, name: String, value: Double, date: Option[Timestamp])
+case class StockJson(id: Int, name: String, value: String, symbol: String, date: Timestamp)
+case class Stock(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp])
 
 trait StockComponent { this: Profile with SymbolComponent => //requires a Profile to be mixed in...
   import profile.simple._ //...to be able import profile.simple._
@@ -63,12 +63,12 @@ trait StockComponent { this: Profile with SymbolComponent => //requires a Profil
   object Stocks extends Table[Stock]("stocks") {
     def id = column[Int]("id", O.PrimaryKey, O.AutoInc) // This is the primary key column
     def name = column[String]("name")
-    def value = column[Double]("value")
+    def value = column[String]("value")
     def date = column[Option[Timestamp]]("date")
     def * = id.? ~ name ~ value ~ date <> (Stock, Stock.unapply _)
     def forInsert = name ~ value ~ date <> ({ t => Stock(None,t._1, t._2, t._3)}, {(u: Stock) => Some((u.name, u.value, u.date))}) returning id
     def insert(stock: Stock) = stock.copy(id = Some(forInsert.insert(stock)))
-    def insert(name: String, value: Double): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt()))
+    def insert(name: String, value: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt()))
     def findByName(name: String) = {
 	(for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.name === name} 
 	yield (a, s.symbol.?))

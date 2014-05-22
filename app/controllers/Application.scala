@@ -76,7 +76,7 @@ object Application extends Controller {
   import DB.dal.profile.simple._
 
   implicit val balanceWrites = Json.writes[Balance]
-  implicit val stockWrites = Json.writes[Stock]
+ /* implicit val stockWrites = Json.writes[Stock]*/
 
   import Helpers._
 
