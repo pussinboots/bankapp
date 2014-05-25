@@ -75,7 +75,7 @@ trait UserAccountComponent {
 
 }
 
-case class Balance(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp])
+case class Balance(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])
 
 trait BalanceComponent {
   this: Profile =>
@@ -97,24 +97,26 @@ trait BalanceComponent {
 
     def date = column[Option[Timestamp]]("date")
 
-    def * = id.? ~ name ~ value ~ date <>(Balance, Balance.unapply _)
+    def googleId = column[Option[String]]("googleId")
 
-    def forInsert = name ~ value ~ date <>( { t => Balance(None, t._1, t._2, t._3)}, { (u: Balance) => Some((u.name, u.value, u.date))}) returning id
+    def * = id.? ~ name ~ value ~ date ~ googleId <>(Balance, Balance.unapply _)
+
+    def forInsert = name ~ value ~ date ~ googleId <>( { t => Balance(None, t._1, t._2, t._3, t._4)}, { (u: Balance) => Some((u.name, u.value, u.date, u.googleId))}) returning id
 
     def insert(balance: Balance): Balance = balance.copy(id = Some(forInsert.insert(balance)))
 
-    def insert(name: String, value: String): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt()))
+    def insert(name: String, value: String): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), None))
 
-    def findByName(name: String) = (for {a <- Balances if a.name === name} yield (a))
+    def findByName(name: String)(googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
 
-    def findAll() = (for {a <- Balances} yield (a))
+    def findAll()(googleId: Option[String]) = (for {a <- Balances if a.googleId == googleId} yield (a))
   }
 
 }
 
 case class StockJson(id: Int, name: String, value: String, symbol: String, date: Timestamp)
 
-case class Stock(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp])
+case class Stock(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])
 
 trait StockComponent {
   this: Profile with SymbolComponent =>
@@ -136,27 +138,29 @@ trait StockComponent {
 
     def date = column[Option[Timestamp]]("date")
 
-    def * = id.? ~ name ~ value ~ date <>(Stock, Stock.unapply _)
+    def googleId = column[Option[String]]("googleId")
 
-    def forInsert = name ~ value ~ date <>( { t => Stock(None, t._1, t._2, t._3)}, { (u: Stock) => Some((u.name, u.value, u.date))}) returning id
+    def * = id.? ~ name ~ value ~ date ~ googleId <>(Stock, Stock.unapply _)
+
+    def forInsert = name ~ value ~ date ~ googleId <>( { t => Stock(None, t._1, t._2, t._3, t._4)}, { (u: Stock) => Some((u.name, u.value, u.date, u.googleId))}) returning id
 
     def insert(stock: Stock) = stock.copy(id = Some(forInsert.insert(stock)))
 
-    def insert(name: String, value: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt()))
+    def insert(name: String, value: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt(), None))
 
-    def findByName(name: String) = {
-      (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.name === name}
+    def findByName(name: String)(implicit googleId: Option[String]) = {
+      (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.name === name && a.googleId === googleId}
       yield (a, s.symbol.?))
     }
 
-    def findAll() = {
+    def findAll()(implicit googleId: Option[String]) = {
       (for {a <- Stocks
-            s <- Symbols if s.name === a.name}
+            s <- Symbols if s.name === a.name && a.googleId === googleId}
       yield (a, s))
     }
 
-    def findAllWithJoin() = {
-      (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name)
+    def findAllWithJoin()(implicit googleId: Option[String]) = {
+      (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.googleId === googleId
       }
       yield (a, s.symbol.?))
     }

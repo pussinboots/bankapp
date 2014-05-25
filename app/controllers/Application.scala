@@ -94,8 +94,9 @@ object Application extends Controller {
 
   def findBalances(name: String, sort: String, direction: String, items: Int, page: Int) = Action { request =>
     //read googleId from header X-AUTH-TOKEN
+    val googleId = request.headers.get("X-AUTH-TOKEN")
     DB.db withSession {
-      def query = if (name.length > 0) Balances.findByName(name) else Balances.findAll()
+      def query = if (name.length > 0) Balances.findByName(name)(googleId) else Balances.findAll()(googleId)
       println(query.sorts(sort, direction).take(items).selectStatement)
       def json = query.sorts(sort, direction).drop(items * (page - 1)).take(items).list()
       Ok(Json.stringify(Json.toJson(json))) as ("application/json")
@@ -112,6 +113,7 @@ object Application extends Controller {
 
   def findStocks(name: String, date: Long, sort: String, direction: String, items: Int, page: Int) = Action { request =>
     //read googleId from header X-AUTH-TOKEN
+    implicit val googleId = request.headers.get("X-AUTH-TOKEN")
     DB.db withSession {
       var query = if (name.length > 0) Stocks.findByName(name) else Stocks.findAllWithJoin()
       query = if (date > -1) query.filter(_._1.date === new Timestamp(date)) else query
