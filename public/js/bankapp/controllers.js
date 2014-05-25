@@ -53,22 +53,38 @@ function TableCtrl($rootScope, $scope, Balances) {
     };
 }
 
+function GoogleCtrl($rootScope, $scope, $http, Users) {
+    $scope.$on('event:google-plus-signin-success', function (event, authResult) {
+        gapi.auth.setToken(authResult); // Den zurückgegebenen Token speichern.
+        gapi.client.load('oauth2', 'v2', function () {
+            var request = gapi.client.oauth2.userinfo.get();
+            request.execute(function (obj) {
+                $rootScope.profile = obj
+                $rootScope.$digest()
+                Users.get({googleId: $rootScope.profile.id.toString()});
+                $http.defaults.headers.common["X-AUTH-TOKEN"] = $rootScope.profile.id.toString();
+            });
+        });
+        console.log('success full login');
+    })
+};
+
 function BalanceCtrl($rootScope, $scope, Balances) {
     initTable($scope, 10, 'date', 'desc')
 
-    $scope.setItems = function (scope) {
-        loadBalances(scope, Balances)
+    $scope.setItems = function (rootScope, scope) {
+        loadBalances($rootScope, scope, Balances)
     };
-    $scope.setItems($scope)
+    $scope.setItems($rootScope, $scope)
 }
 
 function StockCtrl($rootScope, $scope, Stocks) {
     initTable($scope, 10, 'date', 'desc')
 
-    $scope.setItems = function (scope) {
-        loadStocks(scope, Stocks)
+    $scope.setItems = function (rootScope, scope) {
+        loadStocks($rootScope, scope, Stocks)
     };
-    $scope.setItems($scope)
+    $scope.setItems($rootScope, $scope)
 }
 
 function DetailCtrl($scope, $routeParams, YqlQuotes) {
@@ -81,8 +97,8 @@ function DetailCtrl($scope, $routeParams, YqlQuotes) {
     fetchQuote()
 }
 
-function loadStocks(scope, Stocks) {
-    scope.stocks = Stocks.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name: scope.filter.fieldName, date: scope.filter.fieldDate}, function(data){
+function loadStocks(rootScope, scope, Stocks) {
+    scope.stocks = Stocks.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name: scope.filter.fieldName, date: scope.filter.fieldDate}, function (data) {
 			console.log('success, got data: ', data);
 			var base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 			console.log( "base64Key = " + base64Key );
@@ -122,8 +138,8 @@ function loadStocks(scope, Stocks) {
   })
 }
 
-function loadBalances(scope, Balances) {
-	scope.balances = Balances.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name: scope.filter.fieldName}, function(data){
+function loadBalances(rootScope, scope, Balances) {
+    scope.balances = Balances.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name: scope.filter.fieldName}, function (data) {
 			console.log('success, got data: ', data);
 			var base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 			console.log( "base64Key = " + base64Key );

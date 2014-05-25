@@ -13,10 +13,11 @@ import play.api.mvc.Controller
 import play.api.mvc.Request
 import play.api.mvc.Result
 import play.api.mvc.Results
+import play.api.mvc.Cookie
 import views.html
 import play.api.mvc.WrappedRequest
 import model.DB
-import model.{Balance, Stock, StockJson, Symbol}
+import model.{Balance, Stock, StockJson, Symbol, UserAccount}
 import scala.slick.session.Database
 import Database.threadLocalSession
 import scala.slick.lifted.ColumnOrdered
@@ -76,6 +77,7 @@ object Application extends Controller {
   import DB.dal.profile.simple._
 
   implicit val balanceWrites = Json.writes[Balance]
+  implicit val userWrites = Json.writes[UserAccount]
  /* implicit val stockWrites = Json.writes[Stock]*/
 
   import Helpers._
@@ -90,7 +92,8 @@ object Application extends Controller {
     Results.MovedPermanently("assets/products.html")
   }
 
-  def findBalances(name: String, sort: String, direction: String, items: Int,  page: Int) = Action { request =>
+  def findBalances(name: String, sort: String, direction: String, items: Int, page: Int) = Action { request =>
+    //read googleId from header X-AUTH-TOKEN
     DB.db withSession {
       def query = if (name.length > 0) Balances.findByName(name) else Balances.findAll()
       println(query.sorts(sort, direction).take(items).selectStatement)
@@ -99,7 +102,16 @@ object Application extends Controller {
     }
   }
 
+  def findAccount(googleId: String) = Action { request =>
+    DB.db withSession {
+      def query = UserAccounts.findByGoogle(googleId)
+      def json = query.firstOption
+      Ok(Json.stringify(Json.toJson(json))) /*.withCookies(Cookie("XSRF-TOKEN", googleId))*/ as ("application/json")
+    }
+  }
+
   def findStocks(name: String, date: Long, sort: String, direction: String, items: Int, page: Int) = Action { request =>
+    //read googleId from header X-AUTH-TOKEN
     DB.db withSession {
       var query = if (name.length > 0) Stocks.findByName(name) else Stocks.findAllWithJoin()
       query = if (date > -1) query.filter(_._1.date === new Timestamp(date)) else query

@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-var myModule = angular.module('bankapp', ['angular-loading-bar', 'ngRoute', 'ui.bootstrap', 'debugbox', 'jsontree', 'ngSanitize', 'productFilters', 'productServices', 'ngCookies'])
+var myModule = angular.module('bankapp', ['angular-loading-bar', 'ngRoute', 'ui.bootstrap', 'debugbox', 'jsontree', 'ngSanitize', 'productFilters', 'productServices', 'ngCookies', 'directive.g+signin'])
 
 myModule.config(function ($routeProvider) {
     $routeProvider

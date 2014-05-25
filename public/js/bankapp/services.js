@@ -14,6 +14,12 @@ angular.module('productServices', ['ngResource'], function ($provide) {
         });
     });
 
+    $provide.factory('Users', function ($resource) {
+        return $resource('/assets/rest/account', {}, {
+            get: {method: 'GET'}
+        });
+    });
+
     $provide.factory('YqlQuotes', ['$q', '$http', function($q, $http) {
     var yqlQueryUrl = 'http://query.yahooapis.com/v1/public/yql?q=';
     var yqlOptions = '&format=json&callback=JSON_CALLBACK';
