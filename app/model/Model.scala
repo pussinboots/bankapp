@@ -38,7 +38,7 @@ class DAL(override val profile: ExtendedProfile) extends UserAccountComponent wi
   }
 
   def drop(implicit session: Session) = try {
-    (Balances.ddl).drop
+    (Balances.ddl ++ Stocks.ddl ++ Symbols.ddl ++ UserAccounts.ddl).drop
   } catch {
     case ioe: Exception =>
   }
@@ -107,9 +107,9 @@ trait BalanceComponent {
 
     def insert(name: String, value: String): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), None))
 
-    def findByName(name: String)(googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
+    def findByName(name: String)(implicit googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
 
-    def findAll()(googleId: Option[String]) = (for {a <- Balances if a.googleId === googleId} yield (a))
+    def findAll()(implicit googleId: Option[String]) = (for {a <- Balances if a.googleId === googleId} yield (a))
   }
 
 }
