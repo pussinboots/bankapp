@@ -109,7 +109,7 @@ trait BalanceComponent {
 
     def findByName(name: String)(googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
 
-    def findAll()(googleId: Option[String]) = (for {a <- Balances if a.googleId == googleId} yield (a))
+    def findAll()(googleId: Option[String]) = (for {a <- Balances if a.googleId === googleId} yield (a))
   }
 
 }
