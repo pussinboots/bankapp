@@ -2,7 +2,7 @@ package model
 
 import scala.slick.session.Database
 import Database.threadLocalSession
-import tools.EasyCryptUtil
+import tools.EasyCryptUtil._
 
 object SparkassenApp extends App {
 
@@ -12,19 +12,20 @@ object SparkassenApp extends App {
     DB.dal.create
 
     val client = new SparKassenClient()
+    val googleId = "17916981101.apps.googleusercontent.com".encrypt.encrypted
     val form = client.parseOverview(client.login(User.fromProperties))
     println(form.accounts)
     println(form.accounts.map(_._2.value).sum)
     for((name, account) <- form.accounts) {
-      Balances.insert(EasyCryptUtil.encrypt(name).encrypted, EasyCryptUtil.encrypt(account.value).encrypted)
+      Balances.insert(name.encrypt.encrypted, account.value.encrypt.encrypted)
     }
-    Balances.insert(EasyCryptUtil.encrypt("Total").encrypted, EasyCryptUtil.encrypt(form.accounts.map(_._2.value).sum).encrypted)
+    Balances.insert("Total".encrypt.encrypted, form.accounts.map(_._2.value).sum.encrypt.encrypted)
     val stocks = client.parseStockOverview(client.stockOverview(form))
     println(stocks)
     for((name, account) <- stocks.accounts) {
-      Stocks.insert(EasyCryptUtil.encrypt(name).encrypted, EasyCryptUtil.encrypt(account.value).encrypted)
+      Stocks.insert(name.encrypt.encrypted, account.value.encrypt.encrypted)
     }
-    Stocks.insert(EasyCryptUtil.encrypt("Total").encrypted, EasyCryptUtil.encrypt(stocks.accounts.map(_._2.value).sum).encrypted)
+    Stocks.insert("Total".encrypt.encrypted, stocks.accounts.map(_._2.value).sum.encrypt.encrypted)
     //println(client.kontoDetails(form, "Das Girokonto\n**"))
   }
 }
