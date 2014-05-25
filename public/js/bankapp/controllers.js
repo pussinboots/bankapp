@@ -30,7 +30,7 @@ function TableCtrl($rootScope, $scope, Balances) {
 
     $scope.pageChanged = function() {
         console.log('Page changed to: ' + $scope.currentPage);
-        $scope.setItems($scope)
+        $scope.setItems($rootScope, $scope)
     };
 
     $rootScope.$on('CtrlPressed', function () {
@@ -42,11 +42,11 @@ function TableCtrl($rootScope, $scope, Balances) {
 
     $scope.filterBy = function (value, field) {
         $scope.filter[field] = value
-        $scope.setItems($scope)
+        $scope.setItems($rootScope, $scope)
     };
     $scope.resetFilter = function () {
         $scope.filter = {}
-        $scope.setItems($scope)
+        $scope.setItems($rootScope, $scope)
     }
     $scope.sortClass = function (column) {
         return $scope.sortColumn.contains(column) && 'sort-' + $scope.sortDirection;
