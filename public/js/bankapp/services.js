@@ -4,18 +4,18 @@
 
 angular.module('productServices', ['ngResource'], function ($provide) {
 
-    $provide.factory('Balances', function ($resource) {return $resource('/assets/rest/balances', {}, {
+    $provide.factory('Balances', function ($resource) {return $resource('/rest/balances', {}, {
             get: {method: 'GET', isArray: true}
         });
     });
 
-    $provide.factory('Stocks', function ($resource) {return $resource('/assets/rest/stocks', {}, {
+    $provide.factory('Stocks', function ($resource) {return $resource('/rest/stocks', {}, {
             get: {method: 'GET', isArray: true}
         });
     });
 
     $provide.factory('Users', function ($resource) {
-        return $resource('/assets/rest/account', {}, {
+        return $resource('/rest/account', {}, {
             get: {method: 'GET'}
         });
     });
