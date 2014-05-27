@@ -1,9 +1,10 @@
-<div class="table-responsive"  ng-controller="TableCtrl">
+<div class="table-responsive" ng-controller="TableCtrl">
     <div>
         <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
     </div>
     <div>
-        <a class="label label-default" ng-show="filter.fieldName" ng-click="resetFilter()">{{filter.fieldName}}<span class="badge">x</span></a>
+        <a class="label label-default" ng-show="filter.fieldName" ng-click="resetFilter()">{{filter.fieldName}}<span
+                class="badge">x</span></a>
     </div>
     <table class="table">
         <thead>
@@ -16,7 +17,7 @@
         </thead>
         <tfoot>
         <tr>
-            <td class="text-center"><span class="badge">{{balances.length}}</span></td>
+            <td class="text-center"><span class="badge">{{balances.count}}</span></td>
             <td class="text-center" colspan="2">
                 <select ng-model="items" ng-change="pageChanged()">
                     <option value="10">10</option>
@@ -29,12 +30,14 @@
         </tr>
         <tr>
             <td colspan="4">
-                <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                            ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                            next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
             </td>
         </tr>
         </tfoot>
         <tbody>
-        <tr ng-repeat="balance in balances">
+        <tr ng-repeat="balance in balances.items">
             <td class="text-center">{{balance.id}}</td>
             <td class="text-center" ng-click="filterBy(balance.name_enc, 'fieldName')">{{balance.name_enc}}</td>
             <td class="text-center">{{balance.value_enc}}</td>

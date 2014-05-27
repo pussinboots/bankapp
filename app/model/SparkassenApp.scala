@@ -12,7 +12,7 @@ object SparkassenApp extends App {
     DB.dal.create
 
     val client = new SparKassenClient()
-    implicit val googleId = Some("17916981101.apps.googleusercontent.com".encrypt.encrypted)
+    implicit val googleId = Some("<insert your google id here>".encrypt.encrypted)
     val form = client.parseOverview(client.login(User.fromProperties))
     println(form.accounts)
     println(form.accounts.map(_._2.value).sum)

@@ -12,3 +12,4 @@ GET        /rest/stocks          controllers.Application.findStocks(name_enc: St
 # Map static resources from the /public folder to the /assets URL path
 GET         /*file                         controllers.Assets.at(path="/public", file)
 
+POST        /rest/balances        controllers.Application.saveBalance()

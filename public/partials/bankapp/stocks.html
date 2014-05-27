@@ -1,4 +1,4 @@
-<div class="table-responsive"  ng-controller="TableCtrl">
+<div class="table-responsive" ng-controller="TableCtrl">
     <div>
         <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
     </div>
@@ -20,7 +20,7 @@
         </thead>
         <tfoot>
         <tr>
-            <td class="text-center">Anzahl {{stocks.length}}</td>
+            <td class="text-center">Anzahl {{stocks.count}}</td>
             <td class="text-center" colspan="3">
                 <select ng-model="items" ng-change="setItems()">
                     <option value="10">10</option>
@@ -32,12 +32,14 @@
         </tr>
         <tr>
             <td colspan="4">
-                <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+                <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                            ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                            next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
             </td>
         </tr>
         </tfoot>
         <tbody>
-        <tr ng-repeat="stock in stocks">
+        <tr ng-repeat="stock in stocks.items">
             <td class="text-center">{{stock.id}}</td>
             <td class="text-center" ng-click="filterBy(stock.name_enc, 'fieldName')">{{stock.name_enc}}</td>
             <td class="text-center">{{stock.value_enc}}</td>

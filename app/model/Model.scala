@@ -75,6 +75,8 @@ trait UserAccountComponent {
 
 }
 
+case class BalanceJsonSave(name_enc: String, value_enc: String)
+
 case class BalanceJson(id: Int, name_enc: String, value_enc: String, date: Timestamp)
 
 case class Balance(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])
@@ -107,7 +109,7 @@ trait BalanceComponent {
 
     def insert(balance: Balance): Balance = balance.copy(id = Some(forInsert.insert(balance)))
 
-    def insert(name: String, value: String)(implicit googleId: Option[String]): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), None))
+    def insert(name: String, value: String)(implicit googleId: Option[String]): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), googleId))
 
     def findByName(name: String)(implicit googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
 

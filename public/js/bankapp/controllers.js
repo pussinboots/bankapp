@@ -19,7 +19,7 @@ function initTable(scope, items, sortColumn, sortDirection) {
 }
 
 function TableCtrl($rootScope, $scope, Balances) {
-    $scope.totalItems = 64;
+    $scope.totalItems = 20;
     $scope.currentPage = 1;
 
     $scope.filter = {}
@@ -28,7 +28,7 @@ function TableCtrl($rootScope, $scope, Balances) {
         setSort($scope, sort)
     };
 
-    $scope.pageChanged = function() {
+    $scope.pageChanged = function () {
         console.log('Page changed to: ' + $scope.currentPage);
         $scope.setItems($rootScope, $scope)
     };
@@ -98,11 +98,15 @@ function DetailCtrl($scope, $routeParams, YqlQuotes) {
 }
 
 function loadStocks(rootScope, scope, Stocks) {
-    scope.stocks = Stocks.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName, date: scope.filter.fieldDate});
+    scope.stocks = Stocks.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName, date: scope.filter.fieldDate}, function (response) {
+        scope.totalItems = response.count;
+    });
 }
 
 function loadBalances(rootScope, scope, Balances) {
-    scope.balances = Balances.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName}); 
+    scope.balances = Balances.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName}, function (response) {
+        scope.totalItems = response.count;
+    });
 }
 
 function setSort(scope, sort) {
