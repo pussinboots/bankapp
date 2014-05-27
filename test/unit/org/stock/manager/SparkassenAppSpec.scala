@@ -1,7 +1,7 @@
-package org.stock.manager
+package unit.org.stock.manager
 
 import org.specs2.mutable.Specification
-import org.stock.manager.test.Betamax
+import unit.org.stock.manager.test.Betamax
 import co.freeside.betamax.{MatchRule, TapeMode}
 import java.util.Comparator
 import co.freeside.betamax.message.Request

@@ -1,4 +1,4 @@
-package org.stock.manager.test
+package unit.org.stock.manager.test
 
 import org.specs2.mutable.Before
 import model.DB

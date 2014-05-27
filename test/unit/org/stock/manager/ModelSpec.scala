@@ -1,4 +1,4 @@
-package org.stock.manager
+package unit.org.stock.manager
 
 import org.specs2.mutable.Specification
 import play.api.test._
@@ -7,7 +7,7 @@ import scala.slick.driver.H2Driver
 import scala.slick.session.Database
 import Database.threadLocalSession
 import play.api.test.PlaySpecification
-import org.stock.manager.test.SlickDbBefore
+import unit.org.stock.manager.test.SlickDbBefore
 import model.DateUtil
 import scala.Some
 import scala.Some

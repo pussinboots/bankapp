@@ -1,4 +1,4 @@
-package tools
+package unit.tools
 
 import org.specs2.mutable.Specification
 import play.api.test.PlaySpecification

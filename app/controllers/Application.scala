@@ -89,7 +89,7 @@ object Application extends Controller {
   implicit val stockAndSymbolWrites = Json.writes[StockJson]
 
   def index = Action {
-    Results.MovedPermanently("assets/products.html")
+    Results.MovedPermanently("products.html")
   }
 
   def findBalances(name: String, sort: String, direction: String, items: Int, page: Int) = Action { request =>
