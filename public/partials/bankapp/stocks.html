@@ -12,8 +12,8 @@
         <thead>
         <tr>
             <th class="span2 sortable" ng-class="sortClass('id')" ng-click="setSort('id')">Id</th>
-            <th class="span2 sortable" ng-class="sortClass('name')" ng-click="setSort('name')">Name</th>
-            <th class="span2 sortable" ng-class="sortClass('value')" ng-click="setSort('value')">Wert</th>
+            <th class="span2 sortable" ng-class="sortClass('name_enc')" ng-click="setSort('name_enc')">Name</th>
+            <th class="span2 sortable" ng-class="sortClass('value_enc')" ng-click="setSort('value_enc')">Wert</th>
             <th class="span2 sortable" ng-class="sortClass('date')" ng-click="setSort('date')">Datum</th>
             <th class="span2"></th>
         </tr>
@@ -39,8 +39,8 @@
         <tbody>
         <tr ng-repeat="stock in stocks">
             <td class="text-center">{{stock.id}}</td>
-            <td class="text-center" ng-click="filterBy(stock.name, 'fieldName')">{{stock.name}}</td>
-            <td class="text-center">{{stock.value}}</td>
+            <td class="text-center" ng-click="filterBy(stock.name_enc, 'fieldName')">{{stock.name_enc}}</td>
+            <td class="text-center">{{stock.value_enc}}</td>
             <td class="text-center" ng-click="filterBy(stock.date, 'fieldDate')">{{stock.date | date:dateFormat}}</td>
             <td class="text-center"><a ng-href="#/detail/{{stock.symbol}}">detail</a></td>
         </tr>

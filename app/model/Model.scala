@@ -75,6 +75,8 @@ trait UserAccountComponent {
 
 }
 
+case class BalanceJson(id: Int, name_enc: String, value_enc: String, date: Timestamp)
+
 case class Balance(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])
 
 trait BalanceComponent {
@@ -114,7 +116,7 @@ trait BalanceComponent {
 
 }
 
-case class StockJson(id: Int, name: String, value: String, symbol: String, date: Timestamp)
+case class StockJson(id: Int, name_enc: String, value_enc: String, symbol: String, date: Timestamp)
 
 case class Stock(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])
 

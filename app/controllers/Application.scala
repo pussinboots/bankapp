@@ -17,7 +17,7 @@ import play.api.mvc.Cookie
 import views.html
 import play.api.mvc.WrappedRequest
 import model.DB
-import model.{Balance, Stock, StockJson, Symbol, UserAccount}
+import model.{Balance, BalanceJson, Stock, StockJson, Symbol, UserAccount}
 import scala.slick.session.Database
 import Database.threadLocalSession
 import scala.slick.lifted.ColumnOrdered
@@ -76,7 +76,7 @@ object Application extends Controller {
   import DB.dal._
   import DB.dal.profile.simple._
 
-  implicit val balanceWrites = Json.writes[Balance]
+  implicit val balanceWrites = Json.writes[BalanceJson]
   implicit val userWrites = Json.writes[UserAccount]
  /* implicit val stockWrites = Json.writes[Stock]*/
 
@@ -99,7 +99,11 @@ object Application extends Controller {
       def query = if (name.length > 0) Balances.findByName(name)(googleId) else Balances.findAll()(googleId)
       println(query.sorts(sort, direction).take(items).selectStatement)
       def json = query.sorts(sort, direction).drop(items * (page - 1)).take(items).list()
-      Ok(Json.stringify(Json.toJson(json))) as ("application/json")
+      def result = json map { case (balance: Balance) =>
+        BalanceJson(balance.id.get, balance.name, balance.value, balance.date.get)
+      }
+ 
+      Ok(Json.stringify(Json.toJson(result))) as ("application/json")
     }
   }
 

@@ -1,7 +1,7 @@
 'use strict';
 
 /* App Module */
-var myModule = angular.module('bankapp', ['angular-loading-bar', 'ngRoute', 'ui.bootstrap', 'debugbox', 'jsontree', 'ngSanitize', 'productFilters', 'productServices', 'ngCookies', 'directive.g+signin'])
+var myModule = angular.module('bankapp', ['angular-loading-bar', 'ngRoute', 'ui.bootstrap', 'debugbox', 'jsontree', 'ngSanitize', 'productFilters', 'productServices', 'ngCookies', 'directive.g+signin', 'angularjs-crypto'])
 
 myModule.config(function ($routeProvider) {
     $routeProvider
@@ -12,6 +12,10 @@ myModule.config(function ($routeProvider) {
 })
 myModule.config(['$httpProvider', function ($httpProvider) {
     //$httpProvider.interceptors.push('httpInterceptor');
+}])
+
+myModule.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
+    cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 }])
 
 /*myModule.factory('httpInterceptor', function ($q, $cookieStore, $rootScope, $interpolate) {

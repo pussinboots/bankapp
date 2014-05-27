@@ -5,12 +5,12 @@
 angular.module('productServices', ['ngResource'], function ($provide) {
 
     $provide.factory('Balances', function ($resource) {return $resource('/rest/balances', {}, {
-            get: {method: 'GET', isArray: true}
+            get: {method: 'GET', isArray: true, crypt: true}
         });
     });
 
     $provide.factory('Stocks', function ($resource) {return $resource('/rest/stocks', {}, {
-            get: {method: 'GET', isArray: true}
+            get: {method: 'GET', isArray: true, crypt: true}
         });
     });
 
