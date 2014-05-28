@@ -28,18 +28,18 @@ class ApplicationSpec extends PlaySpecification /*with SlickDbBefore*/ {
   def initTestData(db: scala.slick.session.Database) {
     db.withSession {
       DB.dal.recreate
-      userAccount = UserAccounts.insert(googleId.get)
+      userAccount = UserAccounts.insert(googleId.get, "testemail")
 
       Balances.insert(Balance(None, "Total", "100.01", now, Some(userAccount.googleId)))
       Balances.insert(Balance(None, "Girokonto", "281.21", yesterday, Some(userAccount.googleId)))
-      Balances.insert(Balance(None, "Total", "100.01", yesterday, Some(UserAccounts.insert("other googleId").googleId)))
+      Balances.insert(Balance(None, "Total", "100.01", yesterday, Some(UserAccounts.insert("other googleId", "testemail2").googleId)))
 
       Symbols.insertIfNotExists("Aktie 1", "CBK.DE")
       Symbols.insertIfNotExists("Aktie 2", "EOAN.DE")
 
       Stocks.insert(Stock(None, "Aktie 1", "11.01", now, Some(userAccount.googleId)))
       Stocks.insert(Stock(None, "Aktie 2", "28.21", yesterday, Some(userAccount.googleId)))
-      Stocks.insert(Stock(None, "Aktie 1", "10.01", yesterday, Some(UserAccounts.insert("other googleId").googleId)))
+      Stocks.insert(Stock(None, "Aktie 1", "10.01", yesterday, Some(UserAccounts.insert("an other googleId", "testemail3").googleId)))
     }
   }
 

@@ -52,18 +52,11 @@ function TableCtrl($rootScope, $scope, Balances) {
         return $scope.sortColumn.contains(column) && 'sort-' + $scope.sortDirection;
     };
 }
-
-function GoogleCtrl($rootScope, $scope, $http, Users) {
+function GoogleCtrl2($rootScope, $scope, $http, Users) {
     $scope.$on('event:google-plus-signin-success', function (event, authResult) {
         gapi.auth.setToken(authResult); // Den zurückgegebenen Token speichern.
-        gapi.client.load('oauth2', 'v2', function () {
-            var request = gapi.client.oauth2.userinfo.get();
-            request.execute(function (obj) {
-                $rootScope.profile = obj
-                $rootScope.$digest()
-                Users.get({googleId: $rootScope.profile.id.toString()});
-                $http.defaults.headers.common["X-AUTH-TOKEN"] = $rootScope.profile.id.toString();
-            });
+        $rootScope.profile = Users.auth({token: authResult.access_token}, function(response) {
+            $http.defaults.headers.common["X-AUTH-TOKEN"] = response.googleId.toString();
         });
         console.log('success full login');
     })

@@ -17,8 +17,8 @@ angular.module('productServices', ['ngResource'], function ($provide) {
     });
 
     $provide.factory('Users', function ($resource) {
-        return $resource('/rest/account', {}, {
-            get: {method: 'GET'}
+        return $resource('/rest/google', {}, {
+            auth: {method: 'GET'}
         });
     });
 
