@@ -12,7 +12,8 @@ object SparkassenApp extends App {
     DB.dal.create
 
     val client = new SparKassenClient()
-    implicit val googleId = Some("<insert your google id here>".encrypt.encrypted)
+    require(sys.env.get("google_id") != None, "system property google_id is missing")
+    implicit val googleId = sys.env.get("google_id")
     val form = client.parseOverview(client.login(User.fromProperties))
     println(form.accounts)
     println(form.accounts.map(_._2.value).sum)

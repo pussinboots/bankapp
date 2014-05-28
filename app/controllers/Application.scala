@@ -25,57 +25,6 @@ import DB.dal.profile.simple.{Query => SlickQuery}
 import java.sql.Timestamp
 import play.api.libs.ws.WS
 
-object Helpers {
-
-  import DB.dal._
-  import DB.dal.profile.simple._
-
-  implicit class QueryExtensionSort[E, T <: Table[E]](val query: Query[T, E]) {
-    def sorts(sort: String, direction: String) = {
-      var _query = query
-      sort.reverse.split(" ").foreach { s =>
-        println("sort " + s.reverse + " " + direction)
-        _query = sortKey(s.reverse, direction)
-      }
-      _query
-    }
-
-    private def sortKey(sort: String, direction: String): Query[T, E] = {
-      query.sortBy(table =>
-        direction match {
-          case "asc" =>
-            println("sort2 " + sort + " asc")
-            table.column[String](sort).asc
-          case "desc" =>
-            println("sort2 " + sort + " desc")
-            table.column[String](sort).desc
-        })
-    }
-  }
-
-  implicit class QueryExtensionSort2[E, T <: Table[E]](val query: Query[(T, _), (E, Option[String])]) {
-    def sorts(sort: String, direction: String) = {
-      var _query = query
-      sort.reverse.split(" ") foreach { s =>
-        _query = sortKey(s.reverse, direction)
-      }
-      _query
-    }
-
-    private def sortKey(sort: String, direction: String): Query[(T, _), (E, Option[String])] = {
-      query.sortBy(table =>
-        direction match {
-          case "asc" => table._1.column[String](sort).asc
-          case "desc" => table._1.column[String](sort).desc
-        })
-    }
-  }
-
-}
-
-/*case class Context[A](googleId: Option[String], request: Request[A])
-  extends WrappedRequest(request)*/
-
 object Application extends Controller {
 
   def ActionWithToken(f: Option[String] => Result) = Action { request => f(request.headers.get("X-AUTH-TOKEN"))}
@@ -83,7 +32,7 @@ object Application extends Controller {
   import DB.dal._
   import DB.dal.profile.simple._
 
-  import Helpers._
+  import model.SlickHelpers._
   import model.JsonHelper._
 
   def index = Action {
@@ -127,8 +76,7 @@ object Application extends Controller {
     }
   }
 
-  def googleConnect(token: String) = Action {request =>
-    Async {
+  def googleConnect(token: String) = Action.async {request =>
       implicit val context = scala.concurrent.ExecutionContext.Implicits.global
       //TODO make the google token url configurable
       WS.url("https://www.googleapis.com/oauth2/v1/tokeninfo?access_token="+token).get()
@@ -142,7 +90,6 @@ object Application extends Controller {
           }
           case x => new Status(x)(response.body)
         }
-      }
     }
   }
 
