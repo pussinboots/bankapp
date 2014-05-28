@@ -8,6 +8,7 @@ object Global extends WithFilters(HTTPSRedirectFilter)
 object HTTPSRedirectFilter extends Filter {
 
   def apply(nextFilter: (RequestHeader) => Future[SimpleResult])(requestHeader: RequestHeader): Future[SimpleResult] = {
+
     //play uses lower case headers.
     implicit val context = scala.concurrent.ExecutionContext.Implicits.global
     requestHeader.headers.get("x-forwarded-proto") match {
