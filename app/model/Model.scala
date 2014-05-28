@@ -77,6 +77,7 @@ trait UserAccountComponent {
     def findOrCreateByGoogleId(googleId: String, eMail: String) = {
       val user = findByGoogle(googleId).firstOption
       user.getOrElse{
+        //TODO insert for new user dummy data to make it possible to test the app
         insert(googleId, eMail)
       }
     }
