@@ -25,7 +25,7 @@ function TableCtrl($rootScope, $scope, Balances) {
     $scope.filter = {}
 
     $scope.setSort = function (sort) {
-        setSort($scope, sort)
+        setSort($rootScope, $scope, sort)
     };
 
     $scope.pageChanged = function () {
@@ -102,9 +102,9 @@ function loadBalances(rootScope, scope, Balances) {
     });
 }
 
-function setSort(scope, sort) {
+function setSort(rootScope, scope, sort) {
     var oldSort = angular.copy(scope.sortColumn);
     if (scope.multiselect) scope.sortColumn = scope.sortColumn + " " + sort; else scope.sortColumn = sort;
     if (oldSort == sort) scope.sortDirection = scope.sortDirection == 'desc' ? 'asc' : 'desc'; else scope.sortDirection = 'desc';
-    scope.setItems(scope)
+    scope.setItems(rootScope, scope)
 };
