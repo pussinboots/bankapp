@@ -23,6 +23,7 @@ import Database.threadLocalSession
 import scala.slick.lifted.ColumnOrdered
 import DB.dal.profile.simple.{Query => SlickQuery}
 import java.sql.Timestamp
+import play.api.libs.ws.WS
 
 object Helpers {
 
@@ -123,6 +124,28 @@ object Application extends Controller {
       def query = UserAccounts.findByGoogle(googleId)
       def json = query.firstOption
       Ok(Json.stringify(Json.toJson(json))) /*.withCookies(Cookie("XSRF-TOKEN", googleId))*/ as ("application/json")
+    }
+  }
+
+  def googleConnect(token: String) = Action {request =>
+    Async {
+      implicit val context = scala.concurrent.ExecutionContext.Implicits.global
+      WS.url("https://www.googleapis.com/oauth2/v1/tokeninfo?access_token="+token).get()
+        .map { response =>
+        response.status match {
+          // in case you want to do something special for ok
+          // otherwise, pattern matching is not necessary
+          case OK => DB.db withSession {
+            val googleId = response.json \ "user_id"
+            val eMail = response.json \ "email"
+
+            val user = UserAccounts.findOrCreateByGoogleId(googleId.as[String], eMail.as[String])
+            Ok(Json.stringify(Json.toJson(user)))
+          }
+
+          case x => new Status(x)(response.body)
+        }
+      }
     }
   }
 

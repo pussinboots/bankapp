@@ -44,7 +44,7 @@ class DAL(override val profile: ExtendedProfile) extends UserAccountComponent wi
   }
 }
 
-case class UserAccount(var id: Option[Int] = None, googleId: String)
+case class UserAccount(var id: Option[Int] = None, googleId: String, eMail: String)
 
 trait UserAccountComponent {
   this: Profile =>
@@ -62,15 +62,24 @@ trait UserAccountComponent {
     // This is the primary key column
     def googleId = column[String]("googleId")
 
-    def * = id.? ~ googleId <>(UserAccount, UserAccount.unapply _)
+    def eMail = column[String]("email")
 
-    def forInsert = googleId returning id
+    def * = id.? ~ googleId ~ eMail <>(UserAccount, UserAccount.unapply _)
 
-    def insert(user: UserAccount): UserAccount = user.copy(id = Some(forInsert.insert(user.googleId)))
+    def forInsert = googleId ~ eMail returning id
 
-    def insert(googleId: String): UserAccount = insert(UserAccount(None, googleId))
+    def insert(user: UserAccount): UserAccount = user.copy(id = Some(forInsert.insert(user.googleId, user.eMail)))
+
+    def insert(googleId: String, eMail: String): UserAccount = insert(UserAccount(None, googleId, eMail))
 
     def findByGoogle(googleId: String) = (for {a <- UserAccounts if a.googleId === googleId} yield (a))
+
+    def findOrCreateByGoogleId(googleId: String, eMail: String) = {
+      val user = findByGoogle(googleId).firstOption
+      user.getOrElse{
+        insert(googleId, eMail)
+      }
+    }
   }
 
 }
