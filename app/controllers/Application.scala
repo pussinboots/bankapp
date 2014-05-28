@@ -130,19 +130,16 @@ object Application extends Controller {
   def googleConnect(token: String) = Action {request =>
     Async {
       implicit val context = scala.concurrent.ExecutionContext.Implicits.global
+      //TODO make the google token url configurable
       WS.url("https://www.googleapis.com/oauth2/v1/tokeninfo?access_token="+token).get()
         .map { response =>
         response.status match {
-          // in case you want to do something special for ok
-          // otherwise, pattern matching is not necessary
           case OK => DB.db withSession {
             val googleId = response.json \ "user_id"
             val eMail = response.json \ "email"
-
             val user = UserAccounts.findOrCreateByGoogleId(googleId.as[String], eMail.as[String])
             Ok(Json.stringify(Json.toJson(user)))
           }
-
           case x => new Status(x)(response.body)
         }
       }
