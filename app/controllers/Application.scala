@@ -74,42 +74,16 @@ object Helpers {
 
 /*case class Context[A](googleId: Option[String], request: Request[A])
   extends WrappedRequest(request)*/
-case class JsonFmtListWrapper[T](items: List[T], count: Int)
 
 object Application extends Controller {
-
-  implicit object TimestampFormatter extends Format[Timestamp] {
-    def reads(s: JsValue): JsResult[Timestamp] = JsSuccess(new Timestamp(s.toString.toLong))
-
-    def writes(timestamp: Timestamp) = JsString(timestamp.toString)
-  }
-
-  implicit def listWrapperFormat[T: Format]: Format[JsonFmtListWrapper[T]] = (
-    (__ \ "items").format[List[T]] and
-      (__ \ "count").format[Int]
-    )(JsonFmtListWrapper.apply, unlift(JsonFmtListWrapper.unapply))
 
   def ActionWithToken(f: Option[String] => Result) = Action { request => f(request.headers.get("X-AUTH-TOKEN"))}
 
   import DB.dal._
   import DB.dal.profile.simple._
 
-  implicit val balanceWrites = Json.format[BalanceJson]
-  implicit val balanceReads: Reads[BalanceJsonSave] = (
-    (JsPath \ "name_enc").read[String] and
-      (JsPath \ "value_enc").read[String]
-    )(BalanceJsonSave.apply _)
-
-  implicit val userWrites = Json.writes[UserAccount]
-  /* implicit val stockWrites = Json.writes[Stock]*/
-
   import Helpers._
-
-  implicit def tuple2Writes[A, B](implicit aWrites: Writes[A], bWrites: Writes[B]): Writes[Tuple2[A, B]] = new Writes[Tuple2[A, B]] {
-    def writes(tuple: Tuple2[A, B]) = JsArray(Seq(aWrites.writes(tuple._1), bWrites.writes(tuple._2)))
-  }
-
-  implicit val stockAndSymbolWrites = Json.format[StockJson]
+  import model.JsonHelper._
 
   def index = Action {
     Results.MovedPermanently("products.html")
@@ -124,7 +98,6 @@ object Application extends Controller {
       val result = json map { case (balance: Balance) =>
         BalanceJson(balance.id.get, balance.name, balance.value, balance.date.get)
       }
-      import JsonFmtListWrapper._
       Ok(Json.stringify(Json.toJson(JsonFmtListWrapper(result, count)))) as ("application/json")
     }
   }
@@ -155,7 +128,7 @@ object Application extends Controller {
 
   def findStocks(name: String, date: Long, sort: String, direction: String, items: Int, page: Int) = ActionWithToken { implicit googleId =>
     DB.db withSession {
-      var query = if (name.length > 0) Stocks.findByName(name) else Stocks.findAllWithJoin()
+      var query = if (name.length > 0) Stocks.findByName(name) else Stocks.findAll()
       query = if (date > -1) query.filter(_._1.date === new Timestamp(date)) else query
       //FIXME sorting is not working at the moment
       println(query.drop(items * (page - 1)).take(items).selectStatement)

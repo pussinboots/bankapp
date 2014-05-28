@@ -158,12 +158,6 @@ trait StockComponent {
     }
 
     def findAll()(implicit googleId: Option[String]) = {
-      (for {a <- Stocks
-            s <- Symbols if s.name === a.name && a.googleId === googleId}
-      yield (a, s))
-    }
-
-    def findAllWithJoin()(implicit googleId: Option[String]) = {
       (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.googleId === googleId
       }
       yield (a, s.symbol.?))

@@ -5,11 +5,17 @@ import java.io.File
 
 play.Project.playScalaSettings
 
+ScctPlugin.instrumentSettings
+
 name := "StockManager"
 
 version := "0.1"
 
 scalaVersion := "2.10.3"
+
+Keys.fork in Test := false
+
+parallelExecution in Test := false
 
 envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==") // setted for EasyCryptSpec
 
