@@ -54,12 +54,5 @@ class ApplicationSpec extends PlaySpecification /*with SlickDbBefore*/ {
         jsonUserAccount.get.id must beEqualTo(userAccount.id)
       }
     }
-
-    "not existing UserAccount for non existing googleId" in {
-      DB.db withSession {
-        val userAccount = UserAccounts.findByGoogle("non existing googleId").firstOption
-        userAccount must beEqualTo(None)
-      }
-    }
   }
 }
