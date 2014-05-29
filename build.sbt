@@ -25,6 +25,8 @@ parallelExecution in ScctTest := false
 
 parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
+ScoverageSbtPlugin.ScoverageKeys.excludedPackages in ScoverageSbtPlugin.scoverage := "Reverse*;controllers.javascript;controllers.ref;app.tools;Routes"
+
 ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes"
 
 envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==", "sparkasse_username"->"username", "sparkasse_password"->"password") // setted for EasyCryptSpec
