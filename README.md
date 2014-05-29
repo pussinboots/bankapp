@@ -1,5 +1,11 @@
 bankapp
 =======
+[![Build status][ci-image]][ci-url] [![Coverage Status][coverage-image]][coverage-url]
+[ci-image]: https://travis-ci.org/pussinboots/bankapp.png?branch=master
+[ci-url]: https://travis-ci.org/pussinboots/bankapp
+[coverage-image]: https://coveralls.io/repos/pussinboots/bankapp/badge.png
+[coverage-url]:https://coveralls.io/r/pussinboots/bankapp/
+
 
 Little personal bank web application that show my account and stock overview of my 
 bank account. The data is fetched from the bank account web site and it is only run local
