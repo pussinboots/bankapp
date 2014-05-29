@@ -17,6 +17,10 @@ Keys.fork in Test := false
 
 parallelExecution in Test := false
 
+parallelExecution in ScctTest := false
+
+ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools"
+
 envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==") // setted for EasyCryptSpec
 
 libraryDependencies ++= Seq(

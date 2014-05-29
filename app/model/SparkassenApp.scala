@@ -13,7 +13,7 @@ object SparkassenApp extends App {
 
     val client = new SparKassenClient()
     require(sys.env.get("google_id") != None, "system property google_id is missing")
-    implicit val googleId = sys.env.get("google_id")
+    implicit val googleId = sys.env.get("google_id").get
     val form = client.parseOverview(client.login(User.fromProperties))
     println(form.accounts)
     println(form.accounts.map(_._2.value).sum)

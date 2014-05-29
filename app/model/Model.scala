@@ -119,11 +119,11 @@ trait BalanceComponent {
 
     def insert(balance: Balance): Balance = balance.copy(id = Some(forInsert.insert(balance)))
 
-    def insert(name: String, value: String)(implicit googleId: Option[String]): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), googleId))
+    def insert(name: String, value: String)(implicit googleId: String): Balance = insert(Balance(None, name, value, DateUtil.nowDateTimeOpt(), Some(googleId)))
 
-    def findByName(name: String)(implicit googleId: Option[String]) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
+    def findByName(name: String)(implicit googleId: String) = (for {a <- Balances if a.name === name && a.googleId === googleId} yield (a))
 
-    def findAll()(implicit googleId: Option[String]) = (for {a <- Balances if a.googleId === googleId} yield (a))
+    def findAll()(implicit googleId: String) = (for {a <- Balances if a.googleId === googleId} yield (a))
   }
 
 }
@@ -160,14 +160,14 @@ trait StockComponent {
 
     def insert(stock: Stock) = stock.copy(id = Some(forInsert.insert(stock)))
 
-    def insert(name: String, value: String)(implicit googleId: Option[String]): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt(), None))
+    def insert(name: String, value: String)(implicit googleId: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt(), None))
 
-    def findByName(name: String)(implicit googleId: Option[String]) = {
+    def findByName(name: String)(implicit googleId: String) = {
       (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.name === name && a.googleId === googleId}
       yield (a, s.symbol.?))
     }
 
-    def findAll()(implicit googleId: Option[String]) = {
+    def findAll()(implicit googleId: String) = {
       (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.googleId === googleId
       }
       yield (a, s.symbol.?))

@@ -5,13 +5,19 @@ import java.sql.Timestamp
 import play.api.libs.functional.syntax._
 import play.api.libs.json.JsString
 import play.api.libs.json.JsSuccess
+import java.text.SimpleDateFormat
+import java.util.Date
 
 object JsonHelper {
 
   case class JsonFmtListWrapper[T](items: List[T], count: Int)
 
   implicit object TimestampFormatter extends Format[Timestamp] {
-    def reads(s: JsValue): JsResult[Timestamp] = JsSuccess(new Timestamp(s.toString.toLong))
+    def reads(s: JsValue): JsResult[Timestamp] = {
+      val dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS")
+      val parsedDate = dateFormat.parse(s.as[String])
+      JsSuccess(new java.sql.Timestamp(parsedDate.getTime()))
+    }
 
     def writes(timestamp: Timestamp) = JsString(timestamp.toString)
   }
@@ -21,7 +27,8 @@ object JsonHelper {
       (__ \ "count").format[Int]
     )(JsonFmtListWrapper.apply, unlift(JsonFmtListWrapper.unapply))
 
-  implicit val balanceWrites = Json.format[BalanceJson]
+  implicit val balanceJsonWrites = Json.format[BalanceJson]
+  implicit val balanceJsonSaveWrites = Json.writes[BalanceJsonSave]
   implicit val balanceReads: Reads[BalanceJsonSave] = (
     (JsPath \ "name_enc").read[String] and
       (JsPath \ "value_enc").read[String]

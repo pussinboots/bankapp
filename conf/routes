@@ -6,12 +6,12 @@ GET         /                                     controllers.Application.index(
 
 GET        /rest/account         controllers.Application.findAccount(googleId: String)
 
-GET        /rest/google        controllers.Application.googleConnect(token: String)
+GET        /rest/google          controllers.Application.googleConnect(token: String)
 
-GET        /rest/balances        controllers.Application.findBalances(name_enc: String ?= "", sort: String ?= "id", direction: String ?= "asc", items: Int ?=10, page: Int ?=1)
+GET        /rest/balances        controllers.BalanceController.findBalances(name_enc: String ?= "", date: Long ?= -1, sort: String ?= "id", direction: String ?= "asc", items: Int ?=10, page: Int ?=1)
 
-GET        /rest/stocks          controllers.Application.findStocks(name_enc: String ?= "", date: Long ?= -1, sort: String ?= "id", direction: String ?= "asc", items: Int ?=10, page: Int ?=1)
+GET        /rest/stocks          controllers.StockController.findStocks(name_enc: String ?= "", date: Long ?= -1, sort: String ?= "id", direction: String ?= "asc", items: Int ?=10, page: Int ?=1)
 # Map static resources from the /public folder to the /assets URL path
 GET         /*file                         controllers.Assets.at(path="/public", file)
 
-POST        /rest/balances        controllers.Application.saveBalance()
+POST        /rest/balances        controllers.BalanceController.saveBalance()
