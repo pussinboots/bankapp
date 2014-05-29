@@ -3,14 +3,12 @@
         <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
                     ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
                     next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
-        <div>
+        <!--<div style="padding: 10px">
             <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
-        </div>
-        <div>
-            <div class="label label-default clickable" ng-show="filter.fieldName" ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span
-                    class="badge">x</span></div>
-            <div class="label label-default clickable" ng-show="filter.fieldDate" ng-click="resetFilter('fieldDate')">{{filter.fieldDate |date:'short'}}<span
-                    class="badge">x</span></div>
+        </div>-->
+        <div style="padding: 10px">
+            <div class="label label-primary clickable" ng-show="filter.fieldName" ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span> x</span></div>
+            <div class="label label-warning clickable" ng-show="filter.fieldDate" ng-click="resetFilter('fieldDate')">{{filter.fieldDate |date:'short'}}<span> x</span></div>
         </div>
         <div>
             <ul class="list-inline">
