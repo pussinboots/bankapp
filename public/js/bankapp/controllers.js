@@ -10,49 +10,7 @@ function HeaderController($scope, $location) {
 
 /* Controllers */
 
-function initTable(scope, items, sortColumn, sortDirection) {
-    scope.filter = {}
-    scope.items = items
-    scope.sortColumn = sortColumn;
-    scope.sortDirection == sortDirection
-    scope.dateFormat = 'yyyy-MM-dd HH:mm:ss Z'
-}
-
-function TableCtrl($rootScope, $scope, Balances) {
-    $scope.totalItems = 20;
-    $scope.currentPage = 1;
-
-    $scope.filter = {}
-
-    $scope.setSort = function (sort) {
-        setSort($rootScope, $scope, sort)
-    };
-
-    $scope.pageChanged = function () {
-        console.log('Page changed to: ' + $scope.currentPage);
-        $scope.setItems($rootScope, $scope)
-    };
-
-    $rootScope.$on('CtrlPressed', function () {
-        $scope.multiselect = true;
-    });
-    $rootScope.$on('CtrlReleased', function () {
-        $scope.multiselect = false;
-    });
-
-    $scope.filterBy = function (value, field) {
-        $scope.filter[field] = value
-        $scope.setItems($rootScope, $scope)
-    };
-    $scope.resetFilter = function () {
-        $scope.filter = {}
-        $scope.setItems($rootScope, $scope)
-    }
-    $scope.sortClass = function (column) {
-        return $scope.sortColumn.contains(column) && 'sort-' + $scope.sortDirection;
-    };
-}
-function GoogleCtrl2($rootScope, $scope, $http, Users) {
+function GoogleCtrl($rootScope, $scope, $http, Users) {
     $scope.$on('event:google-plus-signin-success', function (event, authResult) {
         gapi.auth.setToken(authResult); // Den zurückgegebenen Token speichern.
         $rootScope.profile = Users.auth({token: authResult.access_token}, function(response) {
@@ -98,7 +56,7 @@ function loadStocks(rootScope, scope, Stocks) {
 }
 
 function loadBalances(rootScope, scope, Balances) {
-    scope.balances = Balances.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName}, function (response) {
+    scope.balances = Balances.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName, date: scope.filter.fieldDate}, function (response) {
         scope.totalItems = response.count;
     });
 }

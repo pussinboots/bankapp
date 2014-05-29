@@ -1,0 +1,45 @@
+<div class="text-center">
+    <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+</div>
+
+<div>
+    <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
+</div>
+<div>
+    <a class="label label-default" ng-show="filter.fieldName"
+       ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span
+            class="badge">x</span></a>
+    <a class="label label-default" ng-show="filter.fieldDate"
+       ng-click="resetFilter('fieldDate')">{{filter.fieldDate}}<span
+            class="badge">x</span></a>
+</div>
+<ul class="table">
+    <div class="header">
+        <li class="row">
+            <span class="span2 sortable" ng-class="sortClass('id')" ng-click="setSort('id')">Id</span>
+            <span class="span2 sortable" ng-class="sortClass('name')" ng-click="setSort('name')">Name</span>
+            <span class="span2 sortable" ng-class="sortClass('value')" ng-click="setSort('value')">Wert</span>
+            <span class="span2 sortable" ng-class="sortClass('date')" ng-click="setSort('date')">Datum</span>
+        </li>
+    </div>
+    <div class="body" ng-transclude>
+    </div>
+</ul>
+<div class="text-center">
+    <span class="text-center"><span class="badge">{{stocks.count}}</span>
+    <span>
+        <select ng-model="items" ng-change="setItems()">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </span>
+</div>
+<div class="text-center">
+    <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+</div>

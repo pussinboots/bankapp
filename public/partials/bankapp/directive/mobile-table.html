@@ -1,0 +1,25 @@
+    <div class="text-center">
+        <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                    ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+        <div style="padding: 10px">
+            <div class="label label-primary clickable" ng-show="filter.fieldName" ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span> x</span></div>
+            <div class="label label-warning clickable" ng-show="filter.fieldDate" ng-click="resetFilter('fieldDate')">{{filter.fieldDate |date:'short'}}<span> x</span></div>
+        </div>
+        <div>
+            <ul class="list-inline">
+                <li style="padding:10px; padding-right: 15px" class="list-group-item list-group-item-primary clickable" ng-class="sortClass('name')" ng-click="setSort('name')">Name</li>
+                <li style="padding:10px; padding-right: 15px" class="list-group-item list-group-item-success clickable" ng-class="sortClass('value')" ng-click="setSort('value')">Wert</li>
+                <li style="padding:10px; padding-right: 15px" class="list-group-item list-group-item-warning clickable" ng-class="sortClass('date')" ng-click="setSort('date')">Datum</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div ng-transclude></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="text-center">
+        <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                    ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
+                    next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+    </div>

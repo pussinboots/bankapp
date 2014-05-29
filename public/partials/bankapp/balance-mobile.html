@@ -1,0 +1,15 @@
+<div ng-controller="TableCtrl">
+    <mobile-table>
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 img-rounded" ng-repeat="balance in balances.items">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="clickable" ng-click="filterBy(balance.name_enc, 'fieldName')">{{balance.name_enc}}</div>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">{{balance.value_enc}}</li>
+                    <li class="list-group-item list-group-item-warning clickable" ng-click="filterBy(balance.date, 'fieldDate')">{{balance.date | date:'short'}}</li>
+                </ul>
+            </div>
+        </div>
+    </mobile-table>
+</div>

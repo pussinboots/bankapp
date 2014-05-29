@@ -7,6 +7,7 @@
     <title>Mini bankapp Brief</title>
 
     <link rel="stylesheet" href="css/bankapp/app.css">
+    <link rel="stylesheet" href="css/bankapp/directive/datatable.css">
     <link rel="stylesheet" href="js/loading-bar.css">
 
     <!-- Latest compiled and minified CSS -->
@@ -26,13 +27,14 @@
      -->
     <script src="lib/angular-resource.js" type='text/javascript'></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js"
-            type='text/javascript'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-cookies.js" type='text/javascript'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular-sanitize.js"></script>
     <script src="js/bankapp/app.js" type='text/javascript'></script>
     <script src="js/bankapp/directives/datepicker.js" type='text/javascript'></script>
+    <script src="js/bankapp/directives/data-table.js" type='text/javascript'></script>
     <script src="js/bankapp/directives/jsontree.js" type='text/javascript'></script>
     <script src="js/bankapp/controllers.js" type='text/javascript'></script>
+    <script src="js/bankapp/directives.js" type='text/javascript'></script>
     <script src="js/bankapp/filters.js" type='text/javascript'></script>
     <script src="js/bankapp/services.js" type='text/javascript'></script>
 
@@ -60,8 +62,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation" ng-controller="GoogleCtrl2"
-">
+<nav class="navbar navbar-default" role="navigation" ng-controller="GoogleCtrl">
 <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -76,6 +77,7 @@
         <ul class="nav navbar-nav">
             <li ng-class="{ active: isActive('/dashboard')}"><a href=#/dashboard">Uebersicht</a></li>
             <li ng-class="{ active: isActive('/stocks')}"><a href="#/stocks">Aktien</a></li>
+            <li ng-class="{ active: isActive('/balance-mobile')}"><a href="#/balance-mobile">Uebersicht Mobil</a></li>
             <li ng-class="{ active: isActive('/stocks-mobile')}"><a href="#/stocks-mobile">Aktien Mobil</a></li>
             <li ng-class="{ active: isActive('/google')}">
                 <div style="position: relative"><google-plus-signin clientid="17916981101.apps.googleusercontent.com"
@@ -90,7 +92,7 @@
 <!-- /.container-fluid -->
 </nav>
 <div class="container-fluid">
-    <div  ng-view/>
+    <div ng-view></div>
 </div>
 </body>
 </html>
