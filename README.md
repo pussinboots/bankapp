@@ -1,6 +1,8 @@
 bankapp
 =======
-![Alt text](https://coveralls.io/repos/pussinboots/bankapp/badge.png)
+[![Build status][ci-image]][ci-url]
+[ci-image]: https://travis-ci.org/pussinboots/bankapp.png?branch=master
+[ci-url]: https://travis-ci.org/pussinboots/bankapp
 [![Coverage Status][coverage-image]][coverage-url]
 [coverage-image]: https://coveralls.io/repos/pussinboots/bankapp/badge.png
 [coverage-url]:https://coveralls.io/r/pussinboots/bankapp/
