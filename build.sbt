@@ -25,7 +25,7 @@ parallelExecution in ScctTest := false
 
 parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
-ScoverageSbtPlugin.ScoverageKeys.highlighting := true
+//ScoverageSbtPlugin.ScoverageKeys.highlighting in ScoverageSbtPlugin.scoverage := true
 
 ScoverageSbtPlugin.ScoverageKeys.excludedPackages in ScoverageSbtPlugin.scoverage := "Reverse*;controllers..*Reverse*;controllers.javascript;controllers.ref;app.tools;Routes"
 
