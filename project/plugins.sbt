@@ -11,3 +11,9 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 addSbtPlugin("com.typesafe.play" %% "sbt-plugin" % "2.2.3")
 
 addSbtPlugin("com.sqality.scct" % "sbt-scct" % "0.3")
+
+addSbtPlugin("com.sksamuel.scoverage" % "sbt-scoverage" % "0.95.1")
+
+addSbtPlugin("com.sksamuel.scoverage" %% "sbt-coveralls" % "0.0.5")
+
+
