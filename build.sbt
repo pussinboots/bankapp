@@ -7,9 +7,9 @@ play.Project.playScalaSettings
 
 ScctPlugin.instrumentSettings
 
-ScoverageSbtPlugin.instrumentSettings
-
 CoverallsPlugin.coverallsSettings
+
+ScoverageSbtPlugin.instrumentSettings
 
 name := "StockManager"
 
@@ -23,7 +23,7 @@ parallelExecution in Test := false
 
 parallelExecution in ScctTest := false
 
-
+parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
 ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes"
 

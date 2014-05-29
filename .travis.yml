@@ -1,5 +1,5 @@
 language: scala
-script: play-${PLAY_VERSION}/play test
+script: play-${PLAY_VERSION}/play coveralls
 env: 
 - PLAY_VERSION=2.2.3
 before_script: 
