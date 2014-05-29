@@ -15,6 +15,7 @@ class SparkassenAppSpec extends Specification {
 
   "The SparkassenApp" should {
     "given system properties login data return correct User case class" in {
+      //TODO not working only working with define getOrElse
       sys.props.+=("sparkasse_username" -> "username")
       sys.props.+=("sparkasse_password" -> "password")
       val user = User.fromProperties

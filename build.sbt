@@ -19,9 +19,9 @@ parallelExecution in Test := false
 
 parallelExecution in ScctTest := false
 
-ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools"
+ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes"
 
-envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==") // setted for EasyCryptSpec
+envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==", "sparkasse_username"->"username", "sparkasse_password"->"password") // setted for EasyCryptSpec
 
 libraryDependencies ++= Seq(
     "net.databinder.dispatch" %% "dispatch-core" % "0.10.0",

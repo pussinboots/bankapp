@@ -10,9 +10,7 @@ import scala.slick.driver.{H2Driver, MySQLDriver}
 object DB {
 
   lazy val db = sys.props.get("Database").getOrElse("mysql") match {
-    case "mysql" =>
-      println("Initialise mysql")
-      DB.getSlickMysqlConnection()
+    case "mysql" => DB.getSlickMysqlConnection()
     case "h2" => DB.getSlickHSQLDatabase()
   }
   lazy val dal = sys.props.get("Database").getOrElse("mysql") match {

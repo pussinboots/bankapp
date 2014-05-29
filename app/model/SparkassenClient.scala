@@ -19,7 +19,7 @@ class DoubleHelper(str: String) {
 
 case class User(username: String, password: String)
 object User {
-  def fromProperties = User(sys.env.get("sparkasse_username").get, sys.env.get("sparkasse_password").get)
+  def fromProperties = User(sys.env.get("sparkasse_username").getOrElse("username"), sys.env.get("sparkasse_password").getOrElse("password"))
 }
 case class Form(accounts: Map[String, Account], inputs: Seq[TagNode], formUrl: String)
 case class Account(name: String, number: Long, value: Double, operations: Map[String, TagNode])
