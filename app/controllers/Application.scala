@@ -29,24 +29,7 @@ object Application extends Controller {
     DB.db withSession {
       def query = UserAccounts.findByGoogle(googleId)
       def json = query.firstOption
-      Ok(Json.stringify(Json.toJson(json))) /*.withCookies(Cookie("XSRF-TOKEN", googleId))*/ as ("application/json")
-    }
-  }
-
-  def googleConnect(token: String) = Action.async { request =>
-    implicit val context = scala.concurrent.ExecutionContext.Implicits.global
-    //TODO make the google token url configurable
-    WS.url("https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=" + token).get()
-      .map { response =>
-      response.status match {
-        case OK => DB.db withSession {
-          val googleId = response.json \ "user_id"
-          val eMail = response.json \ "email"
-          val user = UserAccounts.findOrCreateByGoogleId(googleId.as[String], eMail.as[String])
-          Ok(Json.stringify(Json.toJson(user)))
-        }
-        case x => new Status(x)(response.body)
-      }
+      Ok(Json.stringify(Json.toJson(json))) as ("application/json")
     }
   }
 }

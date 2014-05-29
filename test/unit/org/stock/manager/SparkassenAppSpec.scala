@@ -5,7 +5,7 @@ import unit.org.stock.manager.test.Betamax
 import co.freeside.betamax.{MatchRule, TapeMode}
 import java.util.Comparator
 import co.freeside.betamax.message.Request
-import model.SparKassenClient
+import model.{User, SparKassenClient}
 
 class SparkassenAppSpec extends Specification {
   sys.props.+=("com.ning.http.client.AsyncHttpClientConfig.useProxyProperties" -> "true")
@@ -14,6 +14,13 @@ class SparkassenAppSpec extends Specification {
   isolated //to have seperated hsql databases
 
   "The SparkassenApp" should {
+    "given system properties login data return correct User case class" in {
+      sys.props.+=("sparkasse_username" -> "username")
+      sys.props.+=("sparkasse_password" -> "password")
+      val user = User.fromProperties
+      user.username must beEqualTo("username")
+      user.password must beEqualTo("password")
+    }
 //    "login into the sparkassen portal" in Betamax(tape="sparkassenhome", mode=Some(TapeMode.WRITE_ONLY), list= Seq(MatchRule.method, MatchRule.uri, MatchRule.query, MatchRule.fragment, MatchRule.headers)) {
 //      SparkassenApp.login()
 //      1 must beEqualTo(1)

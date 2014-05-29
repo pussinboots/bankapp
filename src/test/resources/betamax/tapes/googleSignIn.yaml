@@ -1,0 +1,65 @@
+!tape
+name: googleSignIn
+interactions:
+- recorded: 2014-05-29T11:20:28.986Z
+  request:
+    method: GET
+    uri: https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=inValidToken
+    headers:
+      Accept: '*/*'
+      Connection: keep-alive
+      Host: www.googleapis.com
+      Proxy-Connection: keep-alive
+      User-Agent: NING/1.0
+  response:
+    status: 400
+    headers:
+      Alternate-Protocol: 443:quic
+      Cache-Control: private, max-age=0
+      Content-Type: application/json; charset=UTF-8
+      Date: Thu, 29 May 2014 11:20:28 GMT
+      Expires: Thu, 29 May 2014 11:20:28 GMT
+      Server: GSE
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: SAMEORIGIN
+      X-XSS-Protection: 1; mode=block
+    body: |
+      {
+       "error": "invalid_token",
+       "error_description": "Invalid Value",
+       "debug_info": "code: INVALID_VALUE\nhttp status: 400\narguments: [invalid_token]\ncause: com.google.security.lso.protocol.oauth2.common.OAuth2ErrorException: invalid_token\n\tat com.google.security.lso.grant.token.TokenManager.getTokenInfo(TokenManager.java:577)\n\tat com.google.security.lso.apiary.tokeninfo.TokenInfoAction.execute(TokenInfoAction.java:92)\n\tat com.google.apps.framework.request.InterceptorInvocation$Rpc.beforeProceed(InterceptorInvocation.java:130)\n\tat com.google.apps.framework.request.InterceptorInvocation.proceed(InterceptorInvocation.java:139)\n\tat com.google.apps.framework.request.RpcDispatcher.proceed(RpcDispatcher.java:63)\n\tat com.google.apps.framework.request.RpcDispatcher.proceed(RpcDispatcher.java:28)\n\tat com.google.apps.framework.request.AbstractDispatcher$ExecuteChain.apply(AbstractDispatcher.java:157)\n\tat com.google.apps.framework.request.AbstractDispatcher.detach(AbstractDispatcher.java:316)\n\tat com.google.apps.framework.request.AbstractDispatcher.access$1100(AbstractDispatcher.java:43)\n\tat com.google.apps.framework.request.AbstractDispatcher$3.call(AbstractDispatcher.java:342)\n\tat com.google.apps.framework.request.AbstractDispatcher$3.call(AbstractDispatcher.java:340)\n\tat com.google.apps.framework.request.ThreadRenamerImpl$1.call(ThreadRenamerImpl.java:74)\n\tat com.google.apps.framework.request.ThreadTracer$1.call(ThreadTracer.java:49)\n\tat com.google.apps.framework.request.AbstractDispatcher.start(AbstractDispatcher.java:358)\n\tat com.google.apps.framework.request.AbstractDispatcher.executeAsync(AbstractDispatcher.java:141)\n\tat com.google.apps.framework.request.AsyncRpcInvocationHandler.invoke(AsyncRpcInvocationHandler.java:38)\n\tat com.sun.proxy.$Proxy593.tokenInfo(Unknown Source)\n\tat sun.reflect.GeneratedMethodAccessor545.invoke(Unknown Source)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:606)\n\tat com.google.net.rpc.inject.StubbyScopes$RpcHandler$1.call(StubbyScopes.java:125)\n\tat com.google.inject.servlet.ServletScopes$Context.call(ServletScopes.java:371)\n\tat com.google.inject.servlet.ServletScopes$8.call(ServletScopes.java:340)\n\tat com.google.net.rpc.inject.StubbyScopes$RpcHandler.invoke(StubbyScopes.java:132)\n\tat com.sun.proxy.$Proxy593.tokenInfo(Unknown Source)\n\tat com.google.protos.lso.issuetoken.Oauth2Service_3$ServiceParameters$1.handleRequest(Oauth2Service_3.java:639)\n\tat com.google.net.rpc3.impl.server.RpcServerInternalContext.runRpcInApplication(RpcServerInternalContext.java:544)\n\tat com.google.net.rpc3.impl.server.RpcServerChannel$1$1.runInContext(RpcServerChannel.java:849)\n\tat com.google.tracing.TraceContext$TraceContextRunnable$1.run(TraceContext.java:444)\n\tat com.google.tracing.CurrentContext.runInContext(CurrentContext.java:188)\n\tat com.google.tracing.TraceContext$AbstractTraceContextCallback.runInInheritedContextNoUnref(TraceContext.java:308)\n\tat com.google.tracing.TraceContext$AbstractTraceContextCallback.runInInheritedContext(TraceContext.java:300)\n\tat com.google.tracing.TraceContext$TraceContextRunnable.run(TraceContext.java:441)\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)\n\tat com.google.apps.framework.server.ThreadTimeExporter$TimingWrapper$1.call(ThreadTimeExporter.java:125)\n\tat com.google.common.util.concurrent.WrappingExecutorService$1.run(WrappingExecutorService.java:73)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1113)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:588)\n\tat java.lang.Thread.run(Thread.java:745)\n\n"
+      }
+- recorded: 2014-05-29T11:38:27.076Z
+  request:
+    method: GET
+    uri: https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=ya29.JQCbAEBX9v9sWSAAAAB3ztWIf69L6Om_Ck0UGA0Tlemrgoatzq0xcAOhjTPG1A
+    headers:
+      Accept: '*/*'
+      Connection: keep-alive
+      Host: www.googleapis.com
+      Proxy-Connection: keep-alive
+      User-Agent: NING/1.0
+  response:
+    status: 200
+    headers:
+      Alternate-Protocol: 443:quic
+      Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+      Content-Type: application/json; charset=UTF-8
+      Date: Thu, 29 May 2014 11:38:26 GMT
+      Expires: Fri, 01 Jan 1990 00:00:00 GMT
+      Pragma: no-cache
+      Server: GSE
+      X-Content-Type-Options: nosniff
+      X-Frame-Options: SAMEORIGIN
+      X-XSS-Protection: 1; mode=block
+    body: |
+      {
+       "issued_to": "clientid",
+       "audience": "clientid",
+       "user_id": "12345678910",
+       "scope": "https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.moments.write https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/plus.profile.agerange.read https://www.googleapis.com/auth/plus.profile.language.read https://www.googleapis.com/auth/plus.circles.members.read",
+       "expires_in": 3488,
+       "email": "test@googlemail.com",
+       "verified_email": true,
+       "access_type": "online"
+      }

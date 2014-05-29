@@ -29,6 +29,7 @@ object Betamax {
   def around[T: AsResult](t: => T, tape: String, mode: Option[TapeMode], list: java.util.List[Comparator[Request]]) = {
     synchronized {
       val recorder = new Recorder
+      recorder.setSslSupport(true)
       val proxyServer = new ProxyServer(recorder)
       import collection.JavaConversions._
       recorder.insertTape(tape, Map("match" -> list))

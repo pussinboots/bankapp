@@ -4,6 +4,9 @@ import play.api.mvc._
 import scala.concurrent.Future
 
 object Global extends WithFilters(HTTPSRedirectFilter)
+{
+
+}
 
 object HTTPSRedirectFilter extends Filter {
 

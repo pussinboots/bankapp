@@ -6,7 +6,7 @@ GET         /                                     controllers.Application.index(
 
 GET        /rest/account         controllers.Application.findAccount(googleId: String)
 
-GET        /rest/google          controllers.Application.googleConnect(token: String)
+GET        /rest/google          controllers.GoogleController.googleConnect(token: String)
 
 GET        /rest/balances        controllers.BalanceController.findBalances(name_enc: String ?= "", date: Long ?= -1, sort: String ?= "id", direction: String ?= "asc", items: Int ?=10, page: Int ?=1)
 
