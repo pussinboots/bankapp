@@ -8,9 +8,8 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
  
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
- 
+import org.apache.commons.codec.binary.Base64;
+
 /**
  * @author Alexander Gr
  * @see http://blog.axxg.de
@@ -80,8 +79,7 @@ public class EasyCrypt {
       byte[] encrypted = cipher.doFinal(text.getBytes());
  
       // bytes zu Base64-String konvertieren
-      BASE64Encoder myEncoder = new BASE64Encoder();
-      String geheim = myEncoder.encode(encrypted);
+      String geheim = new String(Base64.encodeBase64(encrypted));
        
       return geheim;
    }
@@ -96,8 +94,7 @@ public class EasyCrypt {
       valid();
        
       // BASE64 String zu Byte-Array
-      BASE64Decoder myDecoder = new BASE64Decoder();
-      byte[] crypted = myDecoder.decodeBuffer(geheim);      
+      byte[] crypted = Base64.decodeBase64(geheim.getBytes());
         
       // entschluesseln
       Cipher cipher = Cipher.getInstance(verfahren);
