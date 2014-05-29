@@ -13,13 +13,9 @@ object JsonHelper {
   case class JsonFmtListWrapper[T](items: List[T], count: Int)
 
   implicit object TimestampFormatter extends Format[Timestamp] {
-    def reads(s: JsValue): JsResult[Timestamp] = {
-      val dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS")
-      val parsedDate = dateFormat.parse(s.as[String])
-      JsSuccess(new java.sql.Timestamp(parsedDate.getTime()))
-    }
+    def reads(s: JsValue): JsResult[Timestamp] = JsSuccess(new java.sql.Timestamp(s.as[Long]))
 
-    def writes(timestamp: Timestamp) = JsString(timestamp.toString)
+    def writes(timestamp: Timestamp) = JsNumber(timestamp.getTime)
   }
 
   implicit def listWrapperFormat[T: Format]: Format[JsonFmtListWrapper[T]] = (

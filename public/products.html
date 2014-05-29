@@ -48,6 +48,16 @@
     <!--google plus auth-->
     <script src="js/google-plus-signin.js"></script>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation" ng-controller="GoogleCtrl2"
@@ -66,10 +76,12 @@
         <ul class="nav navbar-nav">
             <li ng-class="{ active: isActive('/dashboard')}"><a href=#/dashboard">Uebersicht</a></li>
             <li ng-class="{ active: isActive('/stocks')}"><a href="#/stocks">Aktien</a></li>
+            <li ng-class="{ active: isActive('/stocks-mobile')}"><a href="#/stocks-mobile">Aktien Mobil</a></li>
             <li ng-class="{ active: isActive('/google')}">
-                <google-plus-signin clientid="17916981101.apps.googleusercontent.com"
+                <div style="position: relative"><google-plus-signin clientid="17916981101.apps.googleusercontent.com"
                                     language="en"></google-plus-signin>
-                email:{{profile.eMail}}
+                    email:{{profile.eMail}}
+                </div>
             </li>
         </ul>
     </div>
@@ -77,6 +89,8 @@
 </div>
 <!-- /.container-fluid -->
 </nav>
-<div class="table-responsive" ng-view/>
+<div class="container-fluid">
+    <div  ng-view/>
+</div>
 </body>
 </html>

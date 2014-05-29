@@ -7,6 +7,7 @@ myModule.config(function ($routeProvider) {
     $routeProvider
 	.when('/dashboard', { templateUrl: 'partials/bankapp/dashboard.html', controller: BalanceCtrl })
 	.when('/stocks', { templateUrl: 'partials/bankapp/stocks.html', controller: StockCtrl })
+     .when('/stocks-mobile', { templateUrl: 'partials/bankapp/stocks-mobile.html', controller: StockCtrl })
 	.when('/detail/:symbol', { templateUrl: 'partials/bankapp/detail.html', controller: DetailCtrl })
         .otherwise({ redirectTo: '/dashboard' });
 })
@@ -17,18 +18,6 @@ myModule.config(['$httpProvider', function ($httpProvider) {
 myModule.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
     cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
 }])
-
-/*myModule.factory('httpInterceptor', function ($q, $cookieStore, $rootScope, $interpolate) {
-    return {
-        request: function (config) {
-            var plattformConfig = $rootScope.getPlattFormConfig()
-            var exp = $interpolate(config.url);
-            var uri = exp({config: plattformConfig})
-            config.url = uri
-            return config;
-        }
-    };
-});*/
 
 myModule.run(function ($rootScope) {
     String.prototype.contains = function(it) { return this.indexOf(it) != -1; };

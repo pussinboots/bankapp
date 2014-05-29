@@ -73,6 +73,7 @@ function BalanceCtrl($rootScope, $scope, Balances) {
 
 function StockCtrl($rootScope, $scope, Stocks) {
     initTable($scope, 10, 'date', 'desc')
+    $scope.sortDirection="asc"
 
     $scope.setItems = function (rootScope, scope) {
         loadStocks($rootScope, scope, Stocks)
@@ -91,13 +92,13 @@ function DetailCtrl($scope, $routeParams, YqlQuotes) {
 }
 
 function loadStocks(rootScope, scope, Stocks) {
-    scope.stocks = Stocks.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName, date: scope.filter.fieldDate}, function (response) {
+    scope.stocks = Stocks.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName, date: scope.filter.fieldDate}, function (response) {
         scope.totalItems = response.count;
     });
 }
 
 function loadBalances(rootScope, scope, Balances) {
-    scope.balances = Balances.get({googleId: rootScope.profile.id.toString(), sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName}, function (response) {
+    scope.balances = Balances.get({sort: scope.sortColumn, direction: scope.sortDirection, items: scope.items, page: scope.currentPage, name_enc: scope.filter.fieldName}, function (response) {
         scope.totalItems = response.count;
     });
 }
