@@ -1,6 +1,9 @@
 bankapp
 =======
 ![Alt text](https://coveralls.io/repos/pussinboots/bankapp/badge.png)
+[![Coverage Status][coverage-image]][coverage-url]
+[coverage-image]: https://coveralls.io/repos/pussinboots/bankapp/badge.png
+[coverage-url]:https://coveralls.io/repos/pussinboots/bankapp/
 
 
 Little personal bank web application that show my account and stock overview of my 
