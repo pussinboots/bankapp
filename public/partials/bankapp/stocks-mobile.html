@@ -1,17 +1,17 @@
 <div ng-controller="TableCtrl">
-    <div>
-        <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
-    </div>
-    <div>
-        <a class="label label-default" ng-show="filter.fieldName" ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span
-                class="badge">x</span></a>
-        <a class="label label-default" ng-show="filter.fieldDate" ng-click="resetFilter('fieldDate')">{{filter.fieldDate}}<span
-                class="badge">x</span></a>
-    </div>
     <div class="text-center">
         <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
                     ng-change="pageChanged()" class="pagination-sm" previous-text="&lsaquo;"
                     next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>
+        <div>
+            <span class="label label-default" ng-show="sortColumn">{{sortColumn}}</span>
+        </div>
+        <div>
+            <div class="label label-default clickable" ng-show="filter.fieldName" ng-click="resetFilter('fieldName')">{{filter.fieldName}}<span
+                    class="badge">x</span></div>
+            <div class="label label-default clickable" ng-show="filter.fieldDate" ng-click="resetFilter('fieldDate')">{{filter.fieldDate |date:'short'}}<span
+                    class="badge">x</span></div>
+        </div>
         <div>
             <ul class="list-inline">
                 <li style="padding:10px; padding-right: 15px" class="list-group-item list-group-item-primary clickable" ng-class="sortClass('name')" ng-click="setSort('name')">Name</li>
@@ -27,8 +27,8 @@
                     <div class="clickable" ng-click="filterBy(stock.name_enc, 'fieldName')">{{stock.name_enc}}</div>
                 </div>
                 <ul class="list-group">
-                    <li class="green list-group-item list-group-item-success">{{stock.value_enc}}</li>
-                    <li class="list-group-item list-group-item-warning" ng-click="filterBy(stock.date, 'fieldDate')">{{stock.date | date:'short'}}</li>
+                    <li class="list-group-item list-group-item-success">{{stock.value_enc}}</li>
+                    <li class="list-group-item list-group-item-warning clickable" ng-click="filterBy(stock.date, 'fieldDate')">{{stock.date | date:'short'}}</li>
                 </ul>
             </div>
         </div>
