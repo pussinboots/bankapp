@@ -2,6 +2,7 @@ import sbt._
 import sbt.Keys._
 import play.Project._
 import java.io.File
+import scala.sys.process._
 
 play.Project.playScalaSettings
 
@@ -24,6 +25,16 @@ parallelExecution in Test := false
 parallelExecution in ScctTest := false
 
 parallelExecution in ScoverageSbtPlugin.scoverageTest := false
+
+lazy val hello = taskKey[Unit]("Prints 'Hello World'")
+
+val logger = ProcessLogger(
+    (o: String) => println("out " + o),
+    (e: String) => println("err " + e))
+
+hello := scala.sys.process.Process( "bower" :: "install" :: Nil) ! logger
+
+(compile in Compile) <<= (compile in Compile) dependsOn (hello)
 
 //ScoverageSbtPlugin.ScoverageKeys.highlighting in ScoverageSbtPlugin.scoverage := true
 
