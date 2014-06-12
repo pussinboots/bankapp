@@ -30,11 +30,11 @@ val logger = ProcessLogger(
     (o: String) => println("out " + o),
     (e: String) => println("err " + e))
 
-lazy val hello = taskKey[Unit]("npm install")
+lazy val npm = taskKey[Unit]("npm install")
 
-hello := scala.sys.process.Process( "npm" :: "install" :: Nil) ! logger
+npm := scala.sys.process.Process( "npm" :: "install" :: Nil) ! logger
 
-(compile in Compile) <<= (compile in Compile) dependsOn (hello)
+//(compile in Compile) <<= (compile in Compile) dependsOn (npm)
 
 //ScoverageSbtPlugin.ScoverageKeys.highlighting in ScoverageSbtPlugin.scoverage := true
 
