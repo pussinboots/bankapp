@@ -5,3 +5,6 @@ project/project
 .idea
 logs
 .idea_modules
+bankapp.sublime*
+node_modules
+public/components

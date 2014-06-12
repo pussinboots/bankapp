@@ -17,7 +17,7 @@ myModule.config(['$httpProvider', function ($httpProvider) {
 }])
 
 myModule.run(['cfCryptoHttpInterceptor', function(cfCryptoHttpInterceptor) {
-    cfCryptoHttpInterceptor.base64Key = "16rdKQfqN3L4TY7YktgxBw==";
+    cfCryptoHttpInterceptor.base64Key = "YmVkODMyMTlkYmNlNzYwOA==";
 }])
 
 myModule.run(function ($rootScope) {

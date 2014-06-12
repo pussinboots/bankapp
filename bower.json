@@ -1,0 +1,24 @@
+{
+  "name": "bankapp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/pussinboots/bankapp",
+  "authors": [
+    "pussinboots <pussinboots666@googlemail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "angular-cookies": "~1.2.16",
+    "angular-resource": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "angularjs-crypto": "*"
+  }
+}

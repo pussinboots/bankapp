@@ -19,7 +19,7 @@ object DB {
   }
 
   def dbConfigUrl: String = {
-    val p = Properties.envOrElse("CLEARDB_DATABASE_URL", "mysql://root:mysql@127.0.0.1:3306/stock_manager_enc")
+    val p = Properties.envOrElse("CLEARDB_DATABASE_URL", "mysql://root:root@127.0.0.1:3306/stock_manager_enc")
     println(p)
     p
   }

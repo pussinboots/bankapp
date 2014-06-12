@@ -160,7 +160,7 @@ trait StockComponent {
 
     def insert(stock: Stock) = stock.copy(id = Some(forInsert.insert(stock)))
 
-    def insert(name: String, value: String)(implicit googleId: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt(), None))
+    def insert(name: String, value: String)(implicit googleId: String): Stock = insert(Stock(None, name, value, DateUtil.nowDateTimeOpt(), Some(googleId)))
 
     def findByName(name: String)(implicit googleId: String) = {
       (for {(a, s) <- Stocks leftJoin Symbols on (_.name === _.name) if a.name === name && a.googleId === googleId}

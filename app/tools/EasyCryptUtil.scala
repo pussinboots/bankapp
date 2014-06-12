@@ -15,7 +15,6 @@ object EasyCryptUtil {
       //FIXME is disable beacuse with scct coverage tests ignore setting of envVars in build.sbt
       //require(sys.env.get("aes_key") != None, "system property aes_key is missing")
       val storedKey = sys.env.get("aes_key").getOrElse("16rdKQfqN3L4TY7YktgxBw==")
-
       val myDecoder = new BASE64Decoder();
       val cryptedKey = myDecoder.decodeBuffer(storedKey);
       val aesKey = new SecretKeySpec(cryptedKey, "AES");

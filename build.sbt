@@ -26,13 +26,13 @@ parallelExecution in ScctTest := false
 
 parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
-lazy val hello = taskKey[Unit]("Prints 'Hello World'")
-
 val logger = ProcessLogger(
     (o: String) => println("out " + o),
     (e: String) => println("err " + e))
 
-hello := scala.sys.process.Process( "bower" :: "install" :: Nil) ! logger
+lazy val hello = taskKey[Unit]("npm install")
+
+hello := scala.sys.process.Process( "npm" :: "install" :: Nil) ! logger
 
 (compile in Compile) <<= (compile in Compile) dependsOn (hello)
 
