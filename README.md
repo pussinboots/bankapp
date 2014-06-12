@@ -1,10 +1,7 @@
 bankapp
 =======
-[![Build status][ci-image]][ci-url] [![Coverage Status][coverage-image]][coverage-url]
-[ci-image]: https://travis-ci.org/pussinboots/bankapp.png?branch=master
-[ci-url]: https://travis-ci.org/pussinboots/bankapp
-[coverage-image]: https://coveralls.io/repos/pussinboots/bankapp/badge.png
-[coverage-url]:https://coveralls.io/r/pussinboots/bankapp/
+[![Build Status](https://travis-ci.org/pussinboots/bankapp.svg?branch=master)](https://travis-ci.org/pussinboots/bankapp)
+[![Coverage Status](https://img.shields.io/coveralls/pussinboots/bankapp.svg)](https://coveralls.io/r/pussinboots/bankapp?branch=master)
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 
 
