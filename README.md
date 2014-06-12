@@ -5,6 +5,7 @@ bankapp
 [ci-url]: https://travis-ci.org/pussinboots/bankapp
 [coverage-image]: https://coveralls.io/repos/pussinboots/bankapp/badge.png
 [coverage-url]:https://coveralls.io/r/pussinboots/bankapp/
+[![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 
 
 Little personal bank web application that show my account and stock overview of my 
