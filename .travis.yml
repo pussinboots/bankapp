@@ -2,9 +2,9 @@ language: node_js
 script: play-${PLAY_VERSION}/play coveralls
 node_js:
 - 0.1
-env: 
+env:
 - PLAY_VERSION=2.2.3
-before_script: 
+before_script:
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
 before_deploy:
@@ -16,3 +16,9 @@ notifications:
 cache:
   directories:
   - $HOME/.ivy2
+deploy:
+  provider: heroku
+  app: bana
+  strategy: git
+  api_key:
+    secure: gjO1rAOf8UXbWPWwknD7DTXl2dtVPHusPZkL3UMQ++PepxC+5lRAqOOAErHpH99Vj3g68cb9txKeFCKYb11Z4OGdxov3yB75TMNBs9e91nCft+dVhCvtTG5yWMrpGhkhG6CcOrT4OmVz5OxuLwctuoxPolOHFOHI8Iu8ap44U14=

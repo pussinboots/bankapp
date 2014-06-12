@@ -8,6 +8,9 @@ function HeaderController($scope, $location) {
     };
 }
 
+function SettingsCtrl() {
+}
+
 /* Controllers */
 
 function GoogleCtrl($rootScope, $scope, $http, Users) {
@@ -60,7 +63,7 @@ function loadBalances(rootScope, scope, Balances) {
         scope.totalItems = response.count;
     });
 }
-
+//TODO move to data table directive
 function setSort(rootScope, scope, sort) {
     var oldSort = angular.copy(scope.sortColumn);
     if (scope.multiselect) scope.sortColumn = scope.sortColumn + " " + sort; else scope.sortColumn = sort;
