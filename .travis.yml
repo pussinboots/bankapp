@@ -7,8 +7,8 @@ env:
 before_script: 
 - wget http://apt.typesafe.com/repo-deb-build-0002.deb
 - sudo sh -c 'dpkg -i repo-deb-build-0002.deb'
-- apt-get update
-- apt-get install sbt
+- sudo apt-get update
+- sudo apt-get install sbt
 - wget http://downloads.typesafe.com/play/2.2.3/play-2.2.3.zip
 - unzip -q play-${PLAY_VERSION}.zip
 before_deploy:
