@@ -10,7 +10,8 @@ import scala.slick.driver.{H2Driver, MySQLDriver}
 object DB {
 
   lazy val db = sys.props.get("Database").getOrElse("mysql") match {
-    case "mysql" => DB.getSlickMysqlConnection()
+    case "mysql" => DB.WithSSL()
+		DB.getSlickMysqlConnection()
     case "h2" => DB.getSlickHSQLDatabase()
   }
   lazy val dal = sys.props.get("Database").getOrElse("mysql") match {
@@ -27,10 +28,10 @@ object DB {
   def WithSSLDebug() = System.setProperty("javax.net.debug", "all")
 
   def WithSSL() {
-    System.setProperty("javax.net.ssl.keyStore", "keystore")
-    System.setProperty("javax.net.ssl.keyStorePassword", "Korn4711")
-    System.setProperty("javax.net.ssl.trustStore", "truststore")
-    System.setProperty("javax.net.ssl.trustStorePassword", "Korn4711")
+    System.setProperty("javax.net.ssl.keyStore", "ssl/keystore")
+    System.setProperty("javax.net.ssl.keyStorePassword", sys.props.get("SSLPW").getOrElse(""))
+    System.setProperty("javax.net.ssl.trustStore", "ssl/truststore")
+    System.setProperty("javax.net.ssl.trustStorePassword", sys.props.get("SSLPW").getOrElse(""))
   }
 
   def getSlickMysqlConnection(jdbcUrl: String = dbConfigUrl) = {
@@ -40,7 +41,7 @@ object DB {
     ds.setJdbcUrl(dbConnectionInfo._1)
     ds.setUser(dbConnectionInfo._2)
     ds.setPassword(dbConnectionInfo._3)
-    ds.setMaxPoolSize(15)
+    ds.setMaxPoolSize(10)
     ds.setPreferredTestQuery("Select 1")
     Database.forDataSource(ds)
   }
@@ -61,7 +62,7 @@ object DB {
     val password = dbUri.getUserInfo().split(":").last
     val port = if (dbUri.getPort() == -1) "" else s":${dbUri.getPort()}"
 
-    val dbUrl = "jdbc:mysql://" + dbUri.getHost() + port + dbUri.getPath() + "?useSSL=true&useUnicode=yes&characterEncoding=UTF-8"
+    val dbUrl = "jdbc:mysql://" + dbUri.getHost() + port + dbUri.getPath() + "?reconnect=true&useSSL=true&useUnicode=yes&characterEncoding=UTF-8"
     (dbUrl, username, password)
   }
 }
