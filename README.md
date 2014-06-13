@@ -56,11 +56,11 @@ Here are some mobile fancy screen shots of course with dummy data not my real ba
  
 ![menu](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/menu.png)
 
-* here you see the raw data from the database and you see all data, except the date, are encrypted. That is how they are stored in the database and if the right key is configured at the settings page (see nect image) than the data will be readable
+* here you see the raw data from the database and you see all data, except the date, are encrypted. That is how they are stored in the database and if the right key is configured at the settings page (see next image) than the data will be readable
 
 ![encrypted](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/encrypted.png)
 
-* here your configure the encryption key (has to be the same key that was used to encrypt the data for storing it in the database
+* here your configure the encryption key (has to be the same key that was used to encrypt the data for storing it in the database)
 
 ![key](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/key.png)
 
