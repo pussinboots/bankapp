@@ -11,9 +11,7 @@ import com.mchange.v2.log._
 object DB {
 
   lazy val db = sys.props.get("Database").getOrElse("mysql") match {
-    case "mysql" => 
-    //DB.getSlickMysqlConnection()
-    DB.getSlickMysqlJdbcConnection()
+    case "mysql" => DB.getSlickMysqlConnection()
     case "h2" => DB.getSlickHSQLDatabase()
   }
   lazy val dal = sys.props.get("Database").getOrElse("mysql") match {

@@ -6,13 +6,14 @@ import model.DB
 object Global extends WithFilters(HTTPSRedirectFilter) with GlobalSettings
 {
     override def onStart(app: Application) {
-      val enableDBSSL = app.configuration
-          .getBoolean("enableDBSSL")
-          .getOrElse(true)
+      val enableDBSSL = app.configuration.getBoolean("enableDBSSL").getOrElse(true)
+      val enablePoolLogging = app.configuration.getBoolean("enablePoolLogging").getOrElse(false)
       if(enableDBSSL) {
         Logger.info("set custom truststore for cleardb mysql ssl connections")
         DB.WithSSL()
-        //DB.WithPoolLogging()
+      }
+      if(enablePoolLogging) {
+        DB.WithPoolLogging()
       }
       Logger.info("Application has started")
     }
