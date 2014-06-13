@@ -9,3 +9,4 @@ bankapp.sublime*
 node_modules
 public/components
 server.sh
+update_rest.sh

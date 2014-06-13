@@ -24,12 +24,4 @@ object Application extends Controller {
   def index = Action {
     Results.MovedPermanently("products.html")
   }
-
-  def findAccount(googleId: String) = Action { request =>
-    DB.db withSession {
-      def query = UserAccounts.findByGoogle(googleId)
-      def json = query.firstOption
-      Ok(Json.stringify(Json.toJson(json))) as ("application/json")
-    }
-  }
 }

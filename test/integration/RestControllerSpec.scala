@@ -6,7 +6,7 @@ import play.api.test.Helpers._
 import play.api.libs.ws._
 import unit.org.stock.manager.test.DatabaseSetupBefore
 import play.api.libs.json.Json
-import model.{BalanceJsonSave, DateUtil, BalanceJson, StockJson}
+import model.{StockJsonSave, BalanceJsonSave, DateUtil, BalanceJson, StockJson}
 import model.JsonHelper.JsonFmtListWrapper
 
 class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
@@ -184,6 +184,17 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
           checkFirstStock(stockList(0))
         }
       }
+
+      "save then return success message" in new WithServer {
+          val stockToSave = StockJsonSave("New Stock", "1000.00")
+          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+            .withHeaders("X-AUTH-TOKEN" -> googleId)
+            .post(Json.toJson(stockToSave)))
+          val status = response.json \ "status"
+          val message = response.json \ "message"
+          status.as[String] must equalTo("OK")
+          message.as[String] must equalTo("Stock 'New Stock' saved.")
+        }
     }
   }
 

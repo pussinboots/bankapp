@@ -13,7 +13,39 @@ import scala.slick.session.Database
 import Database.threadLocalSession
 
 class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
-  //sequential
+  sequential
+
+  "/rest/account/" should {
+    "given valid googleId return valid account" in {
+      import DB.dal._
+      import DB.dal.profile.simple._
+      DB.db withSession {
+        import model.JsonHelper._
+        val response = GoogleController.findAccount(googleId)(FakeRequest())
+        val jsonUserAccount = Json.fromJson[UserAccount](Json.parse(contentAsString(response)))
+        status(response) must beEqualTo(OK)
+        jsonUserAccount.get.googleId must beEqualTo(googleId)
+        jsonUserAccount.get.id must beEqualTo(userAccount.id)
+      }
+    }
+
+    "given invalid googleId return bad request" in {
+      import DB.dal._
+      import DB.dal.profile.simple._
+      DB.db withSession {
+        import model.JsonHelper._
+        val response = GoogleController.findAccount("invalid googleId")(FakeRequest())
+        val errorJson = Json.parse(contentAsString(response))
+        status(response) must beEqualTo(BAD_REQUEST)
+        val errorMsg = (errorJson \ "error").as[String]
+        val errorDesc = (errorJson \ "error_description").as[String]
+        val debugInfo = (errorJson \ "debug_info").as[String]
+        errorMsg must beEqualTo("invalid_googleid")
+        errorDesc must beEqualTo("Invalid Value")
+        debugInfo must startWith("code: INVALID_VALUE\nhttp status: 400\narguments: [invalid_googleId]")
+      }
+    }
+  }
 
   "/rest/google should" should {
     "given invalid token return bad request" in Betamax(tape="googleSignIn", mode=Some(TapeMode.READ_ONLY)) {

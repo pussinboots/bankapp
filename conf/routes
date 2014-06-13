@@ -4,7 +4,7 @@
 # Home page
 GET         /                                     controllers.Application.index()
 
-GET        /rest/account         controllers.Application.findAccount(googleId: String)
+GET        /rest/account         controllers.GoogleController.findAccount(googleId: String)
 
 GET        /rest/google          controllers.GoogleController.googleConnect(token: String)
 

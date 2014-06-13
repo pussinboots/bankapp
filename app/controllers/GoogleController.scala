@@ -38,4 +38,19 @@ object GoogleController extends Controller {
       }
     }
   }
+
+  def findAccount(googleId: String) = Action { request =>
+    DB.db withSession {
+      def query = UserAccounts.findByGoogle(googleId)
+      def json = query.firstOption
+      json match {
+        case Some(account) => Ok(Json.stringify(Json.toJson(account))) as ("application/json")
+        case None => BadRequest(Json.stringify(Json.obj(
+          "error"->"invalid_googleid", 
+          "error_description"->s"Invalid Value",
+          "debug_info"->s"code: INVALID_VALUE\nhttp status: 400\narguments: [invalid_googleId]"
+          )))
+      }
+    }
+  }
 }
