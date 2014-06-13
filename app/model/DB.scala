@@ -75,7 +75,7 @@ object DB {
     val password = dbUri.getUserInfo().split(":").last
     val port = if (dbUri.getPort() == -1) "" else s":${dbUri.getPort()}"
 
-    val dbUrl = "jdbc:mysql://" + dbUri.getHost() + port + dbUri.getPath() + "?reconnect=true&useSSL=true&useUnicode=yes&characterEncoding=UTF-8"
+    val dbUrl = "jdbc:mysql://" + dbUri.getHost() + port + dbUri.getPath() + "?autoReconnectForPools=true&reconnect=true&useSSL=true&useUnicode=yes&characterEncoding=UTF-8"
     (dbUrl, username, password)
   }
 }
