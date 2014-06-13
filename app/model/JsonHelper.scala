@@ -35,6 +35,11 @@ object JsonHelper {
   }
 
   implicit val stockAndSymbolWrites = Json.format[StockJson]
+  implicit val stockJsonSaveWrites = Json.writes[StockJsonSave]
+  implicit val stockReads: Reads[StockJsonSave] = (
+    (JsPath \ "name_enc").read[String] and
+      (JsPath \ "value_enc").read[String]
+    )(StockJsonSave.apply _)
 
   implicit val userWrites = Json.writes[UserAccount]
   implicit val userReads = Json.reads[UserAccount]

@@ -128,6 +128,8 @@ trait BalanceComponent {
 
 }
 
+case class StockJsonSave(name_enc: String, value_enc: String)
+
 case class StockJson(id: Int, name_enc: String, value_enc: String, symbol: String, date: Timestamp)
 
 case class Stock(var id: Option[Int] = None, name: String, value: String, date: Option[Timestamp], googleId: Option[String])

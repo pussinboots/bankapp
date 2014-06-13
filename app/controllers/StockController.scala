@@ -1,9 +1,12 @@
 package controllers
 
+import play.api.libs.json._
 import play.api.libs.json.Json
+import play.api.libs.json.Json.toJsFieldJsValueWrapper
 import play.api.mvc.Controller
+import play.api.mvc.BodyParsers
 import model.DB
-import model.{Stock, StockJson}
+import model.{Stock, StockJson, StockJsonSave}
 import scala.slick.session.Database
 import Database.threadLocalSession
 import DB.dal.profile.simple.{Query => SlickQuery}
@@ -30,5 +33,21 @@ object StockController extends Controller {
       }
       Ok(Json.stringify(Json.toJson(JsonFmtListWrapper(result, count)))) as ("application/json")
     }
+  }
+
+  def saveStock() = ActionWithToken(BodyParsers.parse.json) {
+    (request, googleId) =>
+      val stock = request.body.validate[StockJsonSave]
+      stock.fold(
+        errors => {
+          BadRequest(Json.obj("status" -> "KO", "message" -> JsError.toFlatJson(errors)))
+        },
+        stock => {
+          DB.db withSession {
+            Stocks.insert(stock.name_enc, stock.value_enc)(googleId)
+          }
+          Ok(Json.obj("status" -> "OK", "message" -> ("Stock '" + stock.name_enc + "' saved.")))
+        }
+      )
   }
 }
