@@ -15,3 +15,4 @@ GET        /rest/stocks          controllers.StockController.findStocks(name_enc
 GET         /*file                         controllers.Assets.at(path="/public", file)
 
 POST        /rest/balances        controllers.BalanceController.saveBalance()
+POST        /rest/stocks          controllers.StockController.saveStock()
