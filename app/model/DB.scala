@@ -5,13 +5,15 @@ import scala.util.Properties
 import com.mchange.v2.c3p0.ComboPooledDataSource
 import scala.slick.session.Database
 import scala.slick.driver.{H2Driver, MySQLDriver}
+import com.mchange.v2.log._
 
 
 object DB {
 
   lazy val db = sys.props.get("Database").getOrElse("mysql") match {
-    case "mysql" => DB.WithSSL()
-		DB.getSlickMysqlConnection()
+    case "mysql" => 
+    //DB.getSlickMysqlConnection()
+    DB.getSlickMysqlJdbcConnection()
     case "h2" => DB.getSlickHSQLDatabase()
   }
   lazy val dal = sys.props.get("Database").getOrElse("mysql") match {
@@ -20,18 +22,21 @@ object DB {
   }
 
   def dbConfigUrl: String = {
-    val p = Properties.envOrElse("CLEARDB_DATABASE_URL", "mysql://root:root@127.0.0.1:3306/stock_manager_enc")
+    val p = sys.props.get("CLEARDB_DATABASE_URL").getOrElse("mysql://root:root@127.0.0.1:3306/stock_manager_enc")
     println(p)
     p
   }
 
   def WithSSLDebug() = System.setProperty("javax.net.debug", "all")
-
+  def WithPoolLogging() {
+     System.setProperty("com.mchange.v2.log.MLog","com.mchange.v2.log.FallbackMLog")
+     System.setProperty("com.mchange.v2.log.FallbackMLog.DEFAULT_CUTOFF_LEVEL","ALL")
+  }
   def WithSSL() {
-    System.setProperty("javax.net.ssl.keyStore", "ssl/keystore")
-    System.setProperty("javax.net.ssl.keyStorePassword", sys.props.get("SSLPW").getOrElse(""))
-    System.setProperty("javax.net.ssl.trustStore", "ssl/truststore")
-    System.setProperty("javax.net.ssl.trustStorePassword", sys.props.get("SSLPW").getOrElse(""))
+      System.setProperty("javax.net.ssl.keyStore", "ssl/keystore")
+      System.setProperty("javax.net.ssl.keyStorePassword", sys.props.get("SSLPW").getOrElse(""))
+      System.setProperty("javax.net.ssl.trustStore", "ssl/cacerts")
+      System.setProperty("javax.net.ssl.trustStorePassword", sys.props.get("SSLPW2").getOrElse(""))
   }
 
   def getSlickMysqlConnection(jdbcUrl: String = dbConfigUrl) = {
@@ -43,7 +48,13 @@ object DB {
     ds.setPassword(dbConnectionInfo._3)
     ds.setMaxPoolSize(10)
     ds.setPreferredTestQuery("Select 1")
+    ds.setDebugUnreturnedConnectionStackTraces(true)
     Database.forDataSource(ds)
+  }
+
+  def getSlickMysqlJdbcConnection(jdbcUrl: String = dbConfigUrl) = {
+    val dbConnectionInfo = parseDbUrl(jdbcUrl)
+    Database.forURL(dbConnectionInfo._1, driver="com.mysql.jdbc.Driver", user=dbConnectionInfo._2, password=dbConnectionInfo._3)
   }
 
   def getSlickHSQLDatabase(jdbcUrl: String = "jdbc:hsqldb:mem:test1") = {

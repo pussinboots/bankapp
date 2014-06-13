@@ -8,7 +8,7 @@ import Database.threadLocalSession
 
 object DBMigration extends App {
   DB.WithSSL()
-  val db = DB.getSlickMysqlConnection()
+  val db = DB.getSlickMysqlJdbcConnection()//getSlickMysqlConnection()
   val dao = new DAL(MySQLDriver)
   import dao._
   import dao.profile.simple._

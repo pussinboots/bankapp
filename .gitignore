@@ -8,3 +8,4 @@ logs
 bankapp.sublime*
 node_modules
 public/components
+server.sh
