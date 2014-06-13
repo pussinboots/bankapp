@@ -21,7 +21,7 @@ object SparkassenAppRest extends App {
     )
     WS.url(s"$endPoint/rest/balances").withHeaders("X-AUTH-TOKEN" -> googleId).withHeaders("Content-Type" -> "application/json").post(data)
   }
-  val data = Json.obj(
+  var data = Json.obj(
     "name_enc" -> "Total".encrypt.encrypted,
     "value_enc" -> form.accounts.map(_._2.value).sum.encrypt.encrypted
   )
@@ -34,9 +34,8 @@ object SparkassenAppRest extends App {
       "value_enc" -> account.value.encrypt.encrypted
     )
     WS.url(s"$endPoint/rest/stocks").withHeaders("X-AUTH-TOKEN" -> googleId).withHeaders("Content-Type" -> "application/json").post(data)
-    Stocks.insert(name.encrypt.encrypted, account.value.encrypt.encrypted)
   }
-  val data = Json.obj(
+  data = Json.obj(
     "name_enc" -> "Total".encrypt.encrypted,
     "value_enc" -> stocks.accounts.map(_._2.value).sum.encrypt.encrypted
   )
