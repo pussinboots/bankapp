@@ -30,6 +30,14 @@ environment variables and should work for all berliner sparkassen customers (but
 than it is possible to write for your own bank a importer which fetch the data somewhere for you and use the offered import api
 to insert your bank data. But be carefull run the importer only from your local maschine because you should not store your bank login somewhere on the net. 
 
+##Todos
+* build a android phonegap app and publish it in google play
+* at the moment only for my account there exists bank data
+* rest interface to insert encrypted bank data for any account how wants to use the app
+* historical graphs that show the development of your money
+* forcast of mone development based on historical data
+* some fancy features i can imagine now
+
 ##Features
 
 There are several use cases in my mind what is possible with that bank data for example you can group your income and outcome by categories to see where you money goes and this stuff. Also a future calculation of your money behavoir could be possible by analyzing the past and get a forecast what your bank account could loke like in 6 Months and so on. 
@@ -40,10 +48,30 @@ I want to get a good and quick overview of my bank account and historical develo
 
 Feel free to contact me for any purpose.
 
-##Documentation
+##Screenshots
+
+Here are some mobile fancy screen shots of course with dummy data not my real bank data.
+
+* here you see the requestable pages
+ 
+![menu](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/menu.png)
+
+* here you see the raw data from the database and you see all data, except the date, are encrypted. That is how they are stored in the database and if the right key is configured at the settings page (see next image) than the data will be readable
 
 ![encrypted](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/encrypted.png)
+
+* here your configure the encryption key (has to be the same key that was used to encrypt the data for storing it in the database)
+
+![key](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/key.png)
+
+* here the balance data readable all encryption is performed on the client side (on the device that use this app) 
+
 ![balances](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/balances_mobil.png)
-![logout](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/logout.png)
-![menu](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/menu.png)
+
+* here the stocks data readable all encryption is performed on the client side (on the device that use this app) 
+
 ![stocks](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/stocks_mobile.png)
+
+* if you are not loged in than you will see nothing google plus sign is used and only the googleid and your email address is stored in the app database
+
+![logout](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/logout.png)
