@@ -39,3 +39,11 @@ There are several use cases in my mind what is possible with that bank data for 
 I want to get a good and quick overview of my bank account and historical development. That's missing in the current applications i guess.
 
 Feel free to contact me for any purpose.
+
+##Documentation
+
+![encrypted](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/encrypted.png)
+![balances](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/balances_mobil.png)
+![logout](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/logout.png)
+![menu](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/menu.png)
+![stocks](https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/stocks_mobile.png)
