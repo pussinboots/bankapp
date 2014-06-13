@@ -18,3 +18,13 @@ or
 play ~test-only *SomeSpec
 ```
 I feel that this is faster than scala compilation in ide.
+
+####Play 2 and angularjs
+
+For a project that frontend code is writen in javascript (angularjs) where i can debug it directly in the browser and try also things out at the console than for the rest backend code i don't need a full ide anymore.
+
+####IDE battle
+
+I still prefer the IntelliJ Idea over Eclipse it is better structured and easier to combine steps like git commit and push for example. But for a beginner of programming i think eclipse is easier to learn for idea you have to get comftable with the idears behind the features it offer. Than i think you could be more productive with idea.
+
+But at the end everyone has to choice it for her or his own.
