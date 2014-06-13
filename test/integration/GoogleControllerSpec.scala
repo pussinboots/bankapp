@@ -1,5 +1,6 @@
 package integration
 
+import play.api.GlobalSettings
 import play.api.test._
 import play.api.libs.ws._
 import unit.org.stock.manager.test.{Betamax, DatabaseSetupBefore}
@@ -12,14 +13,15 @@ import scala.slick.session.Database
 import Database.threadLocalSession
 
 class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
-  sequential
+  //sequential
+
 
   "/rest/google should" should {
     "given invalid token return bad request" in Betamax(tape="googleSignIn", mode=Some(TapeMode.READ_ONLY)) {
       import DB.dal._
       import DB.dal.profile.simple._
       DB.db withSession {
-        running(FakeApplication()) {
+        running(FakeApplication(additionalConfiguration=Map("enableDBSSL" -> "false"))) {
           import model.JsonHelper._
           val response = GoogleController.googleConnect("inValidToken")(FakeRequest())
           val errorJson = Json.parse(contentAsString(response))
@@ -38,7 +40,7 @@ class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       import DB.dal._
       import DB.dal.profile.simple._
       DB.db withSession {
-        running(FakeApplication()) {
+        running(FakeApplication(additionalConfiguration=Map("enableDBSSL" -> "false"))) {
           import model.JsonHelper._
           val useAccountNotExists = UserAccounts.findByGoogle("12345678910").firstOption
           useAccountNotExists must beEqualTo(None)
