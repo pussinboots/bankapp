@@ -46,10 +46,10 @@ object DB {
     ds.setPassword(dbConnectionInfo._3)
     ds.setMaxPoolSize(10)
     ds.setPreferredTestQuery("Select 1")
-    ds.setIdleConnectionTestPeriod(10)
+    ds.setIdleConnectionTestPeriod(30)
     ds.setTestConnectionOnCheckin(true)
     ds.setTestConnectionOnCheckout(true)
-    ds.setMaxIdleTime(10)
+    ds.setMaxIdleTime(300)
     ds.setDebugUnreturnedConnectionStackTraces(true)
     Database.forDataSource(ds)
   }
