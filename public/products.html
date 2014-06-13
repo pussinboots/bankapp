@@ -72,7 +72,7 @@
             <li ng-class="{ active: isActive('/google')}">
                 <div style="position: relative"><google-plus-signin clientid="17916981101.apps.googleusercontent.com"
                                     language="en"></google-plus-signin>
-                    email:{{profile.eMail}}
+                    email:{{email.eMail}}
                 </div>
             </li>
         </ul>
@@ -82,6 +82,12 @@
 <!-- /.container-fluid -->
 </nav>
 <div class="container-fluid">
+    <div style="width: 200" ng-hide="$root.email">
+      <div class="progress progress-striped active">
+         <div class="bar" style="width: 0%;"></div>
+         Please login with google plus
+      </div>
+    </div>
     <div ng-view></div>
 </div>
 </body>

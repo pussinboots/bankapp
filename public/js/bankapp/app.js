@@ -9,12 +9,22 @@ var myModule = angular.module('bankapp',
 
 myModule.config(function ($routeProvider) {
     $routeProvider
-	.when('/dashboard', { templateUrl: 'partials/bankapp/dashboard.html', controller: BalanceCtrl })
-	.when('/stocks', { templateUrl: 'partials/bankapp/stocks.html', controller: StockCtrl })
-    .when('/stocks-mobile', { templateUrl: 'partials/bankapp/stocks-mobile.html', controller: StockCtrl })
-    .when('/settings', { templateUrl: 'partials/bankapp/settings.html', controller: SettingsCtrl })
-    .when('/balance-mobile', { templateUrl: 'partials/bankapp/balance-mobile.html', controller: BalanceCtrl })
-	.when('/detail/:symbol', { templateUrl: 'partials/bankapp/detail.html', controller: DetailCtrl })
+	.when('/dashboard', {       templateUrl: 'partials/bankapp/dashboard.html', 
+                                resolve:{profile:waitForLogin}, 
+                                controller: BalanceCtrl })
+    .when('/stocks', {          templateUrl: 'partials/bankapp/stocks.html',
+                                resolve:{profile:waitForLogin},
+                                controller: StockCtrl })
+    .when('/stocks-mobile', {   templateUrl: 'partials/bankapp/stocks-mobile.html', 
+                                resolve:{profile:waitForLogin},
+                                controller: StockCtrl })
+    .when('/settings', {        templateUrl: 'partials/bankapp/settings.html', 
+                                controller: SettingsCtrl })
+    .when('/balance-mobile', {  templateUrl: 'partials/bankapp/balance-mobile.html',
+                                resolve:{profile:waitForLogin},
+                                controller: BalanceCtrl })
+	.when('/detail/:symbol', {  templateUrl: 'partials/bankapp/detail.html', 
+                                controller: DetailCtrl })
     .otherwise({ redirectTo: '/dashboard' });
 })
 
@@ -27,7 +37,12 @@ myModule.run(function($rootScope, cfCryptoHttpInterceptor, $localStorage) {
     }
 });
 
-myModule.run(function ($rootScope) {
+myModule.run(function ($q, $rootScope) {
+    var defer = $q.defer()
+    $rootScope.profile = defer.promise;
+    $rootScope.setProfile = function(profile) {
+        defer.resolve(profile)    
+    }
     String.prototype.contains = function(it) { return this.indexOf(it) != -1; };
 
     var upHitOnce = false;
@@ -46,3 +61,7 @@ myModule.run(function ($rootScope) {
 	    }
     });
 });
+function waitForLogin($rootScope){
+ //   console.log('wait for loging ' + $rootScope.profile)
+    return $rootScope.profile;
+}

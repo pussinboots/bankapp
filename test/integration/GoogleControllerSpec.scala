@@ -15,7 +15,6 @@ import Database.threadLocalSession
 class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
   //sequential
 
-
   "/rest/google should" should {
     "given invalid token return bad request" in Betamax(tape="googleSignIn", mode=Some(TapeMode.READ_ONLY)) {
       import DB.dal._
