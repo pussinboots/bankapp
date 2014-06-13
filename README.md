@@ -4,6 +4,9 @@ bankapp
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/bankapp.svg)](https://coveralls.io/r/pussinboots/bankapp?branch=master)
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 
+There is also a little leasons learned documentation in the doc folder
+* [multiple build pack on heroku](https://github.com/pussinboots/bankapp/blob/master/doc/buildpack.md)
+* [Play 2 c3p0 own truststore and keystore](https://github.com/pussinboots/bankapp/blob/master/doc/c3p0.md)
 
 Little personal bank web application that show my account and stock overview of my 
 bank account. The data is fetched from the bank account web site and it is only run local
