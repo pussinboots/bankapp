@@ -10,3 +10,6 @@ node_modules
 public/components
 server.sh
 update_rest.sh
+RUNNING_PID
+coverage
+test-results.xml
