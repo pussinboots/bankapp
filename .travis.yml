@@ -1,12 +1,14 @@
 language: node_js
-script: play-${PLAY_VERSION}/play coveralls
+script: play coveralls && npm test
 node_js:
 - 0.1
 env:
 - PLAY_VERSION=2.2.3
 before_script:
+- export DISPLAY=:99.0
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
+- export PATH=$PATH:$PWD/play-${PLAY_VERSION}/
 before_deploy:
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
