@@ -1,5 +1,5 @@
 language: node_js
-script: play-${PLAY_VERSION}/play coveralls
+script: play-${PLAY_VERSION}/play coveralls && npm test
 node_js:
 - 0.1
 env:
