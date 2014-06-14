@@ -18,15 +18,15 @@ version := "0.1"
 
 scalaVersion := "2.10.3"
 
-parallelExcecution in Global := false
+parallelExecution := false //disable parallel execution for all tasks the below configuration could be deleted but for documentation purpose they are still there
+
+//parallelExecution in Test := false
+
+//parallelExecution in ScctTest := false
+
+//parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
 Keys.fork in Test := false
-
-parallelExecution in Test := false
-
-parallelExecution in ScctTest := false
-
-parallelExecution in ScoverageSbtPlugin.scoverageTest := false
 
 val logger = ProcessLogger(
     (o: String) => println("out " + o),
