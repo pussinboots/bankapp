@@ -23,6 +23,13 @@ describe('BankApp', function() {
       expect(repeater('tr.balances').count()).toBe(2);
     });
 
+    it('balnces should show Girokonto and Total balnces enetry', function() {
+      expect(repeater('tr.balances').column('balance.name_enc')).
+          toEqual(["Girokonto",
+                   "Total"]);
+    });
+    
+
 
     /*it('should be possible to control phone order via the drop down select box', function() {
       input('query').enter('tablet'); //let's narrow the dataset to make the test assertions shorter

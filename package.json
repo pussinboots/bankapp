@@ -9,7 +9,7 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "play -Dconfig.file=conf/application-e2e.conf start & sleep 10 && wget -O/dev/null --retry-connrefused --tries=10 http://localhost:9000 && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run ",
+    "test": "play -Dconfig.file=conf/application-e2e.conf start & sleep 30 && wget -O/dev/null --retry-connrefused --tries=10 http://localhost:9000 && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run ",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {

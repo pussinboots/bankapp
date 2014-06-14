@@ -18,6 +18,8 @@ version := "0.1"
 
 scalaVersion := "2.10.3"
 
+parallelExcecution in Global := false
+
 Keys.fork in Test := false
 
 parallelExecution in Test := false
