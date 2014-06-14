@@ -61,7 +61,7 @@ libraryDependencies ++= Seq(
 
 // test dependencies
 libraryDependencies ++= Seq(
-    "org.hsqldb" %  "hsqldb" % "[2,)" % "test",
+    "org.hsqldb" %  "hsqldb" % "[2,)",
     "co.freeside" % "betamax" % "1.1.2" % "test",
     "org.codehaus.groovy" % "groovy-all" % "1.8.8" % "test"
 )

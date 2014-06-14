@@ -1,9 +1,11 @@
+package global
+
 import play.api._
 import play.api.mvc._
 import scala.concurrent.Future
 import model.DB
 
-object Global extends WithFilters(HTTPSRedirectFilter) with GlobalSettings
+object Global extends /*WithFilters(HTTPSRedirectFilter) with*/ GlobalSettings
 {
     override def onStart(app: Application) {
       val enableDBSSL = app.configuration.getBoolean("enableDBSSL").getOrElse(true)

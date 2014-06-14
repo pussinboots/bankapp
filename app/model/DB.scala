@@ -11,7 +11,7 @@ import com.mchange.v2.log._
 object DB {
 
   lazy val db = sys.props.get("Database").getOrElse("mysql") match {
-    case "mysql" => DB.getSlickMysqlConnection()
+    case "mysql" => DB.getSlickMysqlJdbcConnection()
     case "h2" => DB.getSlickHSQLDatabase()
   }
   lazy val dal = sys.props.get("Database").getOrElse("mysql") match {
@@ -37,7 +37,7 @@ object DB {
       System.setProperty("javax.net.ssl.trustStorePassword", Properties.envOrElse("SSLPW2", ""))
   }
 
-  def getSlickMysqlConnection(jdbcUrl: String = dbConfigUrl) = {
+  def getSlickMysqlDataSource(jdbcUrl: String = dbConfigUrl) = {
     val dbConnectionInfo = parseDbUrl(jdbcUrl)
     val ds = new ComboPooledDataSource
     ds.setDriverClass("com.mysql.jdbc.Driver")
@@ -51,7 +51,11 @@ object DB {
     ds.setTestConnectionOnCheckout(true)
     ds.setMaxIdleTime(300)
     ds.setDebugUnreturnedConnectionStackTraces(true)
-    Database.forDataSource(ds)
+    ds
+  }
+
+  def getSlickMysqlConnection(jdbcUrl: String = dbConfigUrl) = {
+    Database.forDataSource(getSlickMysqlDataSource(jdbcUrl))
   }
 
   def getSlickMysqlJdbcConnection(jdbcUrl: String = dbConfigUrl) = {

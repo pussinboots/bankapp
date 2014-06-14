@@ -37,10 +37,19 @@ class DAL(override val profile: ExtendedProfile) extends UserAccountComponent wi
     }
   }
 
-  def drop(implicit session: Session) = try {
-    (Balances.ddl ++ Stocks.ddl ++ Symbols.ddl ++ UserAccounts.ddl).drop
-  } catch {
-    case ioe: Exception =>
+  def drop(implicit session: Session) {
+    if (!MTable.getTables(Balances.tableName).list().isEmpty) {
+      (Balances.ddl).drop
+    }
+    if (!MTable.getTables(Stocks.tableName).list().isEmpty) {
+      (Stocks.ddl).drop
+    }
+    if (!MTable.getTables(Symbols.tableName).list().isEmpty) {
+      (Symbols.ddl).drop
+    }
+    if (!MTable.getTables(UserAccounts.tableName).list().isEmpty) {
+      (UserAccounts.ddl).drop
+    }
   }
 }
 

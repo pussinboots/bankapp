@@ -2,30 +2,25 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('PhoneCat App', function() {
+describe('BankApp', function() {
 
-  it('should redirect index.html to index.html#/products', function() {
-    browser().navigateTo('../../products.html');
-    expect(browser().location().url()).toBe('/products');
+  it('should redirect products.html to products.html#/dashboard', function() {
+    browser().navigateTo('products-e2e.html');
+    expect(browser().location().url()).toBe('/dashboard');
   });
 
 
 
-  describe('Phone list view', function() {
+  describe('Dashboard', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../products.html#/products');
+      browser().navigateTo('products-e2e.html#/settings');
+      input('$storage.config.key').enter('')
+      browser().navigateTo('products-e2e.html#/dashboard');
     });
 
-
-    it('should filter the phone list as user types into the search box', function() {
-      //expect(repeater('.products li').count()).toBe(20);
-
-      //input('query').enter('nexus');
-      //expect(repeater('.products li').count()).toBe(1);
-
-      input('query').enter('motorola');
-      expect(repeater('.products li').count()).toBe(0);
+    it('two balances are displayed', function() {
+      expect(repeater('tr.balances').count()).toBe(2);
     });
 
 

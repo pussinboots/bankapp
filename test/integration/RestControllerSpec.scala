@@ -186,14 +186,24 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       }
 
       "save then return success message" in new WithServer {
-          val stockToSave = StockJsonSave("New Stock", "1000.00")
-          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
-            .withHeaders("X-AUTH-TOKEN" -> googleId)
-            .post(Json.toJson(stockToSave)))
-          val status = response.json \ "status"
-          val message = response.json \ "message"
-          status.as[String] must equalTo("OK")
-          message.as[String] must equalTo("Stock 'New Stock' saved.")
+        val stockToSave = StockJsonSave("New Stock", "1002.00")
+        val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+          .withHeaders("X-AUTH-TOKEN" -> googleId)
+          .post(Json.toJson(stockToSave)))
+        val status = response.json \ "status"
+        val message = response.json \ "message"
+        status.as[String] must equalTo("OK")
+        message.as[String] must equalTo("Stock 'New Stock' saved.")
+      }
+
+      "then return the stored stock" in new WithServer {
+          implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?name_enc=New%20Stock").withHeaders("X-AUTH-TOKEN" -> googleId).get)
+          implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
+          thenOneResult[StockJson]{stockList=>
+            stockList(0).name_enc must equalTo("New Stock")
+            stockList(0).value_enc must equalTo("1002.00")
+            stockList(0).id should be > -1
+          }
         }
     }
   }

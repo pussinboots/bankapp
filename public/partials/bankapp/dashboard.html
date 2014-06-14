@@ -37,7 +37,7 @@
         </tr>
         </tfoot>
         <tbody>
-        <tr ng-repeat="balance in balances.items">
+        <tr class="balances" ng-repeat="balance in balances.items">
             <td class="text-center">{{balance.id}}</td>
             <td class="text-center" ng-click="filterBy(balance.name_enc, 'fieldName')">{{balance.name_enc}}</td>
             <td class="text-center">{{balance.value_enc}}</td>
