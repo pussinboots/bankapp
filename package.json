@@ -9,7 +9,7 @@
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "play -Dconfig.file=conf/application-e2e.conf start && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run ",
+    "test": "play -Dconfig.file=conf/application-e2e.conf run & sleep 30 && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run ",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
