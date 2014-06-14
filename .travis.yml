@@ -7,7 +7,7 @@ env:
 before_script:
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
-- export PATH=$PATH:$HOME/play-${PLAY_VERSION}
+- export PATH=$PATH:$PWD/play-${PLAY_VERSION}/
 before_deploy:
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
