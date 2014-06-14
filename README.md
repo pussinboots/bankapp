@@ -5,6 +5,8 @@ bankapp
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 
 There is also a little leasons learned documentation in the doc folder
+* [E2E Test angularjs + Play](https://github.com/pussinboots/bankapp/blob/master/doc/e2etest.md) TODO !!!
+* [Multilanguage Project forntend javascript backend scala](https://github.com/pussinboots/bankapp/blob/master/doc/nodejs_play2.md) TODO !!!
 * [multiple build pack on heroku](https://github.com/pussinboots/bankapp/blob/master/doc/buildpack.md)
 * [Play 2 c3p0 own truststore and keystore](https://github.com/pussinboots/bankapp/blob/master/doc/c3p0.md)
 * [IDE Experiences](https://github.com/pussinboots/bankapp/blob/master/doc/ide.md)
@@ -36,8 +38,9 @@ than it is possible to write for your own bank a importer which fetch the data s
 to insert your bank data. But be carefull run the importer only from your local maschine because you should not store your bank login somewhere on the net. 
 
 ##Todos
+* page to insert your data manualy
 * build a android phonegap app and publish it in google play
-* at the moment only for my account there exists bank data
+* at the moment only for my account there exists bank data (maybe dummy data for new user to test)
 * rest interface to insert encrypted bank data for any account how wants to use the app
 * historical graphs that show the development of your money
 * forcast of mone development based on historical data
