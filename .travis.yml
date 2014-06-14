@@ -5,6 +5,7 @@ node_js:
 env:
 - PLAY_VERSION=2.2.3
 before_script:
+- export DISPLAY=:99.0
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
 - export PATH=$PATH:$PWD/play-${PLAY_VERSION}/
