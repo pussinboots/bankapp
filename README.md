@@ -5,6 +5,8 @@ bankapp
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 
 There is also a little leasons learned documentation in the doc folder
+* [E2E Test angularjs + Play](https://github.com/pussinboots/bankapp/blob/master/doc/e2etest.md) TODO !!!
+* [Multilanguage Project forntend javascript backend scala](https://github.com/pussinboots/bankapp/blob/master/doc/nodejs_play2.md) TODO !!!
 * [multiple build pack on heroku](https://github.com/pussinboots/bankapp/blob/master/doc/buildpack.md)
 * [Play 2 c3p0 own truststore and keystore](https://github.com/pussinboots/bankapp/blob/master/doc/c3p0.md)
 * [IDE Experiences](https://github.com/pussinboots/bankapp/blob/master/doc/ide.md)
