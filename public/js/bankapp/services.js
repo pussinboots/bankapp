@@ -16,8 +16,15 @@ angular.module('productServices', ['ngResource'], function ($provide) {
         });
     });
 
+    //merge Users and Accounts service to one with angularjs-decode-uri
     $provide.factory('Users', function ($resource) {
         return $resource('/rest/google', {}, {
+            auth: {method: 'GET'}
+        });
+    });
+
+    $provide.factory('Accounts', function ($resource) {
+        return $resource('/rest/account', {}, {
             auth: {method: 'GET'}
         });
     });
