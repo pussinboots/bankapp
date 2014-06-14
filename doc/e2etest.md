@@ -1,9 +1,47 @@
 ##e2e Test whit karma (Todo documentation how it works)
 
-Complete e2e test that means frontend test with running backen
+I had the plan to implement complete test szenarios from unit, inetgration and acceptance tests.
 
-* frontend angularjs
-* backend play 2 scala
+Test definition for me
+
+* unit test test code without external dependencies
+* integration test test multile code blocks without external dependencies
+* acceptance test test functions of the complete system withouth external dependencies but mocked in proper way  
+
+This project is implemented as a web application that target browsers and mobile devices (start with android).
+For the frontend the javscript programming language is choosed because it plays well with HTML5 features and has a wide 
+community and framework support. The backend is impleented with Scala specialy play 2 framework because less coding than java and good development suport of play like class reloading, test support, ad so on.
+
+* frontend angularjs 1.2.x version
+* backend play 2.2.3 scala
+
+####Frontend
+
+As i mentioned it is implemented with javascript and the wonderful web framework [anularjs](https://angularjs.org/). The angularjs framework make it very simple to build html 5 featured web applications with little lines of codes and a wide support of plugings called modules in the anularjs world.
+
+######Unit Test
+
+TODO document and imlement with karma the common way
+
+######Integration Tests
+
+TODO maybe not needed because can be achieved with acceptance test for the whole system frontend plus backend
+
+####Backend
+
+######Unit Test
+
+Implements standard play 2 unit tests see test/unit folder
+TODO document 
+
+######Integration Tests
+
+Implements standard play 2 integration tests see test/integration folder
+TODO document 
+
+####Acceptance Tests
+
+TODO document that is the magic where to document the way to write karma e2e test that run against the play 2 backend  
 
 file package.json
 ```
