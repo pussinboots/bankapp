@@ -9,8 +9,8 @@ Test definition for me
 * acceptance test test functions of the complete system without external dependencies but mocked in proper way  
 
 This project is implemented as a web application that target browsers and mobile devices (start with android).
-For the frontend the javscript programming language is choosed because it plays well with HTML5 features and has a wide 
-community and framework support. The backend is impleented with Scala specialy play 2 framework because less coding than java and good development suport of play like class reloading, test support, ad so on.
+For the frontend the javascript programming language is choosed because it plays well with HTML5 features and has a wide 
+community and framework support. The backend is impleented with Scala specialy play 2 framework because less coding than java and good development suport of play like class reloading, test support, and so on.
 
 * frontend angularjs 1.2.x version
 * backend play 2.2.3 scala
