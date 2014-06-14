@@ -40,4 +40,6 @@ object SparkassenAppRest extends App {
     "value_enc" -> stocks.accounts.map(_._2.value).sum.encrypt.encrypted
   )
   WS.url(s"$endPoint/rest/stocks").withHeaders("X-AUTH-TOKEN" -> googleId).withHeaders("Content-Type" -> "application/json").post(data)
+  sys.exit(0)
+  
 }
