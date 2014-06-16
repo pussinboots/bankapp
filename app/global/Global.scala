@@ -24,6 +24,9 @@ object Global extends WithFilters(HTTPSRedirectFilter) with GlobalSettings
       if(enablePoolLogging) {
         //Logger.info("activate verbose db logging")
         DB.WithPoolLogging()
+      } else {
+        System.clearProperty("com.mchange.v2.log.MLog")
+        System.clearProperty("com.mchange.v2.log.FallbackMLog.DEFAULT_CUTOFF_LEVEL")
       }
     }
     override def onStop(app: Application) {

@@ -15,7 +15,7 @@ import scala.Some
  */
 object ControllerHelpers {
 
-  def ActionWithToken[A](bodyParser: BodyParser[A] = BodyParsers.parse.anyContent)(f: (Request[A], String) => Result) = {
+  def ActionWithToken[A](bodyParser: BodyParser[A])(f: (Request[A], String) => Result) = {
     Action(bodyParser) { request =>
       request.headers.get("X-AUTH-TOKEN") match {
         case Some(authToken) => f (request, authToken)
