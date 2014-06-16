@@ -12,6 +12,7 @@ There is also a little lessons learned documentation in the doc folder
 * [IDE Experiences](https://github.com/pussinboots/bankapp/blob/master/doc/ide.md)
 * [Git Shortcuts](https://github.com/pussinboots/bankapp/blob/master/doc/git.md)
 * [Git Commit without CI Build](http://docs.travis-ci.com/user/how-to-skip-a-build/)
+* [Softcover](http://manual.softcover.io/book)
 
 Little personal bank web application that show my account and stock overview of my 
 bank account. The data is fetched from the bank account web site and it is only run local
