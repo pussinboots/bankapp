@@ -40,9 +40,9 @@ npm := scala.sys.process.Process( "npm" :: "install" :: Nil) ! logger
 
 //ScoverageSbtPlugin.ScoverageKeys.highlighting in ScoverageSbtPlugin.scoverage := true
 
-ScoverageSbtPlugin.ScoverageKeys.excludedPackages in ScoverageSbtPlugin.scoverage := "Reverse*;controllers..*Reverse*;controllers.javascript;controllers.ref;app.tools;Routes"
+ScoverageSbtPlugin.ScoverageKeys.excludedPackages in ScoverageSbtPlugin.scoverage := "Reverse*;controllers..*Reverse*;controllers.javascript;controllers.ref;app.tools;Routes;routes*"
 
-ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes"
+ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes,routes*"
 
 envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==", "sparkasse_username"->"username", "sparkasse_password"->"password") // setted for EasyCryptSpec
 
