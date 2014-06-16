@@ -27,6 +27,10 @@ object EasyCryptUtil {
       val erg = ec.decrypt(geheim);
       Encryption(key, value, geheim)
     }
+
+    def encryptString() : String = {
+      encrypt().encrypted
+    }
   }
 
   implicit class EasyCryptDouble(value: Double) extends EasyCryptString(value.toString)

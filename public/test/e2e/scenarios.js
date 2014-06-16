@@ -9,14 +9,28 @@ describe('BankApp', function() {
     expect(browser().location().url()).toBe('/dashboard');
   });
 
-
-
-  describe('Dashboard', function() {
+  
+  describe('Dashboard with encryption', function() {
 
     beforeEach(function() {
-      browser().navigateTo('products-e2e.html#/settings');
+      browser().navigateTo('products-e2e.html#/testlogin/test googleid encrypted');
+      browser().navigateTo('#/settings');
+      input('$storage.config.key').enter('16rdKQfqN3L4TY7YktgxBw==');
+      browser().navigateTo('#/dashboard');
+    });
+
+    it('two balances are displayed', function() {
+      expect(repeater('tr.balances').count()).toBe(2);
+    });
+  });  
+
+  describe('Dashboard without encryption', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('products-e2e.html#/testlogin/test googleId');
+      browser().navigateTo('#/settings');
       input('$storage.config.key').enter('')
-      browser().navigateTo('products-e2e.html#/dashboard');
+      browser().navigateTo('#/dashboard');
     });
 
     it('two balances are displayed', function() {

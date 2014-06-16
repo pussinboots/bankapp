@@ -13,6 +13,12 @@ object Global extends WithFilters(HTTPSRedirectFilter) with GlobalSettings
       if(enableDBSSL) {
         Logger.info("set custom truststore for cleardb mysql ssl connections")
         DB.WithSSL()
+      } else {
+        Logger.info("clear system properties truststore/keystore")
+        System.clearProperty("javax.net.ssl.keyStore")
+        System.clearProperty("javax.net.ssl.keyStorePassword")
+        System.clearProperty("javax.net.ssl.trustStore")
+        System.clearProperty("javax.net.ssl.trustStorePassword")
       }
       if(enablePoolLogging) {
         DB.WithPoolLogging()

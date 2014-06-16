@@ -20,6 +20,8 @@ myModule.config(function ($routeProvider) {
                                 controller: StockCtrl })
     .when('/settings', {        templateUrl: 'partials/bankapp/settings.html', 
                                 controller: SettingsCtrl })
+    .when('/testlogin/:googleid', {        templateUrl: 'partials/bankapp/settings.html', 
+                                controller: GoogleCtrl })
     .when('/balance-mobile', {  templateUrl: 'partials/bankapp/balance-mobile.html',
                                 resolve:{profile:waitForLogin},
                                 controller: BalanceCtrl })

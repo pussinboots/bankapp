@@ -2,6 +2,6 @@
       "directory": "public/components",
       "json": "bower.json",
        "scripts": {
-	    "postinstall": "./wiredep_karma.js -s public/products.html -s public/karma.conf.js"
+	    "postinstall": "./wiredep_karma.js -s public/products.html -s public/products-e2e.html -s public/karma.conf.js"
 	  }
 }
