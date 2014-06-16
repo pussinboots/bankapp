@@ -1,6 +1,39 @@
 ##e2e Test with karma (Todo documentation how it works)
 
-I had the plan to implement complete test szenarios from unit, inetgration and acceptance tests.
+I had the plan to implement complete test szenarios from unit, inetgration and acceptance tests over all layers.
+The goal is that karma frontend tests with angularjs ngScenario runs against a full feature backend so that this 
+goals
+* the angularjs (controllers, services, views maybe directives) code is tests
+* the communication and integration with the backend api
+* and the root code path of the backend code
+will be achieved.
+
+During my work as a developer i saw a lot of good and bad things about testing. Of course the worst scenario is that there is no automated tests but i saw also that there was near 100 times more test code than functional code and 90 times of that were unit test with mocking all the world around them. So the best i guess is to keep it balanced have a lot of unit tests is good but you should also have some integrations or to be clear acceptance tests. So that you test also the integration between layers and maybe systems.
+For that project it means to have a test coverage near 90 percent for the backend and the frontend itself. Means test the frontend without interaction with the backend and the backend without frontend requets. 
+
+But i guess what is more important also for a multilanguage project is that the interaction/communication between frontend and backen is also very well tested. To achieved this very good point i will describe it here how i set it up that the angularjs ngScenario tests are running against a fullfeatured play 2 backend with of course test data in the database but nothing is mocked there except 3rd party communication like google plus oauth2 login. The End2End test should be run local and on the ci system (i used travis and that support karma testing out of the box with some setup little setup)
+
+extraction of the [.travis.yml](https://github.com/pussinboots/bankapp/blob/master/.travis.yml) file
+```
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+```
+It start a X window system what is needed to perform in browser tests. The firefox is preinstalled on the travis ci default vm images. But it is also possible to install other browsers they run under unix system.
+
+extraction of the [.travis.yml]()from an other poroject
+```
+- sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+- sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+- sudo apt-get update
+- sudo apt-get install opera
+```
+It will install the opera browser. If you interested in [browser compatibility](https://saucelabs.com/) tests that look at the [saucelabs](https://saucelabs.com/) company. It is also very easy to setup with travis and karma. But that it a other topic that could be an extension of the e2e test topic afterwards
+
+At the moment not covered yet maybe solved in the near future
+* e2e test coverage measurement
+* 3rd party integration testing
+* automated testing of the productaion systems (maybe this can be arranged with a liitle extension of the e2e testing described here)
+You as a reader of course can send me your feedback or idears about this topics may also your solutions how you handle that.
 
 Test definition for me
 
