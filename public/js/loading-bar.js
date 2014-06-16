@@ -124,9 +124,10 @@ angular.module('cfp.loadingBarInterceptor', ['cfp.loadingBar'])
         },
 
         'responseError': function(rejection) {
-          if (!isCached(rejection.config)) {
+          var config=(rejection.config||{cache:false, method:'GET', url:'url'})
+          if (!isCached(config)) {
             reqsCompleted++;
-            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: rejection.config.url});
+            $rootScope.$broadcast('cfpLoadingBar:loaded', {url: config.url});
             if (reqsCompleted >= reqsTotal) {
               setComplete();
             } else {
