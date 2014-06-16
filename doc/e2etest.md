@@ -1,4 +1,4 @@
-##e2e Test whit karma (Todo documentation how it works)
+##e2e Test with karma (Todo documentation how it works)
 
 I had the plan to implement complete test szenarios from unit, inetgration and acceptance tests.
 
