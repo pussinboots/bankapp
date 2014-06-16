@@ -10,10 +10,10 @@ import model.{StockJsonSave, BalanceJsonSave, DateUtil, BalanceJson, StockJson}
 import model.JsonHelper.JsonFmtListWrapper
 
 class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
-  sequential
+  import model.JsonHelper._
 
   "/rest/balances should" should {
-    "given no x-auth-token header then return in bad request" in new WithServer {
+    "given no x-auth-token header then return bad request" in new WithServer {
       val response = await(WS.url(s"http://localhost:$port/rest/balances").get)
       response.status must equalTo(BAD_REQUEST)
       response.json must equalTo(Json.obj("status" -> "MH", "message" -> "missing X-AUTH-TOKEN http header"))
@@ -21,7 +21,6 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
 
     "given x-auth-header" should {
 
-      import model.JsonHelper._
       "then return first two balances sort by id asc" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/balances").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val balances = Json.fromJson[JsonFmtListWrapper[BalanceJson]](response.json).get
@@ -52,25 +51,19 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       "given items eq one then return first two balances sort by id asc" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/balances?items=1").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val balances = Json.fromJson[JsonFmtListWrapper[BalanceJson]](response.json).get
-        thenOneResultTwoCounts[BalanceJson]{balanceList=>
-          checkFirstBalance(balanceList(0))
-        }
+        thenOneResultTwoCounts[BalanceJson](balanceList=>checkFirstBalance(balanceList(0)))
       }
 
       "given name eq 'Total' then return one balance" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/balances?name_enc=Total").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val balances = Json.fromJson[JsonFmtListWrapper[BalanceJson]](response.json).get
-        thenOneResult[BalanceJson] {balanceList=>
-          checkFirstBalance(balanceList(0))
-        }
+        thenOneResult[BalanceJson](balanceList=>checkFirstBalance(balanceList(0)))
       }
 
       "given date eq now then return one balance" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/balances?date=${now.get.getTime}").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val balances = Json.fromJson[JsonFmtListWrapper[BalanceJson]](response.json).get
-        thenOneResult[BalanceJson]{balanceList=>
-          checkFirstBalance(balanceList(0))
-        }
+        thenOneResult[BalanceJson](balanceList=>checkFirstBalance(balanceList(0)))
       }
 
       "save balance" should {
@@ -126,7 +119,6 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
   }
 
   "/rest/stocks should" should {
-    import model.JsonHelper._
 
     "given no x-auth-token header then return bad request" in new WithServer {
       val response = await(WS.url(s"http://localhost:$port/rest/stocks").get)
@@ -137,7 +129,7 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       "then return first two stocks sort by id asc" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenTwoResults[StockJson]{stockList=>
+        thenTwoResults[StockJson] {stockList=>
           checkFirstStock(stockList(0))
           checkSecondStock(stockList(1))
         }
@@ -146,7 +138,7 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       "given sort by date desc then return two stocks" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?sort=date&direction=desc").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenTwoResults[StockJson]{stockList=>
+        thenTwoResults[StockJson] {stockList=>
           checkFirstStock(stockList(0))
           checkSecondStock(stockList(1))
         }
@@ -155,7 +147,7 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       "given sort by date asc then return two stocks" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?sort=date&direction=asc").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenTwoResults[StockJson]{stockList=>
+        thenTwoResults[StockJson] {stockList=>
           checkSecondStock(stockList(0))
           checkFirstStock(stockList(1))
         }
@@ -164,25 +156,19 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       "given items eq one then return one stock sort by id asc" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?items=1").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenOneResultTwoCounts[StockJson] {stockList=>
-          checkFirstStock(stockList(0))
-        }
+        thenOneResultTwoCounts[StockJson](stockList=>checkFirstStock(stockList(0)))
       }
 
       "given name eq 'Aktie 1' then return one stock" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?name_enc=Aktie%201").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenOneResult[StockJson] {stockList=>
-          checkFirstStock(stockList(0))
-        }
+        thenOneResult[StockJson](stockList=>checkFirstStock(stockList(0)))
       }
 
       "given date eq now then return one stock" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?date=${now.get.getTime}").withHeaders("X-AUTH-TOKEN" -> googleId).get)
         implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-        thenOneResult[StockJson]{stockList=>
-          checkFirstStock(stockList(0))
-        }
+        thenOneResult[StockJson](stockList=>checkFirstStock(stockList(0)))
       }
 
       "save stocks" should {
