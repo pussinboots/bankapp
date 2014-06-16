@@ -29,16 +29,6 @@ class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       }
     }
 
-    "given valid googleIdEnc return valid account" in {
-      DB.db withSession {
-        val response = GoogleController.findAccount("test googleid encrypted")(FakeRequest())
-        val jsonUserAccount = Json.fromJson[UserAccount](Json.parse(contentAsString(response)))
-        status(response) must beEqualTo(OK)
-        jsonUserAccount.get.googleId must beEqualTo("test googleid encrypted")
-        jsonUserAccount.get.id must beEqualTo(Some(4))
-      }
-    }
-
     "given invalid googleId return bad request" in {
       DB.db withSession {
         val response = GoogleController.findAccount("invalid googleId")(FakeRequest())

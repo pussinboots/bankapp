@@ -5,7 +5,7 @@ import unit.org.stock.manager.test.Betamax
 import co.freeside.betamax.{MatchRule, TapeMode}
 import java.util.Comparator
 import co.freeside.betamax.message.Request
-import model.{User, SparKassenClient}
+import tools.imports.{User, SparKassenClient}
 
 class SparkassenAppSpec extends Specification {
   sys.props.+=("com.ning.http.client.AsyncHttpClientConfig.useProxyProperties" -> "true")

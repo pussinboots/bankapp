@@ -20,6 +20,7 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
     }
 
     "given x-auth-header" should {
+
       import model.JsonHelper._
       "then return first two balances sort by id asc" in new WithServer {
         implicit val response = await(WS.url(s"http://localhost:$port/rest/balances").withHeaders("X-AUTH-TOKEN" -> googleId).get)
@@ -28,7 +29,6 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
           checkFirstBalance(balanceList(0))
           checkSecondBalance(balanceList(1))
         }
-
       }
 
       "given sort by date desc then return two balances" in new WithServer {
@@ -185,26 +185,56 @@ class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
         }
       }
 
-      "save then return success message" in new WithServer {
-        val stockToSave = StockJsonSave("New Stock", "1002.00")
-        val response = await(WS.url(s"http://localhost:$port/rest/stocks")
-          .withHeaders("X-AUTH-TOKEN" -> googleId)
-          .post(Json.toJson(stockToSave)))
-        val status = response.json \ "status"
-        val message = response.json \ "message"
-        status.as[String] must equalTo("OK")
-        message.as[String] must equalTo("Stock 'New Stock' saved.")
-      }
+      "save stocks" should {
 
-      "then return the stored stock" in new WithServer {
-          implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?name_enc=New%20Stock").withHeaders("X-AUTH-TOKEN" -> googleId).get)
-          implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
-          thenOneResult[StockJson]{stockList=>
-            stockList(0).name_enc must equalTo("New Stock")
-            stockList(0).value_enc must equalTo("1002.00")
-            stockList(0).id should be > -1
-          }
+        "given no x-auth-token header then return in bad request" in new WithServer {
+          val balanceToSave = StockJsonSave("New Entry", "1000.00")
+          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+            .post(Json.toJson(balanceToSave)))
+          response.status must equalTo(BAD_REQUEST)
+          response.json must equalTo(Json.obj("status" -> "MH", "message" -> "missing X-AUTH-TOKEN http header"))
         }
+
+        "given invalid json then return bad request" in new WithServer {
+          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+            .withHeaders("X-AUTH-TOKEN" -> googleId)
+            .withHeaders("Content-Type" -> "application/json")
+            .post("invalid json"))
+          response.status must equalTo(BAD_REQUEST)
+          response.body must contain("Invalid Json")
+        }
+
+        "given balance missing value_enc field then return bad request" in new WithServer {
+          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+            .withHeaders("X-AUTH-TOKEN" -> googleId)
+            .withHeaders("Content-Type" -> "application/json")
+            .post(Json.toJson("{name_enc:\"invalid item\"}")))
+          println(Json.toJson("name_enc"->"invalid item"))
+          println(response.body)
+          response.status must equalTo(BAD_REQUEST)
+        }
+
+        "save then return success message" in new WithServer {
+          val stockToSave = StockJsonSave("New Stock", "1002.00")
+          val response = await(WS.url(s"http://localhost:$port/rest/stocks")
+            .withHeaders("X-AUTH-TOKEN" -> googleId)
+            .post(Json.toJson(stockToSave)))
+          val status = response.json \ "status"
+          val message = response.json \ "message"
+          status.as[String] must equalTo("OK")
+          message.as[String] must equalTo("Stock 'New Stock' saved.")
+        }
+
+        "then return the stored stock" in new WithServer {
+            implicit val response = await(WS.url(s"http://localhost:$port/rest/stocks?name_enc=New%20Stock").withHeaders("X-AUTH-TOKEN" -> googleId).get)
+            implicit val stocks = Json.fromJson[JsonFmtListWrapper[StockJson]](response.json).get
+            thenOneResult[StockJson]{stockList=>
+              stockList(0).name_enc must equalTo("New Stock")
+              stockList(0).value_enc must equalTo("1002.00")
+              stockList(0).id should be > -1
+            }
+        }
+      }
     }
   }
 

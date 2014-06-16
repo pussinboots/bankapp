@@ -24,7 +24,7 @@ object BalanceController extends Controller {
       //TODO the googleId should be implicit
       var query = if (name.length > 0) Balances.findByName(name)(googleId) else Balances.findAll()(googleId)
       query = if (date > -1) query.filter(_.date === new Timestamp(date)) else query
-      println(query.sorts(sort, direction).take(items).selectStatement)
+      //println(query.sorts(sort, direction).take(items).selectStatement)
       val json = query.sorts(sort, direction).drop(items * (page - 1)).take(items).list()
       val count = query.list.length
       val result = json map { case (balance: Balance) =>

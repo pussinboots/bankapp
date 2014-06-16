@@ -25,7 +25,7 @@ object StockController extends Controller {
       var query = if (name.length > 0) Stocks.findByName(name)(googleId) else Stocks.findAll()(googleId)
       query = if (date > -1) query.filter(_._1.date === new Timestamp(date)) else query
       //FIXME sorting is not working at the moment
-      println(query.drop(items * (page - 1)).take(items).selectStatement)
+      //println(query.drop(items * (page - 1)).take(items).selectStatement)
       val json = query.sorts(sort, direction).drop(items * (page - 1)).take(items).list()
       val count = query.list.length
       val result = json map { case (stock: Stock, symbol: Option[String]) =>

@@ -11,22 +11,21 @@ object Global extends WithFilters(HTTPSRedirectFilter) with GlobalSettings
       val enableDBSSL = app.configuration.getBoolean("enableDBSSL").getOrElse(true)
       val enablePoolLogging = app.configuration.getBoolean("enablePoolLogging").getOrElse(false)
       if(enableDBSSL) {
-        Logger.info("set custom truststore for cleardb mysql ssl connections")
+        Logger.debug("set custom truststore for cleardb mysql ssl connections")
         DB.WithSSL()
       } else {
-        Logger.info("clear system properties truststore/keystore")
+        Logger.debug("clear system properties truststore/keystore")
         System.clearProperty("javax.net.ssl.keyStore")
         System.clearProperty("javax.net.ssl.keyStorePassword")
         System.clearProperty("javax.net.ssl.trustStore")
         System.clearProperty("javax.net.ssl.trustStorePassword")
       }
       if(enablePoolLogging) {
+        Logger.info("activate verbose db logging")
         DB.WithPoolLogging()
       }
-      Logger.info("Application has started")
     }
     override def onStop(app: Application) {
-      Logger.info("Application shutdown...")
     }
 }
 

@@ -1,4 +1,4 @@
-package app.tools
+package tools
 
 import scala.slick.driver.MySQLDriver
 import model.DB

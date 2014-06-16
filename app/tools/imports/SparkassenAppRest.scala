@@ -1,4 +1,4 @@
-package model
+package tools.imports
 
 import tools.EasyCryptUtil._
 import play.api.libs.ws._

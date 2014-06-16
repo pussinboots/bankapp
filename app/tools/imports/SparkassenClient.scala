@@ -1,4 +1,4 @@
-package model
+package tools.imports
 
 import dispatch.Defaults.executor
 import dispatch.Http
@@ -27,7 +27,7 @@ case class Account(name: String, number: Long, value: Double, operations: Map[St
 class SparKassenClient() {
   implicit def stringWrapper(string: String) = new DoubleHelper(string)
 
-  val debug = true
+  val debug = false
   val rootUrl = "https://banking.berliner-sparkasse.de"
   val cookieStore: mutable.Map[String, String] = mutable.Map[String, String]()
 

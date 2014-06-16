@@ -1,14 +1,15 @@
-package model
+package tools.imports
 
 import scala.slick.session.Database
 import Database.threadLocalSession
 import tools.EasyCryptUtil._
+import model.DB
 
 object SparkassenApp extends App {
 
   require(sys.env.get("google_id") != None, "system property google_id is missing")
   start(sys.env.get("google_id").get, User.fromProperties)
-  exit(0)
+  sys.exit(0)
   
   def start(googleId2: String, user: User) {
     import DB.dal._
