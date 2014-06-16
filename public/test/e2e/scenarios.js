@@ -5,7 +5,7 @@
 describe('BankApp', function() {
 
   it('should redirect products.html to products.html#/dashboard', function() {
-    browser().navigateTo('products-e2e.html');
+    browser().navigateTo('/');
     expect(browser().location().url()).toBe('/dashboard');
   });
 
