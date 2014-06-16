@@ -22,6 +22,11 @@ describe('BankApp', function() {
     it('two balances are displayed', function() {
       expect(repeater('tr.balances').count()).toBe(2);
     });
+
+    it('balances should show Total and Total balances entry', function() {
+      expect(repeater('tr.balances').column('balance.name_enc')).
+          toEqual(["Total", "Total"]);
+    });
   });  
 
   describe('Dashboard without encryption', function() {
@@ -38,10 +43,10 @@ describe('BankApp', function() {
     });
 
     //problem that field name_enc is empty for that expect here but than setted right
-    /*it('balances should show Girokonto and Total balances entry', function() {
+    it('balances should show Girokonto and Total balances entry', function() {
       expect(repeater('tr.balances').column('balance.name_enc')).
           toEqual(["Girokonto", "Total"]);
-    });*/
+    });
     
 
 
