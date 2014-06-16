@@ -31,8 +31,6 @@ object SetupTestDatabase {
   }
   //insert some test data they are enrcypted for e2e test of encryption and decryption see karma test
   def insertE2ETestData(googleId: String = "test googleId") = {
-    DB.dal.recreate
-    
     import tools.EasyCryptUtil._
     val googleIdEnc="test googleid encrypted"
     val userAccountEnc = UserAccounts.insert(googleIdEnc, "testemailenc")

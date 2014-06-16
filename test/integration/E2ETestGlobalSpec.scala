@@ -11,6 +11,7 @@ import play.api.Play
 import play.api.Play.current
 
 class E2ETestGlobalSpec extends PlaySpecification {
+  val googleId  = "test googleId"
   val googleIdEnc  = "test googleid encrypted"
   "application configuration for e2e" should {
     "check that balances for the googleid encrypted exists" in {
@@ -31,6 +32,21 @@ class E2ETestGlobalSpec extends PlaySpecification {
       }
     }
 
+    "check that user account for googleid without encryption exists" in 
+      running(FakeApplication()) {
+        DB.db withSession {
+          import DB.dal._
+          import DB.dal.profile.simple._
+          E2ETestGlobal.onStart(Play.application)
+          DB.db withSession {
+            val q = UserAccounts.findByGoogle(googleId)
+            val userAccount = q.first
+            userAccount.googleId must beEqualTo(googleId)
+            userAccount.id must beEqualTo(Some(1))
+          }
+        }
+      }
+
     "check that user account for googleid encrypted exists" in 
       running(FakeApplication()) {
         DB.db withSession {
@@ -41,7 +57,7 @@ class E2ETestGlobalSpec extends PlaySpecification {
             val q = UserAccounts.findByGoogle(googleIdEnc)
             val userAccount = q.first
             userAccount.googleId must beEqualTo(googleIdEnc)
-            userAccount.id must beEqualTo(Some(1))
+            userAccount.id must beEqualTo(Some(4))
           }
         }
       }
