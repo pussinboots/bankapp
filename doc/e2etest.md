@@ -41,12 +41,47 @@ TODO document
 
 ####Acceptance Tests
 
+##Setup
+
+####karma runner as npm test script
+
 TODO document that is the magic where to document the way to write karma e2e test that run against the play 2 backend  
 
-file package.json
+file bliss ignore child exit code so that if a command returns other exit code than zero the command pipe will not break it execution
 ```
-play -Dconfig.file=conf/application-e2e.conf start & sleep 30 && wget -O/dev/null --retry-connrefused --tries=20 http://localhost:9000 && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run 
+#!/bin/sh
+"$@"
+exit 0
 ```
+
+The bliss script is used to prevent the break of the command pipe. So ignore the exit code of the play stop command which can be 1 if the RUNNING_PID file was not found. So that means stop a running play server or do nothing and than start a new one with the e2e application configuration in the background and the following wget command wait until the server is up and running by check if the http://localhost:9000 call was succesful. Than run the karma e2e tests and if all tests passed than stop the running play server. The play stop command is only performed if all tests passed so a test run could leave you a running server. To prevent that play stop is the first command here. This 
+extraction from [package.json](https://github.com/pussinboots/bankapp/blob/master/package.json) file
+```
+{
+...
+  "scripts": {
+    "test": "./bliss play stop && play -Dconfig.file=conf/application-e2e.conf start & wget -O/dev/null --retry-connrefused --tries=40 http://localhost:9000 && ./node_modules/.bin/karma start karma.conf-e2e.js --single-run && play stop"
+  }
+...
+}
+
+```
+###### Little hint for local development
+
+The npm test run should also work with a local development but it need some times to start and stop the play server. To get the maximum speed for development you should start the play server with the run command, because play start has no reload feature and also static files are cached. 
+```
+play -Dconfig.file=conf/application-e2e.conf run 
+```
+And to start the karma e2e test run.
+```
+./node_modules/.bin/karma start karma.conf-e2e.js
+```
+So with this commands you can still change the backend and frontend code (means scala and javascript, html, css, ...) and the e2e test will run against your latest changes. That means you can really programm in a TDD style.
+
+```
+play ~test
+```
+To get the full TDD power you should also start your play tests in continuous mode so that they are executed for every code change you did. But there are still some drawbacks the karma runner doesn't detect your changes of the scala code and the recompilation in the play run terminal could take too long for the karma runner so you have to started more times before it will run all your e2e tests or you increase the waiting times of karma (browserNoActivityTimeout)
 
 file application-e2e.conf
 ```
