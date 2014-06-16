@@ -20,6 +20,12 @@ myModule.config(function ($routeProvider) {
                                 controller: StockCtrl })
     .when('/settings', {        templateUrl: 'partials/bankapp/settings.html', 
                                 controller: SettingsCtrl })
+    //is only needed for e2e testing should not be in live code should not have affects
+    //is needed so that karma e2e test scenarios can change loggedin users
+    .when('/testlogin/:googleid', {
+                                templateUrl: 'partials/bankapp/settings.html', 
+                                controller: GoogleCtrl })
+    //end e2e testing code
     .when('/balance-mobile', {  templateUrl: 'partials/bankapp/balance-mobile.html',
                                 resolve:{profile:waitForLogin},
                                 controller: BalanceCtrl })

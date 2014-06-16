@@ -15,12 +15,12 @@ import Database.threadLocalSession
 class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
   sequential
 
+  import DB.dal._
+  import DB.dal.profile.simple._
+  import model.JsonHelper._
   "/rest/account/" should {
     "given valid googleId return valid account" in {
-      import DB.dal._
-      import DB.dal.profile.simple._
       DB.db withSession {
-        import model.JsonHelper._
         val response = GoogleController.findAccount(googleId)(FakeRequest())
         val jsonUserAccount = Json.fromJson[UserAccount](Json.parse(contentAsString(response)))
         status(response) must beEqualTo(OK)
@@ -29,11 +29,18 @@ class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
       }
     }
 
-    "given invalid googleId return bad request" in {
-      import DB.dal._
-      import DB.dal.profile.simple._
+    "given valid googleIdEnc return valid account" in {
       DB.db withSession {
-        import model.JsonHelper._
+        val response = GoogleController.findAccount("test googleid encrypted")(FakeRequest())
+        val jsonUserAccount = Json.fromJson[UserAccount](Json.parse(contentAsString(response)))
+        status(response) must beEqualTo(OK)
+        jsonUserAccount.get.googleId must beEqualTo("test googleid encrypted")
+        jsonUserAccount.get.id must beEqualTo(Some(4))
+      }
+    }
+
+    "given invalid googleId return bad request" in {
+      DB.db withSession {
         val response = GoogleController.findAccount("invalid googleId")(FakeRequest())
         val errorJson = Json.parse(contentAsString(response))
         status(response) must beEqualTo(BAD_REQUEST)
@@ -49,11 +56,8 @@ class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
 
   "/rest/google should" should {
     "given invalid token return bad request" in Betamax(tape="googleSignIn", mode=Some(TapeMode.READ_ONLY)) {
-      import DB.dal._
-      import DB.dal.profile.simple._
       DB.db withSession {
         running(FakeApplication(additionalConfiguration=Map("enableDBSSL" -> "false"))) {
-          import model.JsonHelper._
           val response = GoogleController.googleConnect("inValidToken")(FakeRequest())
           val errorJson = Json.parse(contentAsString(response))
           status(response) must beEqualTo(BAD_REQUEST)
@@ -68,11 +72,8 @@ class GoogleControllerSpec extends PlaySpecification with DatabaseSetupBefore {
     }
 
     "given valid token return new created user account as json" in Betamax(tape="googleSignIn", mode=Some(TapeMode.READ_ONLY)) {
-      import DB.dal._
-      import DB.dal.profile.simple._
       DB.db withSession {
         running(FakeApplication(additionalConfiguration=Map("enableDBSSL" -> "false"))) {
-          import model.JsonHelper._
           val useAccountNotExists = UserAccounts.findByGoogle("12345678910").firstOption
           useAccountNotExists must beEqualTo(None)
           val response = GoogleController.googleConnect("ya29.JQCbAEBX9v9sWSAAAAB3ztWIf69L6Om_Ck0UGA0Tlemrgoatzq0xcAOhjTPG1A")(FakeRequest())
