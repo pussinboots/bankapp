@@ -30,7 +30,7 @@ myModule.config(function ($routeProvider) {
 
 myModule.run(function($rootScope, cfCryptoHttpInterceptor, $localStorage) {
     $rootScope.$storage = $localStorage.$default({
-        config:{key:'insert your key here is stored local'}
+        config:{key:''}
     })
     cfCryptoHttpInterceptor.base64KeyFunc = function() {
         return $rootScope.$storage.config.key;
