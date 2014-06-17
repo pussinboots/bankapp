@@ -56,6 +56,6 @@ function initTable(scope, items, sortColumn, sortDirection) {
     scope.filter = {}
     scope.items = items
     scope.sortColumn = sortColumn;
-    scope.sortDirection == sortDirection
+    scope.sortDirection = sortDirection
     scope.dateFormat = 'yyyy-MM-dd HH:mm:ss Z'
 }

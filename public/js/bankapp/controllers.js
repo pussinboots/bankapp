@@ -15,7 +15,6 @@ function SettingsCtrl() {
 
 function BalanceCtrl($rootScope, $scope, Balances) {
     initTable($scope, 10, 'date', 'desc')
-    console.log("profile " + $rootScope.email)
     $scope.setItems = function (rootScope, scope) {
         loadBalances($rootScope, scope, Balances)
     };
@@ -24,8 +23,6 @@ function BalanceCtrl($rootScope, $scope, Balances) {
 
 function StockCtrl($rootScope, $scope, Stocks) {
     initTable($scope, 10, 'date', 'desc')
-    $scope.sortDirection="asc"
-
     $scope.setItems = function (rootScope, scope) {
         loadStocks($rootScope, scope, Stocks)
     };
