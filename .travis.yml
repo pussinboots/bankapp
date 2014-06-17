@@ -1,5 +1,5 @@
 language: node_js
-script: play test && npm test
+script: play coveralls && npm test
 node_js:
 - 0.1
 env:
