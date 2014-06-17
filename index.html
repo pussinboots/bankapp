@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Bankapp by pussinboots</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Bankapp</h1>
+        <h2>Simple application that show bank relevant informations like balance and stocks over time.</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/pussinboots/bankapp/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/pussinboots/bankapp/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/pussinboots/bankapp" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="bankapp" class="anchor" href="#bankapp"><span class="octicon octicon-link"></span></a>bankapp</h1>
+
+<p><a href="https://travis-ci.org/pussinboots/bankapp"><img src="https://travis-ci.org/pussinboots/bankapp.svg?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/r/pussinboots/bankapp?branch=master"><img src="https://img.shields.io/coveralls/pussinboots/bankapp.svg" alt="Coverage Status"></a>
+<a href="https://bana.herokuapp.com"><img src="http://heroku-badge.heroku.com/?app=bana" alt="Heroku"></a></p>
+
+<p>There is also a little lessons learned documentation in the doc folder</p>
+
+<ul>
+<li>
+<a href="https://github.com/pussinboots/bankapp/blob/master/doc/e2etest.md">E2E Test angularjs + Play</a> TODO !!!</li>
+<li>
+<a href="https://github.com/pussinboots/bankapp/blob/master/doc/nodejs_play2.md">Multilanguage Project forntend javascript backend scala</a> TODO !!!</li>
+<li><a href="https://github.com/pussinboots/bankapp/blob/master/doc/buildpack.md">multiple build pack on heroku</a></li>
+<li><a href="https://github.com/pussinboots/bankapp/blob/master/doc/c3p0.md">Play 2 c3p0 own truststore and keystore</a></li>
+<li><a href="https://github.com/pussinboots/bankapp/blob/master/doc/ide.md">IDE Experiences</a></li>
+<li><a href="https://github.com/pussinboots/bankapp/blob/master/doc/git.md">Git Shortcuts</a></li>
+<li><a href="http://docs.travis-ci.com/user/how-to-skip-a-build/">Git Commit without CI Build</a></li>
+<li><a href="http://manual.softcover.io/book">Softcover</a></li>
+</ul><p>Little personal bank web application that show my account and stock overview of my 
+bank account. The data is fetched from the bank account web site and it is only run local
+because of security constraints by passing my bank account login data. </p>
+
+<p>The project is split in a display  and import bank data module. So the display part can run on the web 
+but the import part should only be run localy because of the previous mentioned security constrain.</p>
+
+<p>It is also a proof of concept for client side encryption/decryption with the (angularjs crypto modul)[<a href="https://github.com/pussinboots/angularjs-crypto">https://github.com/pussinboots/angularjs-crypto</a>]. The bank account and stock data are
+stored on a hosted database like cleardb. But this data are encrypted and will only be decrypted on the 
+client side in angularjs so that the encryption/decryption key is not know to the systems where the
+server part is running and the data are stored to get. I will be prepare a little live demo in
+the next days with random bank data.</p>
+
+<h2>
+<a name="plans" class="anchor" href="#plans"><span class="octicon octicon-link"></span></a>Plans</h2>
+
+<p>Make it possible to insert data by ui and api so that anyone can store his or here bank data and use this app.
+To get a quick start it use google plus for signin. I hope i get it working for other customer than me and
+i plan also to implement a little mobile app with PhoneGap.</p>
+
+<p>There is already a import modul which fetch the data from the berliner sparkassen web site and stored it encrypted in the database
+(see)[<a href="https://github.com/pussinboots/bankapp/blob/master/app/model/SparkassenApp.scala">https://github.com/pussinboots/bankapp/blob/master/app/model/SparkassenApp.scala</a>] this read the login information from the
+environment variables and should work for all berliner sparkassen customers (but of course not tested yet). After there is an import API
+than it is possible to write for your own bank a importer which fetch the data somewhere for you and use the offered import api
+to insert your bank data. But be carefull run the importer only from your local maschine because you should not store your bank login somewhere on the net. </p>
+
+<h2>
+<a name="todos" class="anchor" href="#todos"><span class="octicon octicon-link"></span></a>Todos</h2>
+
+<ul>
+<li>page to insert your data manualy</li>
+<li>build a android phonegap app and publish it in google play</li>
+<li>at the moment only for my account there exists bank data (maybe dummy data for new user to test)</li>
+<li>rest interface to insert encrypted bank data for any account how wants to use the app</li>
+<li>historical graphs that show the development of your money</li>
+<li>forcast of mone development based on historical data</li>
+<li>some fancy features i can imagine now</li>
+</ul><h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<p>There are several use cases in my mind what is possible with that bank data for example you can group your income and outcome by categories to see where you money goes and this stuff. Also a future calculation of your money behavoir could be possible by analyzing the past and get a forecast what your bank account could loke like in 6 Months and so on. </p>
+
+<h2>
+<a name="motivation" class="anchor" href="#motivation"><span class="octicon octicon-link"></span></a>Motivation</h2>
+
+<p>I want to get a good and quick overview of my bank account and historical development. That's missing in the current applications i guess.</p>
+
+<p>Feel free to contact me for any purpose.</p>
+
+<h2>
+<a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<p>Here are some mobile fancy screen shots of course with dummy data not my real bank data.</p>
+
+<ul>
+<li>here you see the requestable pages</li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/menu.png" alt="menu"></p>
+
+<ul>
+<li>here you see the raw data from the database and you see all data, except the date, are encrypted. That is how they are stored in the database and if the right key is configured at the settings page (see next image) than the data will be readable</li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/encrypted.png" alt="encrypted"></p>
+
+<ul>
+<li>here your configure the encryption key (has to be the same key that was used to encrypt the data for storing it in the database)</li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/key.png" alt="key"></p>
+
+<ul>
+<li>here the balance data readable all encryption is performed on the client side (on the device that use this app) </li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/balances_mobil.png" alt="balances"></p>
+
+<ul>
+<li>here the stocks data readable all encryption is performed on the client side (on the device that use this app) </li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/stocks_mobile.png" alt="stocks"></p>
+
+<ul>
+<li>if you are not loged in than you will see nothing google plus sign is used and only the googleid and your email address is stored in the app database</li>
+</ul><p><img src="https://raw.githubusercontent.com/pussinboots/bankapp/master/public/images/logout.png" alt="logout"></p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
