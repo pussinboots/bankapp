@@ -43,9 +43,9 @@ describe('BankApp', function() {
     });
 
     //problem that field name_enc is empty for that expect here but than setted right
-    it('balances should show Girokonto and Total balances entry', function() {
+    it('balances should show Total and Girokonto balances entry', function() {
       expect(repeater('tr.balances').column('balance.name_enc')).
-          toEqual(["Girokonto", "Total"]);
+          toEqual(["Total", "Girokonto"]);
     });
     
 
