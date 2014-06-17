@@ -5,6 +5,7 @@ import play.api.test._
 import play.api.test.Helpers._
 
 class ApplicationSpec extends PlaySpecification {
+  sequential
   "application setup should" should {
     "configured with custom keystore is enabled" in {
       running(FakeApplication()) {
