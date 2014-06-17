@@ -13,3 +13,4 @@ update_rest.sh
 RUNNING_PID
 coverage
 test-results.xml
+update.sh
