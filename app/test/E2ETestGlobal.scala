@@ -4,8 +4,7 @@ import play.api._
 import model.DB
 import global.Global
 
-object E2ETestGlobal extends GlobalSettings
-{
+object E2ETestGlobal extends GlobalSettings {
     override def onStart(app: Application) {
       sys.props.+=("Database" -> "h2")
       DB.db withSession {
@@ -13,8 +12,5 @@ object E2ETestGlobal extends GlobalSettings
         SetupTestDatabase.insertE2ETestData()
       }
       Logger.info("Application for e2e test has started")
-    }
-    override def onStop(app: Application) {
-      Logger.info("Application of e2e test shutdown...")
     }
 }

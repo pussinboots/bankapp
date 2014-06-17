@@ -1,4 +1,4 @@
-package tools
+package tools.imports
 
 import scala.slick.driver.MySQLDriver
 import model.DB
@@ -8,7 +8,7 @@ import Database.threadLocalSession
 
 object DBMigration extends App {
   DB.WithSSL()
-  val db = DB.getSlickMysqlJdbcConnection()//getSlickMysqlConnection()
+  val db = DB.getSlickMysqlJdbcConnection()
   val dao = new DAL(MySQLDriver)
   import dao._
   import dao.profile.simple._
