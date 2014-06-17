@@ -10,6 +10,7 @@ import model.{StockJsonSave, BalanceJsonSave, DateUtil, BalanceJson, StockJson}
 import model.JsonHelper.JsonFmtListWrapper
 
 class RestControllerSpec extends PlaySpecification with DatabaseSetupBefore {
+  sequential
   import model.JsonHelper._
 
   "/rest/balances should" should {
