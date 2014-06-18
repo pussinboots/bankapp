@@ -1,5 +1,5 @@
 language: node_js
-script: play coveralls && npm test
+script: play coveralls && npm test && ./upload_junitreport.sh
 node_js:
 - 0.1
 env:
