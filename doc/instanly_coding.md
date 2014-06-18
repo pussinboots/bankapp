@@ -61,7 +61,7 @@ Go ahead and change your frontend code for example a css defintion and show more
 ###Continous Testing
 
 Lift up the TDD development to the next level by combining this reload feature with [e2e testing](https://github.com/pussinboots/bankapp/blob/master/doc/e2etest.md). Than every change you did on the frontend or backend
-will trigger a complete test runn of your backend (unit, integration tests) and frontend (unit tests) and the magic comes with the e2e tests that are also performed. And this tests runs can be executed in parallel. Here is the simple setup i used for the local development of that project here.
+will trigger a complete test run of your backend (unit, integration tests) and frontend (unit tests) and the magic comes with the e2e tests that are also performed. And this tests runs can be executed in parallel. Here is the simple setup i used for the local development of that project here.
 
 * continous Play 2 unit testing
 
@@ -86,6 +86,12 @@ First start the play backend.
 play -Dconfig.file=conf/application-e2e.conf run
 ```
 The application-e2e.conf configuration file is explained in the e2e testing documentation. Now you should have a running server that can be accessed via http://localhost:9000. The play run command take care of autoreloading and compiling changed scala files.
+
+extraction of the [karma.conf-e2e.js](https://github.com/pussinboots/bankapp/blob/master/karma.conf-e2e.js) file
+```javascript
+autoWatch: true,
+usePolling : true,
+```
 
 Second start the karma continouse test running mode.
 ```bash
