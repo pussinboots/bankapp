@@ -3,7 +3,7 @@ bankapp
 [![Build Status](https://travis-ci.org/pussinboots/bankapp.svg?branch=master)](https://travis-ci.org/pussinboots/bankapp)
 [![Coverage Status](https://img.shields.io/coveralls/pussinboots/bankapp.svg)](https://coveralls.io/r/pussinboots/bankapp?branch=master)
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
-[Unit Tests](https://unitcover.herokuapp.com/products.html#/builds/pussinboots/bankapp)
+[![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/bankapp/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/bankapp/builds)
 
 There is also a little lessons learned documentation in the doc folder
 * [Instanly coding](https://github.com/pussinboots/bankapp/blob/master/doc/instanly_coding.md)
