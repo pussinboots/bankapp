@@ -1,6 +1,6 @@
 #!/bin/bash
 owner=pussinboots
-project=banbapp
+project=bankapp
 #endpoint=localhost:9000
 endpoint=unitcover.herokuapp.com
 FILES=./target/test-reports/*
