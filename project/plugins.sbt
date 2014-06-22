@@ -10,9 +10,7 @@ resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/release
 // Use the Play sbt plugin for Play projects
 addSbtPlugin("com.typesafe.play" %% "sbt-plugin" % "2.2.3")
 
-addSbtPlugin("com.sqality.scct" % "sbt-scct" % "0.3")
-
-addSbtPlugin("com.sksamuel.scoverage" % "sbt-scoverage" % "0.95.9")
+addSbtPlugin("org.scoverage" %% "sbt-scoverage" % "0.99.5.1")
 
 addSbtPlugin("com.sksamuel.scoverage" %% "sbt-coveralls" % "0.0.5")
 
