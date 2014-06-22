@@ -6,9 +6,7 @@ import scala.sys.process._
 
 play.Project.playScalaSettings
 
-ScctPlugin.instrumentSettings
-
-ScoverageSbtPlugin.instrumentSettings
+instrumentSettings
 
 CoverallsPlugin.coverallsSettings
 
@@ -24,7 +22,7 @@ parallelExecution in Test := false
 
 parallelExecution in ScctTest := false
 
-parallelExecution in ScoverageSbtPlugin.scoverageTest := false
+parallelExecution in ScoverageTest := false
 
 Keys.fork in Test := false
 
@@ -40,9 +38,7 @@ npm := scala.sys.process.Process( "npm" :: "install" :: Nil) ! logger
 
 //ScoverageSbtPlugin.ScoverageKeys.highlighting in ScoverageSbtPlugin.scoverage := true
 
-ScoverageSbtPlugin.ScoverageKeys.excludedPackages in ScoverageSbtPlugin.scoverage := "controllers.javascript;controllers.ref;tools.imports;Routes;controllers.ReverseAssets;controllers.ReverseApplication;controllers.ReverseStockController;controllers.ReverseGoogleController;controllers.ReverseBalanceController"
-
-//ScctPlugin.scctExcludePackages in ScctPlugin.ScctTest := "Reverse*,controllers.javascript,controllers.ref,app.tools,Routes,controllers.Reverse*,controllers"
+ScoverageKeys.excludedPackages in ScoverageCompile := "controllers.javascript;controllers.ref;tools.imports;Routes;controllers.ReverseAssets;controllers.ReverseApplication;controllers.ReverseStockController;controllers.ReverseGoogleController;controllers.ReverseBalanceController"
 
 envVars := Map("aes_key" -> "16rdKQfqN3L4TY7YktgxBw==", "sparkasse_username"->"username", "sparkasse_password"->"password") // setted for EasyCryptSpec
 
