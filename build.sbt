@@ -20,8 +20,6 @@ parallelExecution := false //disable parallel execution for all tasks the below 
 
 parallelExecution in Test := false
 
-parallelExecution in ScctTest := false
-
 parallelExecution in ScoverageTest := false
 
 Keys.fork in Test := false
