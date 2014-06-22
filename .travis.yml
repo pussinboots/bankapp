@@ -11,9 +11,9 @@ before_script:
 - unzip -q play-${PLAY_VERSION}.zip
 - export PATH=$PATH:$PWD/play-${PLAY_VERSION}/
 after_failure:
-- bliss upload_junitreport.sh
+- ./bliss ./upload_junitreport.sh
 before_deploy:
-- bliss upload_junitreport.sh
+- ./bliss ./upload_junitreport.sh
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
   email:
