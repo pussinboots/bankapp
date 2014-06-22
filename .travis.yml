@@ -1,5 +1,5 @@
 language: node_js
-script: play coveralls && npm test && ./upload_junitreport.sh
+script: play coveralls && npm test
 node_js:
 - 0.1
 env:
@@ -10,7 +10,10 @@ before_script:
 - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
 - unzip -q play-${PLAY_VERSION}.zip
 - export PATH=$PATH:$PWD/play-${PLAY_VERSION}/
+after_failure:
+- bliss upload_junitreport.sh
 before_deploy:
+- bliss upload_junitreport.sh
 - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 notifications:
   email:
