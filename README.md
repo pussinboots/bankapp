@@ -5,6 +5,9 @@ bankapp
 [![Heroku](http://heroku-badge.heroku.com/?app=bana)](https://bana.herokuapp.com)
 [![Unit Tests](https://unitcover.herokuapp.com/api/pussinboots/bankapp/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/bankapp/builds)
 
+[![Unit Test Report](http://unitcover.herokuapp.com/api/pussinboots/bankapp/testsuites/badge)](https://unitcover.herokuapp.com/#/builds/pussinboots/bankapp/builds)
+
+
 There is also a little lessons learned documentation in the doc folder
 * [Instanly coding](https://github.com/pussinboots/bankapp/blob/master/doc/instanly_coding.md)
 * [E2E Test angularjs + Play](https://github.com/pussinboots/bankapp/blob/master/doc/e2etest.md) TODO !!!
